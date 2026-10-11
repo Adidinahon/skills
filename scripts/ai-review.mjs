@@ -15,6 +15,7 @@ import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join, relative, extname } from "node:path";
+import { hashSkill } from "./hash.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const TEXT_EXT = new Set([".md", ".txt", ".json", ".yaml", ".yml", ".toml", ".csv", ".py", ".js", ".mjs", ".cjs", ".ts", ".sh", ".html", ".css", ".svg"]);
@@ -119,7 +120,8 @@ async function main() {
     const dir = join(ROOT, target);
     try {
       const v = await review(client, dir);
-      results.push({ skill: target, ...v });
+      // bind the verdict to the exact content that was reviewed
+      results.push({ skill: target, content_sha256: await hashSkill(dir), ...v });
       if (v.verdict === "fail") failed = true;
       console.log(`\n[${v.verdict.toUpperCase()}] ${target}\n  ${v.summary_he}`);
       for (const c of v.concerns) console.log(`  ${c.severity.toUpperCase().padEnd(6)} ${c.file}: ${c.issue}`);

@@ -76,6 +76,12 @@ jobs:
           fi
           npm install --no-audit --no-fund --silent
           node scripts/ai-review.mjs --json ai-report.json ${{ steps.changed.outputs.skills }}
+      - name: Upload AI report
+        if: always() && hashFiles('ai-report.json') != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ai-report
+          path: ai-report.json
       - name: Comment on PR
         if: always() && steps.changed.outputs.skills != '' && hashFiles('ai-report.json') != ''
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
