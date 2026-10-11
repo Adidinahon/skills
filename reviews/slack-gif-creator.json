@@ -1,0 +1,26 @@
+{
+  "skill": "slack-gif-creator",
+  "verdict": "pass",
+  "content_sha256": "0110a0efb7053fd2ec1a8bf5cf40faa20b6526efa76390a046ea73016415210c",
+  "reviewed_at": "2026-10-11T11:07:53.074Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק ידע וכלי Python מקומיים (PIL, imageio, numpy) ליצירת GIF מונפשים המותאמים לסלאק, כולל בניית פריימים, אופטימיזציה ובדיקת תקינות. אין בו גישה לרשת, איסוף סודות, הרצת קוד מרוחק או הוראות חשודות, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill tells the agent to install third-party packages with pip (pillow, imageio, numpy). These are well-known PyPI packages. requirements.txt also lists imageio-ffmpeg, which downloads an ffmpeg binary but is not strictly needed for writing GIFs."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://github.com/anthropics",
+    "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/slack-gif-creator"
+  ]
+}

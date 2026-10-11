@@ -1,0 +1,87 @@
+{
+  "skill": "open-slide-best-practices",
+  "verdict": "warn",
+  "content_sha256": "3beed7047b81645c6e744e2376151030af0c5b2a17a75fbf23767ec13cc95cf7",
+  "reviewed_at": "2026-10-11T11:07:51.865Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל הוא מדריך כתיבה למצגות בפריימוורק open-slide, עם דגש על עברית ו-RTL: פונטים, CSS לוגי, bdi, סקאלת טיפוגרפיה, הערות מרצה וסמני אינספקטור. אין בו גניבת סודות, שליחת נתונים או הוראות נסתרות. הסיכון העיקרי הוא הרצת npx להתקנת חבילת npm חיצונית והפניה לקבצי הוראות מרוחקים ב-GitHub שהסוכן מתבקש להתייחס אליהם כסמכותיים.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "SKILL.md",
+      "issue": "In an empty workspace the agent is told to run `npx @open-slide/cli init` and `npm run dev`. This downloads and runs a third-party npm package and its dependencies. It is the framework's legitimate scaffolder, but it is still remote code execution."
+    },
+    {
+      "severity": "low",
+      "file": "rules/slide-authoring.md",
+      "issue": "The agent is told to read upstream reference files on raw.githubusercontent.com and to treat them as authoritative over the local rules. The URLs are pinned to a specific commit, which reduces drift, but remote instructional content remains a small prompt-injection surface."
+    },
+    {
+      "severity": "low",
+      "file": "rules/hebrew-rtl.md",
+      "issue": "Recommended slide code injects a Google Fonts stylesheet into the document head. The browser will contact fonts.googleapis.com and fonts.gstatic.com when the deck is viewed."
+    },
+    {
+      "severity": "low",
+      "file": "rules/slide-authoring.md",
+      "issue": "The agent runs `node -e` to get a timestamp and reads node_modules/.open-slide/current.json. Both are benign local operations that fit the stated purpose."
+    }
+  ],
+  "network_destinations": [
+    "registry.npmjs.org",
+    "raw.githubusercontent.com",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "localhost:5173"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://localhost:5173/s/",
+    "https://agentskills.co.il",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi",
+    "https://en.wikipedia.org/wiki/Israeli_new_shekel",
+    "https://fonts.google.com/?subset=hebrew",
+    "https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&family=Rubik:wght@400;700;900&display=swap",
+    "https://github.com/1weiho/open-slide",
+    "https://github.com/1weiho/open-slide/pull/420",
+    "https://github.com/1weiho/open-slide/pull/436",
+    "https://github.com/skills-il",
+    "https://github.com/skills-il/developer-tools/tree/efbf431bec4c5cc8abec84680a9470784f37d8fa/open-slide-best-practices",
+    "https://open-slide.dev",
+    "https://open-slide.dev/docs/migrate-to-v2",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/README.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/cli/package.json",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/package.json",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/apply-comments/SKILL.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/create-slide/SKILL.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/create-theme/SKILL.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/current-slide/SKILL.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/slide-authoring/SKILL.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/slide-authoring/references/assets.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/slide-authoring/references/design-system.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/slide-authoring/references/morph.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/slide-authoring/references/page-numbers.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/slide-authoring/references/steps.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/slide-authoring/references/transitions.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/skills/slide-authoring/references/webfonts.md",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/app/lib/design.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/app/lib/export-pptx.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/app/lib/inspector/use-notes.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/app/lib/sdk.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/app/routes/themes.tsx",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/config.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/editing/slide-ops.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/index.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/locale/types.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/vite/notes-plugin.ts",
+    "https://raw.githubusercontent.com/1weiho/open-slide/7fbd1ea84cf1ee7cd701cc9fe59bff3e4e0148c5/packages/core/src/vite/themes-plugin.ts",
+    "https://www.npmjs.com/package/@open-slide/cli",
+    "https://www.npmjs.com/package/@open-slide/core",
+    "https://www.unicode.org/reports/tr9/"
+  ]
+}

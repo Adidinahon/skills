@@ -1,0 +1,25 @@
+{
+  "skill": "stitch-design-taste",
+  "verdict": "pass",
+  "content_sha256": "98601bec4c06253bec55745e6109b12fd46c860e509092bee05eb609188e7122",
+  "reviewed_at": "2026-10-11T11:07:53.364Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן ליצור קובץ DESIGN.md עבור Google Stitch עם כללי עיצוב מחמירים (טיפוגרפיה, צבעים, פריסה, אנימציה ואנטי-דפוסים). הוא מכיל טקסט הנחיות בלבד, ללא סקריפטים, ללא גישה לסודות וללא קריאות רשת, ולכן הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "DESIGN.md",
+      "issue": "Recommends picsum.photos image URLs as placeholders in generated designs. This is benign content guidance, not something the agent itself executes."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/leonxlnx",
+    "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/stitch-skill",
+    "https://labs.google/stitch"
+  ]
+}

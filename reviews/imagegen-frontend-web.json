@@ -1,0 +1,24 @@
+{
+  "skill": "imagegen-frontend-web",
+  "verdict": "pass",
+  "content_sha256": "6f7d8168cbe5927d9dbbc44a742d7f9097d2c8a22fe27090a9f3549fbc2584bd",
+  "reviewed_at": "2026-10-11T11:07:51.306Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מכיל הנחיות עיצוביות בלבד ליצירת תמונות רפרנס לאתרי אינטרנט, תמונה אופקית נפרדת לכל סקשן, עם כללי קומפוזיציה, פלטה וטיפוגרפיה. אין בו סקריפטים, גישה לרשת, איסוף סודות או הוראות מניפולטיביות. הסיכון זניח, למעט עלות אפשרית של יצירת תמונות רבות.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill instructs the agent to generate many images by default (6-12 per request) and not to ask follow-up questions or stop early. If image generation is metered, this can increase cost. It is not a security risk."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/leonxlnx",
+    "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/imagegen-frontend-web"
+  ]
+}

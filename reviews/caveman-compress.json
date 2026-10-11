@@ -1,0 +1,54 @@
+{
+  "skill": "caveman-compress",
+  "verdict": "warn",
+  "content_sha256": "9ba3b73ff0b4148837053573a82d1f95f026961ebcfc57f687c41c1f3672d4eb",
+  "reviewed_at": "2026-10-11T11:07:50.382Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל דוחס קבצי זיכרון בשפה טבעית (כמו CLAUDE.md) לסגנון 'איש מערות' כדי לחסוך טוקנים. הוא שולח את תוכן הקובץ לספק LLM (Anthropic כברירת מחדל), דורס את הקובץ המקורי וכותב גיבוי מחוץ לפרויקט. הקוד שקוף ותואם את התיאור, ולא נמצאו בו קוד מוסתר, הרצת קוד מרוחק או איסוף סודות. הסיכון נובע משליחת תוכן לשירות חיצוני, מדריסת קבצים ומכתיבה מחוץ לפרויקט.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "scripts/compress.py",
+      "issue": "Full contents of the target file are sent to a third-party LLM provider: the Anthropic API via the SDK, the claude CLI or opencode, or any HTTP endpoint set in CAVEMAN_COMPRESS_ENDPOINT. A filename denylist blocks obvious secret files, but secrets inside an ordinary .md file would still be transmitted. A non-local http:// endpoint sends the file and API key in plaintext."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/compress.py",
+      "issue": "Overwrites the user's file in place with LLM-generated output. A verified backup is written first and validation gates the write, but semantic loss in prose is not detected."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/compress.py",
+      "issue": "Writes outside the project: backups go to $XDG_DATA_HOME/caveman-compress/backups (or ~/.local/share or %LOCALAPPDATA%), locks go to a locks dir, and temp files go to the OS temp dir. Backups are keyed only by parent directory name, so files from different projects can collide (the code aborts rather than overwrite)."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/compress.py",
+      "issue": "Spawns the external 'claude' and 'opencode' CLIs as subprocesses with fixed argument lists and no shell. The opencode path explicitly denies all tool permissions. The claude path relies on --print non-interactive defaults and --strict-mcp-config. Untrusted file content acts as a prompt, so there is minor prompt-injection exposure, mitigated by these restrictions."
+    }
+  ],
+  "network_destinations": [
+    "api.anthropic.com (via Anthropic SDK or claude CLI)",
+    "opencode-configured model provider (when CAVEMAN_COMPRESS_PROVIDER=opencode)",
+    "user-configured CAVEMAN_COMPRESS_ENDPOINT (default http://localhost:11434/v1)"
+  ],
+  "requires_secrets": [
+    "ANTHROPIC_API_KEY (optional; falls back to claude CLI auth)",
+    "CAVEMAN_COMPRESS_API_KEY (optional, for openai-compat endpoint)"
+  ],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://localhost:11434/v1",
+    "http://localhost:1234/v1",
+    "http://localhost:8000/v1",
+    "http://localhost:8080/v1",
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://em-content.zobj.net/source/apple/391/rock_1faa8.png",
+    "https://github.com/JuliusBrussee/caveman",
+    "https://github.com/juliusbrussee",
+    "https://github.com/juliusbrussee/caveman/tree/2e08b9177c07bb7249a8a2d1a6758e5db281d002/skills/caveman-compress"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "skill": "algorithmic-art",
+  "verdict": "pass",
+  "content_sha256": "9443da983c8fa4f6c45d840d108dfe5e0dae1fd4c12eff1f6a57d09e28767c16",
+  "reviewed_at": "2026-10-11T11:07:49.437Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן ליצור אמנות גנרטיבית ב-p5.js: לכתוב מסמך פילוסופיה אלגוריתמית בפורמט Markdown ואחר כך קובץ HTML אינטראקטיבי שנבנה מתבנית מצורפת. אין בו סקריפטים שרצים במחשב, גישה לסודות או שליחת נתונים החוצה. הסיכון נמוך מאוד: הקבצים שנוצרים רק טוענים את ספריית p5.js מ-CDN מוכר ואת הגופנים מ-Google Fonts כשפותחים אותם בדפדפן.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "templates/viewer.html",
+      "issue": "קובץ ה-HTML שנוצר טוען את p5.js מ-cdnjs.cloudflare.com ואת הגופנים מ-Google Fonts, בלי בדיקת שלמות (SRI). זו תלות בצד ג' שרצה בדפדפן בזמן הצפייה, ולא אצל הסוכן."
+    }
+  ],
+  "network_destinations": [
+    "cdnjs.cloudflare.com",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js",
+    "https://fonts.googleapis.com",
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lora:wght@400;500&display=swap",
+    "https://fonts.gstatic.com",
+    "https://github.com/anthropics",
+    "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/algorithmic-art"
+  ]
+}

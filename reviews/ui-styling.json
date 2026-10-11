@@ -1,0 +1,77 @@
+{
+  "skill": "ui-styling",
+  "verdict": "warn",
+  "content_sha256": "71d131704ddd83a8c71f66484ed64124930783ef61ff4866a33d2df67c3da7ab",
+  "reviewed_at": "2026-10-11T11:07:54.129Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות וסקריפטים לבניית ממשקים עם shadcn/ui ו-Tailwind CSS: הוספת קומפוננטות דרך ה-CLI של shadcn ויצירת קובץ tailwind.config. לא נמצאו גניבת מידע, הסתרה או התמדה. הסיכון העיקרי הוא הרצת חבילות npm דרך npx, שמורידות ומריצות קוד מ-npm ומה-registry של shadcn, וזה צפוי לפי מטרת הסקיל.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "scripts/shadcn_add.py",
+      "issue": "Runs `npx shadcn@<version> add ...` via subprocess. This downloads and executes the shadcn CLI from npm, and the CLI fetches component code from the shadcn registry. The version string is read from the project's package.json, falling back to a pinned 2.3.0. This is legitimate for the stated purpose but means remote code runs on the user's machine."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Instructs the agent to run `npx shadcn@latest init/add` and `npm install`. These are unpinned installs from the npm registry."
+    },
+    {
+      "severity": "low",
+      "file": "references/canvas-design-system.md",
+      "issue": "Contains a fabricated quote attributed to the user (\"User already said: 'It isn't perfect enough...'\"), which is mild steering of agent behaviour. It also tells the agent to 'Download needed fonts' without naming a source. The canvas-fonts folder contains only license files, no font binaries."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/tailwind_config_gen.py",
+      "issue": "Writes tailwind.config.* in the current working directory. It refuses to overwrite existing configs unless --force is passed, and plugin names are validated against a strict regex."
+    }
+  ],
+  "network_destinations": [
+    "registry.npmjs.org",
+    "ui.shadcn.com"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://github.com/Fonthausen/CrimsonPro",
+    "https://github.com/Instrument/instrument-sans",
+    "https://github.com/JetBrains/JetBrainsMono",
+    "https://github.com/Outfitio/Outfit-Fonts",
+    "https://github.com/RedHatOfficial/RedHatFont",
+    "https://github.com/ateliertriay/bricolage",
+    "https://github.com/benhoepner/National-Park",
+    "https://github.com/cyrealtype/Lora-Cyrillic",
+    "https://github.com/duartp/gloock",
+    "https://github.com/eifetx/Pixelify-Sans",
+    "https://github.com/googlefonts/boldonse",
+    "https://github.com/googlefonts/silkscreen",
+    "https://github.com/googlefonts/smooch-sans",
+    "https://github.com/impallari/Libre-Baskerville",
+    "https://github.com/nextlevelbuilder",
+    "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/67803eac81607188194aea9842a723b89326d90d/.claude/skills/ui-styling",
+    "https://github.com/noirblancrouge/YoungSerif",
+    "https://github.com/ossobuffo/jura",
+    "https://github.com/shadcn.png",
+    "https://github.com/vercel/geist-font.git",
+    "https://github.com/weiweihuanghuang/Work-Sans",
+    "https://github.com/xotypeco/big_shoulders",
+    "https://headlessui.com",
+    "https://nodejs.org/",
+    "https://openfontlicense.org",
+    "https://radix-ui.com",
+    "https://tailwindcss.com",
+    "https://tailwindcss.com/docs",
+    "https://tailwindui.com",
+    "https://ui.shadcn.com",
+    "https://ui.shadcn.com/llms.txt",
+    "https://ui.shadcn.com/themes",
+    "https://v0.dev",
+    "https://www.github.com/googlefonts/dm-mono",
+    "https://www.github.com/hyvyys/Tektur"
+  ]
+}

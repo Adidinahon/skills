@@ -1,0 +1,24 @@
+{
+  "skill": "animation-vocabulary",
+  "verdict": "pass",
+  "content_sha256": "854f14767ff57948917586b621eaca4dd2e8942631772bb8d78b450150cdb4d5",
+  "reviewed_at": "2026-10-11T11:07:49.634Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל הוא מילון הפוך למונחי אנימציה ותנועה בווב: הוא ממיר תיאור מעורפל של אפקט למונח המדויק, בהתבסס על גלוסר שמופיע בתוך הקובץ. אין בו סקריפטים, אין קריאות רשת, אין גישה לסודות ואין הוראות מניפולטיביות, ולכן הסיכון זניח.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הסקיל מגדיר תגובת פתיחה קבועה ומורה לא לספק מידע נוסף עד שהמשתמש שואל. זו הוראת סגנון בלבד ואינה מסתירה פעולות או עוקפת הוראות משתמש."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/animation-vocabulary"
+  ]
+}

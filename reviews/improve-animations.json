@@ -1,0 +1,37 @@
+{
+  "skill": "improve-animations",
+  "verdict": "warn",
+  "content_sha256": "b5f8d5c16fbcd3f51ef5c62645971bfc1f292dad265e57df12e18d58444c5a6e",
+  "reviewed_at": "2026-10-11T11:07:51.395Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל סורק קוד אנימציות בפרויקט, מפיק טבלת ממצאים מתועדפת ותוכניות יישום מפורטות לתיקיית plans/ בלבד, בלי לשנות את קוד המקור. אין בו סקריפטים, קריאות רשת, טיפול בסודות או הוראות מסתתרות, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The 'execute <plan>' variant dispatches a subagent that implements changes in a git worktree. This slightly contradicts the 'never modify source code / no mutating operations' rules, though it only runs when the user invokes it explicitly."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Writes files under plans/ (or animation-plans/) and plans/README.md in the project, and runs 'git rev-parse'. All of this is within the project and consistent with the stated purpose."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Fans out multiple read-only subagents for the audit. This is resource usage only. Prompts include an anti-injection rule."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [
+    "hidden:zero-width skills/improve-animations/PLAN-TEMPLATE.md:19"
+  ],
+  "external_urls": [
+    "https://emilkowal.ski/",
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/improve-animations"
+  ]
+}

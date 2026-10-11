@@ -1,0 +1,34 @@
+{
+  "skill": "prototype",
+  "verdict": "pass",
+  "content_sha256": "3dc56a7cbfc85d0cc0d1808186f4052c9113f729e092091aece5f98d067a23fa",
+  "reviewed_at": "2026-10-11T11:07:52.239Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל בונה כמה גרסאות שונות של רכיב UI בתוך משטח אב-טיפוס מבודד (נתיב בפרויקט או קובץ HTML עצמאי), עם בורר ויזואלי לדפדוף ביניהן, ומשלב בקוד את הגרסה שהמשתמש בחר. אין בו קריאות רשת, איסוף סודות, הורדת קוד מרוחק או הוראות להסתיר פעולות, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "After the user picks a variant, the skill deletes the prototype surface by default, unless the user asks to keep it. Only files the skill itself created are removed, and only on an explicit user choice."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Phase 5 has the agent run the harness or dev server and possibly browser tooling for screenshots. This is normal local tooling but does mean shell execution within the project."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Phase 6 changes production code, but only for the variant the user explicitly selected and following project conventions."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/prototype"
+  ]
+}

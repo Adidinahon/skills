@@ -1,0 +1,95 @@
+{
+  "skill": "video-use-best-practices",
+  "verdict": "warn",
+  "content_sha256": "62c2056241582e0ed749d82299b102bcf33692e883b8cfebe41adba2f7d8f495",
+  "reviewed_at": "2026-10-11T11:07:54.380Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מוסיף שכבת התאמות לעברית מעל video-use: מתמלל וידאו דרך ElevenLabs Scribe, מתקן כיווניות RTL עם python-bidi וצורב כתוביות עם ffmpeg. לא נמצאו הדלפת מידע, הזרקת פרומפט או מנגנוני התמדה. עם זאת, הסקיל דורש מפתח API, מעלה את קובצי הווידאו של המשתמש לשרתי ElevenLabs, מתקין חבילות (pip, brew, apt עם sudo) וממליץ להוריד בינארי ffmpeg מאתר צד שלישי, ולכן מסווג כאזהרה.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "scripts/captions-only.sh",
+      "issue": "Uploads the user's full video file to api.elevenlabs.io for transcription, and makes additional billed calls during gap recovery. This is consistent with the stated purpose and there is a cost-confirmation prompt, but --yes skips it."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/captions-only.sh",
+      "issue": "Reads ~/Developer/video-use/.env to auto-detect ELEVENLABS_API_KEY. It extracts only that one variable, which the purpose needs, but it does read a dotfile outside the project."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/captions-only.sh",
+      "issue": "The gap-recovery curl call is missing a target URL, so the request is malformed. This is a functional bug, not a malicious one."
+    },
+    {
+      "severity": "medium",
+      "file": "references/macos-ffmpeg-setup.md",
+      "issue": "Recommends downloading a static ffmpeg binary from evermeet.cx, running it, and optionally moving it into /usr/local/bin with sudo. Unsigned third-party binaries are a supply-chain risk, though the domain is well known."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/burn-hebrew-captions.sh",
+      "issue": "Auto-runs 'pip3 install python-bidi' without asking if the module is missing."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/install-hebrew-fonts.sh",
+      "issue": "Runs apt-get with sudo, brew cask installs, and downloads font files from github.com/google/fonts. Downloaded files are checked as fonts by magic bytes and not executed."
+    }
+  ],
+  "network_destinations": [
+    "api.elevenlabs.io",
+    "github.com",
+    "evermeet.cx",
+    "pypi.org",
+    "formulae.brew.sh"
+  ],
+  "requires_secrets": [
+    "ELEVENLABS_API_KEY"
+  ],
+  "scan_warnings": [
+    "danger:eval skills/video-use-best-practices/SKILL.md:146",
+    "danger:sudo skills/video-use-best-practices/references/macos-ffmpeg-setup.md:48",
+    "hidden:zero-width skills/video-use-best-practices/scripts/burn-hebrew-captions.sh:228",
+    "hidden:zero-width skills/video-use-best-practices/scripts/captions-only.sh:349",
+    "danger:sudo skills/video-use-best-practices/scripts/install-hebrew-fonts.sh:63"
+  ],
+  "external_urls": [
+    "https://agentskills.co.il/mcp.",
+    "https://api.elevenlabs.io/v1/single-use-token/batch_scribe\\",
+    "https://api.elevenlabs.io/v1/speech-to-text",
+    "https://api.elevenlabs.io/v1/speech-to-text?token=$TOKEN\\",
+    "https://benjamins.com/catalog/prag.7.2.04mas",
+    "https://brew.sh,",
+    "https://elevenlabs.io/app/settings/api-keys",
+    "https://elevenlabs.io/blog/introducing-scribe-v2",
+    "https://elevenlabs.io/blog/meet-scribe",
+    "https://elevenlabs.io/docs/api-reference/speech-to-text/convert",
+    "https://elevenlabs.io/docs/changelog/2026/6/8",
+    "https://elevenlabs.io/pricing",
+    "https://elevenlabs.io/pricing/api",
+    "https://elevenlabs.io/speech-to-text/hebrew",
+    "https://evermeet.cx/ffmpeg/getrelease/zip",
+    "https://ffmpeg.org/ffmpeg-filters.html",
+    "https://fonts.google.com/",
+    "https://fonts.google.com/download?family=X",
+    "https://fonts.google.com/noto/specimen/Noto+Sans+Hebrew",
+    "https://fonts.google.com/specimen/Heebo",
+    "https://github.com/MeirKriheli/python-bidi",
+    "https://github.com/browser-use/video-use",
+    "https://github.com/elevenlabs/skills/blob/main/speech-to-text/references/transcription-options.md",
+    "https://github.com/google/fonts",
+    "https://github.com/google/fonts/raw/main/ofl/assistant/Assistant%5Bwght%5D.ttf",
+    "https://github.com/google/fonts/raw/main/ofl/heebo/Heebo%5Bwght%5D.ttf",
+    "https://github.com/google/fonts/raw/main/ofl/rubik/Rubik%5Bwght%5D.ttf",
+    "https://github.com/libass/libass/wiki/ASS-File-Format-Guide",
+    "https://github.com/skills-il",
+    "https://github.com/skills-il/developer-tools/tree/efbf431bec4c5cc8abec84680a9470784f37d8fa/video-use-best-practices",
+    "https://raw.githubusercontent.com/browser-use/video-use/main/helpers/render.py",
+    "https://www.academia.edu/47718372",
+    "https://www.researchgate.net/publication/354527243",
+    "https://www.unicode.org/reports/tr9/"
+  ]
+}

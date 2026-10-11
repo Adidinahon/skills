@@ -1,0 +1,31 @@
+{
+  "skill": "review-animations",
+  "verdict": "pass",
+  "content_sha256": "795e49141b23a796b9e10e835278d1b4a205a91f29274e9d50648b2d1aaaa68f",
+  "reviewed_at": "2026-10-11T11:07:52.607Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מבצע סקירת קוד של אנימציות ותנועה בממשק לפי עקרונות העיצוב של אמיל קובלסקי, ומחזיר טבלת ממצאים והחלטה סופית (אישור או חסימה). הוא כולל הוראות טקסטואליות וקובץ תקנים בלבד, בלי סקריפטים, בלי קריאות רשת ובלי גישה לסודות. רמת הסיכון נמוכה מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "ההוראה להשיב בהודעת פתיחה קבועה בלבד ולא למסור מידע נוסף עד שהמשתמש שואל היא כלל עיצוב התנהגות תמים. היא אינה מסתירה פעולות מהמשתמש."
+    },
+    {
+      "severity": "low",
+      "file": "STANDARDS.md",
+      "issue": "קובץ התקנים מכיל קישורי עיון ל-easing.dev ול-easings.co, אבל הסוכן אינו מונחה לגשת אליהם באופן אוטומטי."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://easing.dev/",
+    "https://easings.co/",
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/review-animations"
+  ]
+}

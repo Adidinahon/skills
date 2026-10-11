@@ -66,6 +66,22 @@ if (fromReport) {
     console.error("✗ The AI review was made for different content than what is on disk now. Re-run CI.");
     process.exit(1);
   }
+  // Reports from the old reviewer only covered an allow-list of extensions. Accept them only if the skill has
+  // no file outside that list (otherwise the AI never saw part of the skill).
+  if (!Array.isArray(ai.files_reviewed)) {
+    const LEGACY = new Set([".md", ".txt", ".json", ".yaml", ".yml", ".toml", ".csv", ".py", ".js", ".mjs", ".cjs", ".ts", ".sh", ".html", ".css", ".svg"]);
+    const BIN = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".ttf", ".otf", ".woff", ".woff2"]);
+    const { readdir } = await import("node:fs/promises");
+    const { extname, basename } = await import("node:path");
+    const all = (await readdir(dir, { recursive: true, withFileTypes: true })).filter((e) => e.isFile());
+    const unseen = all
+      .map((e) => join(e.parentPath ?? e.path, e.name))
+      .filter((f) => !LEGACY.has(extname(f).toLowerCase()) && !BIN.has(extname(f).toLowerCase()) && !/LICENSE/.test(basename(f)) && basename(f) !== ".gitkeep");
+    if (unseen.length) {
+      console.error(`✗ The AI review predates full-file coverage and skipped: ${unseen.map((f) => f.replace(dir + "/", "")).join(", ")}. Re-run CI.`);
+      process.exit(1);
+    }
+  }
   console.log(`[${ai.verdict.toUpperCase()}] ${ai.summary_he}`);
   for (const c of ai.concerns ?? []) console.log(`  ${c.severity.toUpperCase().padEnd(6)} ${c.file}: ${c.issue}`);
 } else {

@@ -228,11 +228,6 @@
       "title_he": "בונה בוטים לטלגרם",
       "description_he": "בניית בוטים לטלגרם עם grammY, Telegraf או python-telegram-bot: מקלדות, פקודות, תשלומים, Mini Apps והודעות בעברית."
     },
-    "n8n-hebrew-workflows": {
-      "category": "app-dev",
-      "title_he": "אוטומציות n8n לישראל",
-      "description_he": "תהליכי n8n עם האינטגרציות הישראליות: חשבונית ירוקה, EZCount, Cardcom, Tranzila, Grow, data.gov.il ושערי SMS."
-    },
     "systematic-debugging": {
       "category": "app-dev",
       "title_he": "דיבאג שיטתי",
@@ -282,11 +277,6 @@
       "category": "video",
       "title_he": "מצגות HTML אסטרטגיות",
       "description_he": "מצגות HTML עם גרפים, טוקני עיצוב, פריסה רספונסיבית ונוסחאות קופירייטינג, לפי מטרת השקף."
-    },
-    "executing-plans": {
-      "category": "productivity",
-      "title_he": "ביצוע תוכנית עבודה",
-      "description_he": "מבצע תוכנית עבודה כתובה משימה אחרי משימה, עם נקודות בדיקה. ההמשך הטבעי של \"כתיבת תוכנית עבודה\"."
     },
     "verification-before-completion": {
       "category": "productivity",

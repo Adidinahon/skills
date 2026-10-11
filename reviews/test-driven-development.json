@@ -1,0 +1,29 @@
+{
+  "skill": "test-driven-development",
+  "verdict": "pass",
+  "content_sha256": "4c8520bc5f0be7d10c18ec479edb6049ff0bc70a5d8c29f33a531df66abbf051",
+  "reviewed_at": "2026-10-11T11:07:53.830Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן לעבוד בשיטת TDD: לכתוב בדיקה שנכשלת, לממש קוד מינימלי ולשפר את הקוד, וכולל מדריך לכתיבת בדיקות טובות. הוא מורכב מהוראות טקסט בלבד, בלי סקריפטים, בלי קריאות רשת ובלי גישה לסודות, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "ההוראה הנחרצת \"Delete it. Start over.\" (מחיקת קוד שנכתב לפני הבדיקה) עלולה לגרום לסוכן למחוק קוד בתוך הפרויקט בלי לשאול. ההוראה מכוונת לקוד שהסוכן עצמו כתב ומוגבלת לפרויקט, ולמקרים חריגים הסקיל מפנה לשותף האנושי."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הסקיל מורה להריץ את כל חבילת הבדיקות של הפרויקט (npm test, pytest, cargo test). זו פעולה רגילה בפיתוח, אבל היא מריצה קוד מתוך המאגר."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/obra",
+    "https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/test-driven-development"
+  ]
+}

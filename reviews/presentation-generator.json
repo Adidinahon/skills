@@ -1,0 +1,71 @@
+{
+  "skill": "presentation-generator",
+  "verdict": "warn",
+  "content_sha256": "04bfa7952d2504e0810773eea54c59a6db411cfeeee2fc4424629295838becfe",
+  "reviewed_at": "2026-10-11T11:07:52.112Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מלמד ליצור מצגות בעברית עם תמיכת RTL, דרך Marp או python-pptx, וכולל סקריפט Python ששומר קובץ ‎.pptx מקומי בלבד. לא נמצאו גישה לסודות, שליחת מידע, הרצת קוד מרוחק או הזרקת הוראות. הסיכון נמוך: ההמלצה היא אזהרה רק בגלל התקנות גלובליות של חבילות וטעינת פונטים מ-Google Fonts בזמן הרינדור.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "מורה להריץ התקנה גלובלית 'npm install -g @marp-team/marp-cli' וגם 'pip install python-pptx'. אלה חבילות מוכרות, אבל ההתקנה משנה את סביבת המשתמש מחוץ לפרויקט."
+    },
+    {
+      "severity": "low",
+      "file": "references/marp-rtl-guide.md",
+      "issue": "ה-CSS של ה-theme מייבא פונטים מ-fonts.googleapis.com באמצעות @import, ולכן הרינדור יוצר תעבורת רשת לשירות של Google. יש גם הפניה להורדת פונטים מ-gwfh.mranftl.com."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הקבצים מכילים תווי בקרת bidi של Unicode (LRI/PDI/LRM). השימוש בהם מתועד ולגיטימי לתיקון כיווניות, ואין בהם מטען מוסתר."
+    }
+  ],
+  "network_destinations": [
+    "fonts.googleapis.com",
+    "gwfh.mranftl.com",
+    "registry.npmjs.org",
+    "pypi.org"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [
+    "hidden:bidi-isolate skills/presentation-generator/SKILL.md:337",
+    "hidden:bidi-isolate skills/presentation-generator/SKILL_HE.md:314",
+    "hidden:bidi-isolate skills/presentation-generator/references/pptx-rtl-patches.md:135"
+  ],
+  "external_urls": [
+    "http://schemas.openxmlformats.org/drawingml/2006/main",
+    "https://api.example.com/v1/data",
+    "https://api.example.com/v1/data;",
+    "https://api.github.com/repos/marp-team/marp-cli/releases/latest",
+    "https://developers.google.com/slides/api",
+    "https://docs.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/",
+    "https://fonts.google.com/specimen/Heebo",
+    "https://fonts.googleapis.com/css2?family=Heebo&display=swap",
+    "https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Rubik:wght@400;700&display=swap",
+    "https://gitbrent.github.io/PptxGenJS/",
+    "https://github.com/orgs/marp-team/discussions/490",
+    "https://github.com/scanny/python-pptx/blob/master/src/pptx/oxml/text.py",
+    "https://github.com/skills-il",
+    "https://github.com/skills-il/marketing-growth/tree/92f14037d52fb810099cc2818c91cda5e95e8433/presentation-generator",
+    "https://he.wikisource.org/wiki/%D7%A4%D7%A7%D7%95%D7%93%D7%AA_%D7%9E%D7%A1_%D7%94%D7%9B%D7%A0%D7%A1%D7%94",
+    "https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/",
+    "https://marp.app",
+    "https://pypi.org/pypi/python-pptx/json",
+    "https://python-pptx.readthedocs.io/en/latest/",
+    "https://raw.githubusercontent.com/marp-team/marp-cli/main/README.md",
+    "https://raw.githubusercontent.com/marp-team/marpit/main/docs/directives.md",
+    "https://raw.githubusercontent.com/marp-team/marpit/main/docs/theme-css.md",
+    "https://revealjs.com",
+    "https://slides.googleapis.com/$discovery/rest?version=v1",
+    "https://unicode.org/reports/tr9/",
+    "https://www.datypic.com/sc/ooxml/e-a_pPr-1.html",
+    "https://www.grovevc.com/",
+    "https://www.unicode.org/reports/tr9/"
+  ]
+}

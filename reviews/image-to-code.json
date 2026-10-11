@@ -1,0 +1,24 @@
+{
+  "skill": "image-to-code",
+  "verdict": "pass",
+  "content_sha256": "40e4fd8a1764e2b08dd2a63a2c49f85545e685f78fb42fc751fa703cf9acbd77",
+  "reviewed_at": "2026-10-11T11:07:51.214Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן ליצור תחילה תמונות עיצוב לכל סקשן באתר, לנתח אותן לעומק (טקסט, טיפוגרפיה, ריווח, צבעים) ורק אז לממש את הקוד בצורה נאמנה לעיצוב. הוא מורכב מהוראות טקסטואליות בלבד, ללא סקריפטים, ללא גישה לסודות, ללא קריאות רשת חיצוניות וללא פעולות הרסניות, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill pushes aggressive image generation ('do not be lazy with image count', one or more images per section, extra detail images and regenerations), which may consume significant image-generation quota/cost. It also says not to ask unnecessary follow-up questions. This is a usage/cost note rather than a security issue."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/leonxlnx",
+    "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/image-to-code-skill"
+  ]
+}

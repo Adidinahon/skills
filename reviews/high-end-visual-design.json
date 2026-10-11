@@ -1,0 +1,24 @@
+{
+  "skill": "high-end-visual-design",
+  "verdict": "pass",
+  "content_sha256": "3985fde15d0ac31da3b5236053d187862b4eecb03f5a5f5f94ee62f08af64308",
+  "reviewed_at": "2026-10-11T11:07:50.964Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מכיל הנחיות עיצוב בלבד (פונטים, ריווח, צללים, אנימציות ומבנה כרטיסים) ליצירת ממשקי משתמש ברמה גבוהה ב-React/Tailwind. אין בו סקריפטים, גישה לרשת, איסוף סודות או הוראות מזיקות, ולכן הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill tells the agent to 'silently' roll the variance engine. In context this only refers to internal design choice, not hiding actions from the user. It is not a security issue."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/leonxlnx",
+    "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/soft-skill"
+  ]
+}

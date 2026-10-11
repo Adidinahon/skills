@@ -1,0 +1,49 @@
+{
+  "skill": "pick-ui-library",
+  "verdict": "pass",
+  "content_sha256": "bb099cb515fc292c87b7e99926c033118397324da68820554ae9d0c8521998b9",
+  "reviewed_at": "2026-10-11T11:07:51.958Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל הוא כלי עיון שממליץ על ספריית פרונטאנד מתוך רשימה אוצרת (base-ui, Sonner, zustand ועוד), וכשהמשתמש מבקש זאת גם מתקין ומחבר אותה. אין בו סקריפטים, אין בקשה לסודות ואין הוראות חשודות, ולכן הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill may install npm packages when the user asks for it ('install/wire it up if that's part of the request'). This is normal dependency installation, tied to the user's request."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill tells the agent to give a fixed initial response and withhold other information until the user asks. This is benign UX scripting, not an attempt to hide actions."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://base-ui.com",
+    "https://cmdk.paco.me",
+    "https://cobe.vercel.app",
+    "https://cva.style",
+    "https://dndkit.com",
+    "https://github.com/benjitaylor/liveline",
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/pick-ui-library",
+    "https://github.com/lukeed/clsx",
+    "https://github.com/pacocoursey/next-themes",
+    "https://github.com/pmndrs/leva",
+    "https://github.com/vercel/satori",
+    "https://input-otp.rodz.dev",
+    "https://joshpuckett.me/dialkit",
+    "https://motion.dev",
+    "https://number-flow.barvian.me",
+    "https://recharts.org",
+    "https://shiki.style",
+    "https://sonner.emilkowal.ski",
+    "https://torph.lochie.me/",
+    "https://virtuoso.dev",
+    "https://zustand.docs.pmnd.rs"
+  ]
+}
