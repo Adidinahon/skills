@@ -51,7 +51,7 @@ ANTHROPIC_API_KEY=... node scripts/approve.mjs <name> # AI review + human approv
 npm run index                                        # update skills.json
 ```
 
-Then open a PR. CI re-runs everything; `main` requires a passing check and an approval from @Adidinahon.
+Then open a PR. CI re-runs everything, and `main` only accepts PRs that pass. Only skills with an approval in `reviews/` that matches their exact content appear in `skills.json`.
 
 ## Licence
 
