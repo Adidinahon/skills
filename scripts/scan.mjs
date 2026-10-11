@@ -13,20 +13,25 @@
  * through the AI review (ai-review.mjs) and a human approval before merge.
  */
 import { readdir, readFile, lstat, writeFile } from "node:fs/promises";
+import { parseFrontmatter } from "./frontmatter.mjs";
 import { join, relative, extname, basename } from "node:path";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const SKILLS_DIR = join(ROOT, "skills");
 
 const MAX_FILE_BYTES = 1_000_000;
-const MAX_SKILL_BYTES = 5_000_000;
+const MAX_SKILL_BYTES = 8_000_000;
 const ALLOWED_EXT = new Set([
   ".md", ".txt", ".json", ".yaml", ".yml", ".toml", ".csv",
-  ".py", ".js", ".mjs", ".cjs", ".ts", ".sh",
+  ".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".sh",
   ".html", ".css", ".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif",
+  ".ttf", ".otf", ".woff", ".woff2",
 ]);
-const BINARY_EXT = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif"]);
-const SCRIPT_EXT = new Set([".py", ".js", ".mjs", ".cjs", ".ts", ".sh"]);
+const BINARY_EXT = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".ttf", ".otf", ".woff", ".woff2"]);
+const FONT_EXT = new Set([".ttf", ".otf", ".woff", ".woff2"]);
+// A font must really be a font: TrueType 00 01 00 00 / "true", OpenType "OTTO", WOFF "wOFF", WOFF2 "wOF2"
+const isFont = (buf) => ["00010000", "74727565", "4f54544f", "774f4646", "774f4632"].includes(buf.subarray(0, 4).toString("hex"));
+const SCRIPT_EXT = new Set([".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".sh"]);
 const LICENSE_NAMES = new Set(["LICENSE", "LICENSE.md", "LICENSE.txt", "LICENSE.upstream"]);
 
 /** @typedef {{ level: "high" | "medium", rule: string, file: string, line?: number, detail: string }} Finding */
@@ -95,16 +100,6 @@ function lineOf(text, index) {
   return text.slice(0, index).split("\n").length;
 }
 
-function parseFrontmatter(md) {
-  const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!m) return null;
-  const data = {};
-  for (const line of m[1].split(/\r?\n/)) {
-    const kv = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (kv) data[kv[1]] = kv[2].replace(/^["']|["']$/g, "").trim();
-  }
-  return data;
-}
 
 function isExecutableBinary(buf) {
   const h = buf.subarray(0, 4);
@@ -176,6 +171,7 @@ export async function scanSkill(skillDir) {
 
     const buf = await readFile(file);
     if (buf.length >= 4 && isExecutableBinary(buf)) { add("high", "binary-executable", file, "Compiled executable detected"); continue; }
+    if (FONT_EXT.has(ext) && !isFont(buf)) { add("high", "fake-font", file, "File has a font extension but is not a font"); continue; }
     if (BINARY_EXT.has(ext)) continue;
 
     const text = buf.toString("utf8");
@@ -209,7 +205,7 @@ export async function scanSkill(skillDir) {
     for (const m of text.matchAll(/https?:\/\/[^\s)"'`<>\]]+/g)) externalUrls.add(m[0]);
   }
 
-  if (total > MAX_SKILL_BYTES) add("high", "skill-size", skillDir, `Skill is ${(total / 1e6).toFixed(1)}MB (max 5MB)`);
+  if (total > MAX_SKILL_BYTES) add("high", "skill-size", skillDir, `Skill is ${(total / 1e6).toFixed(1)}MB (max 8MB)`);
 
   return { name, origin, findings, externalUrls: [...externalUrls].sort() };
 }
