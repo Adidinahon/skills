@@ -1,0 +1,18 @@
+{
+  "skill": "brandkit",
+  "verdict": "pass",
+  "content_sha256": "cafc2ea51a5ee97dfc526432790463283c3a97d0a4c40b7e9dac389669ed3a46",
+  "reviewed_at": "2026-10-11T08:34:27.781Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות עיצוביות בלבד ליצירת תמונות של ערכות מיתוג (לוגו, צבעים, טיפוגרפיה, מוקאפים) בפורמט לוח מצגת. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מניפולטיביות, ולכן הסיכון זניח.",
+  "does_what_it_claims": true,
+  "concerns": [],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/leonxlnx",
+    "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/brandkit"
+  ]
+}

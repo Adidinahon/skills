@@ -16,6 +16,7 @@ import { execFileSync } from "node:child_process";
 import { cp, mkdtemp, readFile, readdir, rm, writeFile, access } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, join } from "node:path";
+import { parseFrontmatter } from "./frontmatter.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 

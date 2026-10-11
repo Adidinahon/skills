@@ -1,0 +1,127 @@
+{
+  "$comment": "Hebrew display copy for adinahon.com/skills. Lives outside skills/ so editing it never invalidates a security approval. Order inside each category = display order.",
+  "categories": [
+    {
+      "id": "ui-ux",
+      "title_he": "עיצוב UX/UI"
+    },
+    {
+      "id": "graphic",
+      "title_he": "עיצוב גרפי ומיתוג"
+    },
+    {
+      "id": "app-dev",
+      "title_he": "פיתוח אפליקציות ו-Vibe Coding"
+    },
+    {
+      "id": "video",
+      "title_he": "וידאו ומושן"
+    },
+    {
+      "id": "productivity",
+      "title_he": "פרודוקטיביות וחיסכון"
+    }
+  ],
+  "skills": {
+    "ui-ux-pro-max": {
+      "category": "ui-ux",
+      "title_he": "UI/UX Pro Max",
+      "description_he": "מאגר ידע עיצובי שלם בתוך הסוכן: עשרות סגנונות, פלטות צבע, זוגות פונטים וכללי נגישות. הסוכן בוחר כיוון עיצובי מתאים לפרויקט במקום ממשק גנרי."
+    },
+    "frontend-design": {
+      "category": "ui-ux",
+      "title_he": "עיצוב Frontend",
+      "description_he": "הסקיל של Anthropic לעיצוב ממשקים שלא נראים כמו תבנית: כיוון אסתטי ברור, טיפוגרפיה מכוונת והחלטות עיצוב עם אופי."
+    },
+    "design-taste-frontend": {
+      "category": "ui-ux",
+      "title_he": "טעם עיצובי לאתרים",
+      "description_he": "נגד \"עיצוב AI\" גנרי. קורא את הבריף, מבין את הכיוון הנכון ובונה דפי נחיתה ותיקי עבודות שנראים מעוצבים באמת. כולל בדיקה לפני מסירה."
+    },
+    "redesign-existing-projects": {
+      "category": "ui-ux",
+      "title_he": "שדרוג עיצוב קיים",
+      "description_he": "לוקח אתר או אפליקציה קיימים, מאתר דפוסים גנריים ומשדרג לרמה פרימיום, בלי לשבור את מה שעובד. מתאים לכל ספריית CSS."
+    },
+    "minimalist-ui": {
+      "category": "ui-ux",
+      "title_he": "ממשק מינימליסטי",
+      "description_he": "ממשקים נקיים בסגנון מגזיני: פלטה מונוכרומטית חמה, ניגודיות טיפוגרפית וגריד בנטו שטוח. בלי גרדיאנטים ובלי צללים כבדים."
+    },
+    "emil-design-eng": {
+      "category": "ui-ux",
+      "title_he": "ליטוש ממשק ואנימציה",
+      "description_he": "הפילוסופיה של Emil Kowalski (Vercel, Sonner) לליטוש UI: איך מחליטים על אנימציה, ואיך הפרטים הקטנים גורמים לתוכנה להרגיש מעולה."
+    },
+    "apple-design": {
+      "category": "ui-ux",
+      "title_he": "עיצוב בסגנון Apple",
+      "description_he": "הגישה של Apple לממשק ולתנועה פיזיקלית, מתורגמת לווב: מחוות, אנימציות קפיץ, גרירה וסוויפ, שקיפויות ועומק, וטיפוגרפיה מדויקת."
+    },
+    "israeli-ui-design-system": {
+      "category": "ui-ux",
+      "title_he": "מערכת עיצוב ישראלית",
+      "description_he": "בניית ספריית קומפוננטות ומערכת עיצוב RTL-first לאפליקציות בעברית: טיפוגרפיה עברית, זוגות פונטים ודפוסי gov.il."
+    },
+    "hebrew-rtl-best-practices": {
+      "category": "ui-ux",
+      "title_he": "RTL ועברית נכון",
+      "description_he": "כל מה שצריך כדי שממשק בעברית ייראה נכון: מאפיינים לוגיים ב-CSS, Tailwind RTL, הגדרת React/Next.js, היפוך אייקונים ובחירת פונטים."
+    },
+    "canvas-design": {
+      "category": "graphic",
+      "title_he": "פוסטרים ואמנות",
+      "description_he": "יוצר פוסטרים ויצירות גרפיות כקובץ PNG או PDF, לפי פילוסופיה עיצובית מוגדרת. מגיע עם עשרות פונטים מוכנים."
+    },
+    "brandkit": {
+      "category": "graphic",
+      "title_he": "ערכת מיתוג",
+      "description_he": "מייצר לוחות מיתוג ברמה גבוהה: מערכות לוגו, ספרי מותג ומצגות עולם חזותי. מותאם לסגנונות מינימליסטי, קולנועי, דארק-טק ויוקרה."
+    },
+    "theme-factory": {
+      "category": "graphic",
+      "title_he": "מפעל ערכות עיצוב",
+      "description_he": "10 ערכות צבע ופונטים מוכנות שאפשר להלביש על מצגת, מסמך או דף נחיתה, או ליצור ערכה חדשה תוך כדי עבודה."
+    },
+    "shadcn": {
+      "category": "app-dev",
+      "title_he": "shadcn/ui",
+      "description_he": "הסקיל הרשמי של shadcn: הוספה, חיפוש, תיקון ועיצוב של קומפוננטות, כולל ממשקי צ'אט. הסוכן מכיר את הפרויקט ואת הדוקומנטציה."
+    },
+    "supabase": {
+      "category": "app-dev",
+      "title_he": "Supabase",
+      "description_he": "הסקיל הרשמי של Supabase לכל משימה: מסד נתונים, התחברות, Edge Functions, Storage ו-Realtime. כולל פתרון בעיות התחברות נפוצות."
+    },
+    "supabase-postgres-best-practices": {
+      "category": "app-dev",
+      "title_he": "Postgres בלי טעויות",
+      "description_he": "הכללים של Supabase לפני שנוגעים במסד: תכנון טבלאות, מיגרציות, הרשאות RLS ואינדקסים. חוסך באגים ובעיות אבטחה שמתגלות מאוחר מדי."
+    },
+    "grilling": {
+      "category": "productivity",
+      "title_he": "תחקור את התוכנית שלי",
+      "description_he": "ראיון בלתי מתפשר שמחדד תוכנית, החלטה או רעיון. הסוכן שואל את השאלות הקשות בסבבים, עם המלצה לכל שאלה, וחוסך שעות של עבודה בכיוון הלא נכון."
+    },
+    "brainstorming": {
+      "category": "productivity",
+      "title_he": "סיעור מוחות",
+      "description_he": "לפני כל עבודה יצירתית, פיצ'ר חדש או תכנון של משהו חדש: הסוכן חוקר את הרעיון איתכם ומגיע לכיוון ברור לפני שהוא בונה."
+    },
+    "writing-plans": {
+      "category": "productivity",
+      "title_he": "כתיבת תוכנית עבודה",
+      "description_he": "הופך דרישות למשימה רב-שלבית לתוכנית עבודה מסודרת לפני שנוגעים בקוד. פחות טעויות, פחות עבודה כפולה."
+    },
+    "handoff": {
+      "category": "productivity",
+      "title_he": "מסירה בין שיחות",
+      "description_he": "מכווץ שיחה ארוכה למסמך מסירה, כדי שסוכן או שיחה חדשה ימשיכו בדיוק מאיפה שעצרתם, בלי להסביר הכל מחדש."
+    },
+    "caveman": {
+      "category": "productivity",
+      "title_he": "מצב קצר (חוסך טוקנים)",
+      "description_he": "הסוכן עונה קצר ולעניין: תשובה קודם, בלי מלל, כל העובדות נשארות. פחות טוקנים, כלומר פחות כסף ופחות זמן קריאה."
+    }
+  }
+}

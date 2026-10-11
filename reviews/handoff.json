@@ -1,0 +1,24 @@
+{
+  "skill": "handoff",
+  "verdict": "pass",
+  "content_sha256": "3c1e04f1e32b419b3e62d78fd7be709dab3c5aff1a102b11b8bb8afbf2f73f81",
+  "reviewed_at": "2026-10-11T08:34:28.156Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מסכם את השיחה הנוכחית למסמך העברה (handoff) עבור סוכן חדש ושומר אותו בתיקייה הזמנית של מערכת ההפעלה. אין בו סקריפטים, אין קריאות רשת ואין גישה לסודות. הוא אף מורה במפורש להשמיט מפתחות API, סיסמאות ומידע אישי מזהה, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The summary file is written to the shared OS temp directory, outside the project. Despite the redaction instruction, some sensitive conversation context could stay there in a world-readable or persistent location on multi-user systems."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/mattpocock",
+    "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/productivity/handoff"
+  ]
+}

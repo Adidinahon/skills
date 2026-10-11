@@ -24,6 +24,7 @@ async function readJson(p) {
 }
 
 async function build() {
+  const catalog = (await readJson(join(ROOT, "catalog.json"))) ?? { categories: [], skills: {} };
   const dirs = (await readdir(join(ROOT, "skills"), { withFileTypes: true }).catch(() => [])).filter((e) => e.isDirectory());
   const skills = [];
   const stale = [];
@@ -38,8 +39,12 @@ async function build() {
       continue; // edited after approval = not public until re-approved
     }
 
+    const copy = catalog.skills[d.name] ?? {};
     skills.push({
       name: d.name,
+      title_he: copy.title_he ?? d.name,
+      description_he: copy.description_he ?? "",
+      category: copy.category ?? "other",
       description: skill.description ?? "",
       origin: source.origin ?? "original",
       author: source.origin === "original" ? "Adidinahon" : source.author,
@@ -59,7 +64,14 @@ async function build() {
       },
     });
   }
-  return { index: { repo: REPO, generated_from: "scripts/build-index.mjs", skills }, stale };
+  // display order: category order, then the order skills appear in catalog.json
+  const catOrder = catalog.categories.map((c) => c.id);
+  const skillOrder = Object.keys(catalog.skills);
+  const pos = (arr, v) => (arr.indexOf(v) === -1 ? 999 : arr.indexOf(v));
+  skills.sort((a, b) => pos(catOrder, a.category) - pos(catOrder, b.category) || pos(skillOrder, a.name) - pos(skillOrder, b.name));
+  const missingCopy = skills.filter((x) => !catalog.skills[x.name]).map((x) => x.name);
+  if (missingCopy.length) console.warn(`No Hebrew copy in catalog.json for: ${missingCopy.join(", ")}`);
+  return { index: { repo: REPO, generated_from: "scripts/build-index.mjs", categories: catalog.categories, skills }, stale };
 }
 
 const { index, stale } = await build();

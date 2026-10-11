@@ -1,5 +1,467 @@
 {
   "repo": "Adidinahon/skills",
   "generated_from": "scripts/build-index.mjs",
-  "skills": []
+  "categories": [
+    {
+      "id": "ui-ux",
+      "title_he": "עיצוב UX/UI"
+    },
+    {
+      "id": "graphic",
+      "title_he": "עיצוב גרפי ומיתוג"
+    },
+    {
+      "id": "app-dev",
+      "title_he": "פיתוח אפליקציות ו-Vibe Coding"
+    },
+    {
+      "id": "video",
+      "title_he": "וידאו ומושן"
+    },
+    {
+      "id": "productivity",
+      "title_he": "פרודוקטיביות וחיסכון"
+    }
+  ],
+  "skills": [
+    {
+      "name": "ui-ux-pro-max",
+      "title_he": "UI/UX Pro Max",
+      "description_he": "מאגר ידע עיצובי שלם בתוך הסוכן: עשרות סגנונות, פלטות צבע, זוגות פונטים וכללי נגישות. הסוכן בוחר כיוון עיצובי מתאים לפרויקט במקום ממשק גנרי.",
+      "category": "ui-ux",
+      "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 79 searchable styles (50 active), 192 product palettes and reasoning profiles, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
+      "origin": "imported",
+      "author": "nextlevelbuilder",
+      "license": "MIT",
+      "upstream": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/67803eac81607188194aea9842a723b89326d90d/.claude/skills/ui-ux-pro-max",
+      "upstream_commit": "67803eac81607188194aea9842a723b89326d90d",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/ui-ux-pro-max",
+      "install_command": "npx skills add Adidinahon/skills/skills/ui-ux-pro-max",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T08:34:29.538Z",
+        "content_sha256": "27f60ed5d34dd836ef31954483884ad842a4a28c67cec7d90ae6e79f41b01c1c",
+        "summary_he": "הסקיל מספק הנחיות עיצוב UI/UX באמצעות סקריפט חיפוש מקומי בפייתון על קבצי CSV/JSON מקומיים (צבעים, גרפים, הנחיות נגישות). בחלק זה לא נמצאו קריאות רשת, איסוף סודות, קוד מוסתר או הזרקת הנחיות. כתיבת קבצים מתבצעת רק לתיקיית design-system בפרויקט, ודריסה של קבצים קיימים מחייבת אישור מפורש מהמשתמש. (נבדק ב-9 חלקים. ההחלטה לפי החלק המחמיר.)",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "frontend-design",
+      "title_he": "עיצוב Frontend",
+      "description_he": "הסקיל של Anthropic לעיצוב ממשקים שלא נראים כמו תבנית: כיוון אסתטי ברור, טיפוגרפיה מכוונת והחלטות עיצוב עם אופי.",
+      "category": "ui-ux",
+      "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
+      "origin": "imported",
+      "author": "anthropics",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design",
+      "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/frontend-design",
+      "install_command": "npx skills add Adidinahon/skills/skills/frontend-design",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.063Z",
+        "content_sha256": "8d942fb8347a357f41b54ce8ecb0b5aceff8a32e3be21b62aac41f20e7ec7319",
+        "summary_he": "הסקיל מספק הנחיות עיצוב בלבד לבניית ממשקי משתמש ייחודיים: טיפוגרפיה, צבע, פריסה, תנועה וכתיבת טקסטים. אין בו סקריפטים, אין קריאות רשת, אין גישה לסודות ואין הוראות שמנסות לעקוף את המשתמש. הסיכון זניח.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "design-taste-frontend",
+      "title_he": "טעם עיצובי לאתרים",
+      "description_he": "נגד \"עיצוב AI\" גנרי. קורא את הבריף, מבין את הכיוון הנכון ובונה דפי נחיתה ותיקי עבודות שנראים מעוצבים באמת. כולל בדיקה לפני מסירה.",
+      "category": "ui-ux",
+      "description": "Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check.",
+      "origin": "imported",
+      "author": "leonxlnx",
+      "license": "MIT",
+      "upstream": "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/taste-skill",
+      "upstream_commit": "717446e07a78d4e6d7918b1fde1a263378eebac9",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/design-taste-frontend",
+      "install_command": "npx skills add Adidinahon/skills/skills/design-taste-frontend",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T08:34:29.204Z",
+        "content_sha256": "7d7a4ae4a6cf6c84338f9a746776cb86b17725923ec57261fb2088ddb7f27b75",
+        "summary_he": "סקיל של הנחיות עיצוב בלבד לבניית דפי נחיתה, תיקי עבודות ועיצובים מחדש, בלי סקריפטים ובלי קוד הרצה. לא נמצאו איסוף סודות, שליחת נתונים או הזרקת פרומפט. הסיכון נמוך, אבל הסוכן מונחה להתקין חבילות npm (כולל npx shadcn@latest) ולהטמיע בדפים שנוצרים משאבים מ-CDN חיצוניים כמו picsum.photos ו-simpleicons.",
+        "network_destinations": [
+          "registry.npmjs.org",
+          "picsum.photos",
+          "cdn.simpleicons.org",
+          "cdn.shopify.com"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "redesign-existing-projects",
+      "title_he": "שדרוג עיצוב קיים",
+      "description_he": "לוקח אתר או אפליקציה קיימים, מאתר דפוסים גנריים ומשדרג לרמה פרימיום, בלי לשבור את מה שעובד. מתאים לכל ספריית CSS.",
+      "category": "ui-ux",
+      "description": "Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.",
+      "origin": "imported",
+      "author": "leonxlnx",
+      "license": "MIT",
+      "upstream": "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/redesign-skill",
+      "upstream_commit": "717446e07a78d4e6d7918b1fde1a263378eebac9",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/redesign-existing-projects",
+      "install_command": "npx skills add Adidinahon/skills/skills/redesign-existing-projects",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.586Z",
+        "content_sha256": "f99c0a19e7542623423521638e1c1be9267f4d9ae4027006867a1e55b79d5805",
+        "summary_he": "הסקיל מנחה את הסוכן לבצע ביקורת עיצוב לפרויקט קיים ולשדרג טיפוגרפיה, צבעים, פריסה, מצבי אינטראקציה ותוכן, תוך עבודה עם הטכנולוגיות הקיימות. אין בו סקריפטים, אין גישה לסודות, אין הורדת קוד מרוחק ואין הוראות מסוכנות. הוא כן ממליץ לשלב בקוד תמונות placeholder מ-picsum.photos, וזו נקודה שכדאי להכיר.",
+        "network_destinations": [
+          "picsum.photos"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "minimalist-ui",
+      "title_he": "ממשק מינימליסטי",
+      "description_he": "ממשקים נקיים בסגנון מגזיני: פלטה מונוכרומטית חמה, ניגודיות טיפוגרפית וגריד בנטו שטוח. בלי גרדיאנטים ובלי צללים כבדים.",
+      "category": "ui-ux",
+      "description": "Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows.",
+      "origin": "imported",
+      "author": "leonxlnx",
+      "license": "MIT",
+      "upstream": "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/minimalist-skill",
+      "upstream_commit": "717446e07a78d4e6d7918b1fde1a263378eebac9",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/minimalist-ui",
+      "install_command": "npx skills add Adidinahon/skills/skills/minimalist-ui",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.492Z",
+        "content_sha256": "18fd843bcb45eae36c82a15534b6faead5e1a49c74372b3438eecfbda6451594",
+        "summary_he": "הסקיל מספק הנחיות עיצוב בלבד ליצירת ממשקי משתמש מינימליסטיים בסגנון עריכתי: פלטת צבעים מונוכרומטית חמה, טיפוגרפיה, גריד בנטו ואנימציות עדינות. אין בו סקריפטים, אין גישה לסודות ואין הוראות מזיקות, ולכן הסיכון נמוך מאוד. ההפניה היחידה לכתובת חיצונית היא שירות תמונות placeholder שעשוי להופיע בקוד שנוצר.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "emil-design-eng",
+      "title_he": "ליטוש ממשק ואנימציה",
+      "description_he": "הפילוסופיה של Emil Kowalski (Vercel, Sonner) לליטוש UI: איך מחליטים על אנימציה, ואיך הפרטים הקטנים גורמים לתוכנה להרגיש מעולה.",
+      "category": "ui-ux",
+      "description": "This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel great.",
+      "origin": "imported",
+      "author": "emilkowalski",
+      "license": "MIT",
+      "upstream": "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/emil-design-eng",
+      "upstream_commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/emil-design-eng",
+      "install_command": "npx skills add Adidinahon/skills/skills/emil-design-eng",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:27.968Z",
+        "content_sha256": "2d89dd823dd7986e1635760f776ef284a422f138c41044716b47340491f381c6",
+        "summary_he": "הסקיל הוא מסמך הנחיות טקסטואלי בלבד המקודד את גישת העיצוב והאנימציה של אמיל קובלסקי (easing, משכי אנימציה, נגישות, ביצועים) ומגדיר פורמט טבלה לסקירת קוד UI. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מניפולטיביות, ולכן הסיכון זניח.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "apple-design",
+      "title_he": "עיצוב בסגנון Apple",
+      "description_he": "הגישה של Apple לממשק ולתנועה פיזיקלית, מתורגמת לווב: מחוות, אנימציות קפיץ, גרירה וסוויפ, שקיפויות ועומק, וטיפוגרפיה מדויקת.",
+      "category": "ui-ux",
+      "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.",
+      "origin": "imported",
+      "author": "emilkowalski",
+      "license": "MIT",
+      "upstream": "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/apple-design",
+      "upstream_commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/apple-design",
+      "install_command": "npx skills add Adidinahon/skills/skills/apple-design",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:27.693Z",
+        "content_sha256": "c4759771d2e7d46fc7145945c9f345e5972aeafa9e23d10e757eca012d265387",
+        "summary_he": "הסקיל הוא מסמך הנחיות עיצוב בלבד המתרגם את עקרונות העיצוב והתנועה של Apple (קפיצים, מחוות, חומרים שקופים, טיפוגרפיה ונגישות) לפיתוח ווב. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מזיקות, והסיכון זניח.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "israeli-ui-design-system",
+      "title_he": "מערכת עיצוב ישראלית",
+      "description_he": "בניית ספריית קומפוננטות ומערכת עיצוב RTL-first לאפליקציות בעברית: טיפוגרפיה עברית, זוגות פונטים ודפוסי gov.il.",
+      "category": "ui-ux",
+      "description": "Build RTL-first UI component libraries and design systems for Israeli applications with Hebrew typography. Use when user asks about Hebrew UI components, \"itzuv\" (design), Israeli design system, Hebrew font pairing, RTL component library, \"tipografia ivrit\" (Hebrew typography), or gov.il design patterns. Covers RTL-first component architecture, Hebrew font pairings (Heebo+Inter, Rubik+Source Sans 3), gov.il design system patterns, Israeli formatting conventions (shekel sign, day-first dates, 24-hour clock), and culturally appropriate UI for Israeli users. Do NOT use for general RTL CSS (use hebrew-rtl-best-practices) or accessibility audits (use israeli-accessibility-compliance instead).",
+      "origin": "imported",
+      "author": "skills-il",
+      "license": "MIT",
+      "upstream": "https://github.com/skills-il/localization/tree/82aa931cd2a568cdc93b0c15e14bc74075606baf/israeli-ui-design-system",
+      "upstream_commit": "82aa931cd2a568cdc93b0c15e14bc74075606baf",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/israeli-ui-design-system",
+      "install_command": "npx skills add Adidinahon/skills/skills/israeli-ui-design-system",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.393Z",
+        "content_sha256": "4f2f3e1ec7404e5215c8cffcb388fd6bfc734888aca89dbb15cffb83cbb38ff1",
+        "summary_he": "הסקיל הוא מדריך תיעודי בלבד לבניית מערכות עיצוב RTL לאפליקציות ישראליות: זיווגי גופנים עבריים, סולם טיפוגרפי, רכיבים עם תכונות CSS לוגיות, פורמטים ישראליים ותבניות gov.il. אין בו סקריפטים להרצה, אין גישה לסודות, אין הוראות נסתרות ואין שליחת נתונים. הסיכון נמוך מאוד. הפניה ל-Google Fonts היא דוגמת קוד CSS שמיועדת לאפליקציה של המשתמש ולא לסוכן.",
+        "network_destinations": [
+          "fonts.googleapis.com"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "hebrew-rtl-best-practices",
+      "title_he": "RTL ועברית נכון",
+      "description_he": "כל מה שצריך כדי שממשק בעברית ייראה נכון: מאפיינים לוגיים ב-CSS, Tailwind RTL, הגדרת React/Next.js, היפוך אייקונים ובחירת פונטים.",
+      "category": "ui-ux",
+      "description": "Implement right-to-left (RTL) layouts for Hebrew web applications. Use when user asks about RTL layout, Hebrew text direction, bidirectional (bidi) text, Hebrew CSS, \"right to left\", or needs to build a Hebrew web UI. Covers CSS logical properties, the :dir() pseudo-class, Tailwind RTL, React/Next.js RTL setup, icon mirroring, Hebrew typography, and font selection. Do NOT use for Arabic RTL (similar but different typography) unless user explicitly asks for shared RTL patterns, or for native mobile RTL (React Native I18nManager, SwiftUI, Android) which is out of scope.",
+      "origin": "imported",
+      "author": "skills-il",
+      "license": "MIT",
+      "upstream": "https://github.com/skills-il/localization/tree/82aa931cd2a568cdc93b0c15e14bc74075606baf/hebrew-rtl-best-practices",
+      "upstream_commit": "82aa931cd2a568cdc93b0c15e14bc74075606baf",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/hebrew-rtl-best-practices",
+      "install_command": "npx skills add Adidinahon/skills/skills/hebrew-rtl-best-practices",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.257Z",
+        "content_sha256": "cefaf4e5523962f8989d81fdf3d42ecee25387d9e9e015164c79ea1362b2ee3b",
+        "summary_he": "הסקיל הוא מדריך תיעודי בלבד לבניית פריסות RTL לאפליקציות ווב בעברית: תכונות CSS לוגיות, טקסט דו-כיווני, Tailwind, Next.js, MUI וטיפוגרפיה עברית. אין בו סקריפטים, אין הוראות להרצת פקודות, אין גישה לסודות ואין הזרקת פרומפט. הסיכון נמוך מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "canvas-design",
+      "title_he": "פוסטרים ואמנות",
+      "description_he": "יוצר פוסטרים ויצירות גרפיות כקובץ PNG או PDF, לפי פילוסופיה עיצובית מוגדרת. מגיע עם עשרות פונטים מוכנים.",
+      "category": "graphic",
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
+      "origin": "imported",
+      "author": "anthropics",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/canvas-design",
+      "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/canvas-design",
+      "install_command": "npx skills add Adidinahon/skills/skills/canvas-design",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T08:34:29.125Z",
+        "content_sha256": "76cd99796c46795f39fdbc7d438d08dc87ac52489500cc52d9876a6af7874c03",
+        "summary_he": "הסקיל מנחה את הסוכן לכתוב פילוסופיית עיצוב כקובץ .md ואז ליצור יצירה ויזואלית כקובץ PDF או PNG, בעזרת גופנים מקומיים בתיקייה canvas-fonts. אין בו סקריפטים, איסוף סודות או שליחת נתונים. הסיכון נמוך, אבל יש בו הוראה פתוחה להוריד גופנים ממקור לא מוגדר, וכן משפט שמוצג כאילו המשתמש אמר אותו למרות שלא אמר.",
+        "network_destinations": [
+          "unspecified font download sources (not defined in the skill)"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "brandkit",
+      "title_he": "ערכת מיתוג",
+      "description_he": "מייצר לוחות מיתוג ברמה גבוהה: מערכות לוגו, ספרי מותג ומצגות עולם חזותי. מותאם לסגנונות מינימליסטי, קולנועי, דארק-טק ויוקרה.",
+      "category": "graphic",
+      "description": "Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts.",
+      "origin": "imported",
+      "author": "leonxlnx",
+      "license": "MIT",
+      "upstream": "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/brandkit",
+      "upstream_commit": "717446e07a78d4e6d7918b1fde1a263378eebac9",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/brandkit",
+      "install_command": "npx skills add Adidinahon/skills/skills/brandkit",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:27.781Z",
+        "content_sha256": "cafc2ea51a5ee97dfc526432790463283c3a97d0a4c40b7e9dac389669ed3a46",
+        "summary_he": "הסקיל מספק הנחיות עיצוביות בלבד ליצירת תמונות של ערכות מיתוג (לוגו, צבעים, טיפוגרפיה, מוקאפים) בפורמט לוח מצגת. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מניפולטיביות, ולכן הסיכון זניח.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "theme-factory",
+      "title_he": "מפעל ערכות עיצוב",
+      "description_he": "10 ערכות צבע ופונטים מוכנות שאפשר להלביש על מצגת, מסמך או דף נחיתה, או ליצור ערכה חדשה תוך כדי עבודה.",
+      "category": "graphic",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "origin": "adapted",
+      "author": "anthropics",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/theme-factory",
+      "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/theme-factory",
+      "install_command": "npx skills add Adidinahon/skills/skills/theme-factory",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.793Z",
+        "content_sha256": "d2fedd8e3d1de69c8725e7a424d78ac420cef5200ab8b4d6c4c5a15187b2445d",
+        "summary_he": "הסקיל מספק 10 ערכות עיצוב מוגדרות מראש (צבעים וגופנים) ותמונות תצוגה, ומנחה את הסוכן להציג אותן למשתמש, לבקש בחירה מפורשת ולהחיל את הערכה שנבחרה על מצגות, מסמכים או דפי HTML. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות חשודות, ולכן הסיכון נמוך מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "shadcn",
+      "title_he": "shadcn/ui",
+      "description_he": "הסקיל הרשמי של shadcn: הוספה, חיפוש, תיקון ועיצוב של קומפוננטות, כולל ממשקי צ'אט. הסוכן מכיר את הפרויקט ואת הדוקומנטציה.",
+      "category": "app-dev",
+      "description": "Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI, including chat interfaces. Provides project context, component docs, and usage examples. Applies when working with shadcn/ui, component registries, presets, --preset codes, or any project with a components.json file. Also triggers for \"shadcn init\", \"create an app with --preset\", \"switch to --preset\", and for building a design system or applying a DESIGN.md or brand spec to shadcn/ui.",
+      "origin": "imported",
+      "author": "shadcn",
+      "license": "MIT",
+      "upstream": "https://github.com/shadcn/ui/tree/c2a67849be260701852b0977ba15eb5f3a0ce2a4/skills/shadcn",
+      "upstream_commit": "c2a67849be260701852b0977ba15eb5f3a0ce2a4",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/shadcn",
+      "install_command": "npx skills add Adidinahon/skills/skills/shadcn",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T08:34:29.293Z",
+        "content_sha256": "fbad3892f6d65e3e9f53e1d1eee17bea864cf2d28c1543815d0dbf9cdd5c0bda",
+        "summary_he": "זהו הסקיל הרשמי של shadcn/ui. הוא מנחה את הסוכן להוסיף, לעצב ולתקן רכיבי UI ולבנות מערכות עיצוב באמצעות ה-CLI של shadcn. אין בו סימנים לזדוניות, אבל הוא מריץ אוטומטית את `npx shadcn@latest` (קוד שמורד מ-npm בגרסה האחרונה) עם הרשאות מאושרות מראש, ועלול להתקין קוד מרג'יסטרים של צד שלישי, ולכן מומלץ לשים לב.",
+        "network_destinations": [
+          "registry.npmjs.org",
+          "ui.shadcn.com",
+          "raw.githubusercontent.com",
+          "github.com",
+          "third-party shadcn registries configured by the user (e.g. @magicui, @tailark)"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "supabase",
+      "title_he": "Supabase",
+      "description_he": "הסקיל הרשמי של Supabase לכל משימה: מסד נתונים, התחברות, Edge Functions, Storage ו-Realtime. כולל פתרון בעיות התחברות נפוצות.",
+      "category": "app-dev",
+      "description": "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, declarative schemas, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector); debugging and troubleshooting errors or unexpected behavior on Supabase projects (HTTP errors, Postgres errors, RLS surprises, permission denied, schema cache issues, timeouts, Edge Function crashes, Realtime drops, Storage failures) and reading or querying logs (Logs Explorer, ClickHouse).",
+      "origin": "imported",
+      "author": "supabase",
+      "license": "MIT",
+      "upstream": "https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase",
+      "upstream_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/supabase",
+      "install_command": "npx skills add Adidinahon/skills/skills/supabase",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T08:34:29.366Z",
+        "content_sha256": "ccf163188ecc8a9560114c5c088e0e19eddb53485c22c34336e25a2e93427880",
+        "summary_he": "סקיל רשמי של Supabase שמנחה את הסוכן בעבודה עם מסד הנתונים, האימות, ה-CLI ושרת ה-MCP של Supabase, וכולל רשימת בדיקות אבטחה מפורטת. לא נמצאו קוד זדוני, איסוף סודות או הזרקת הוראות. עם זאת, הסקיל מפעיל פקודות shell ו-SQL ישירות על מסד הנתונים, ניגש לרשת (תיעוד Supabase, שרת ה-MCP ו-GitHub) ומשתמש בטוקני גישה, ולכן ראוי שהמשתמש יהיה מודע לכך.",
+        "network_destinations": [
+          "supabase.com",
+          "mcp.supabase.com",
+          "github.com"
+        ],
+        "requires_secrets": [
+          "SUPABASE_ACCESS_TOKEN",
+          "SUPABASE_DB_PASSWORD",
+          "Supabase MCP OAuth / personal access token"
+        ],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "title_he": "Postgres בלי טעויות",
+      "description_he": "הכללים של Supabase לפני שנוגעים במסד: תכנון טבלאות, מיגרציות, הרשאות RLS ואינדקסים. חוסך באגים ובעיות אבטחה שמתגלות מאוחר מדי.",
+      "category": "app-dev",
+      "description": "Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files, RLS policies and the tests that verify them, indexes, triggers, database functions, queues and scheduled jobs (pg_cron, pgmq), vector/semantic search (pgvector), and restoring dumps (pg_restore) or importing data. Also load it when diagnosing slow queries, high CPU, timeouts, EXPLAIN plans, connection exhaustion, locking, bloat, or rows visible to the wrong user or tenant. This is not just a performance guide — schema, migration, security, and SQL authoring tasks need these rules too, even for a one-column change or a single query.",
+      "origin": "imported",
+      "author": "supabase",
+      "license": "MIT",
+      "upstream": "https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase-postgres-best-practices",
+      "upstream_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/supabase-postgres-best-practices",
+      "install_command": "npx skills add Adidinahon/skills/skills/supabase-postgres-best-practices",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.695Z",
+        "content_sha256": "9e190b0ca87e97b0a89b91bac2e8ed68ae8f79e4503921fa1bfe103139ff9323",
+        "summary_he": "הסקיל הוא מדריך שיטות עבודה מומלצות ל-Postgres מבית Supabase, שמורכב מקובצי Markdown עם דוגמאות SQL בלבד (אינדקסים, RLS, חיבורים, נעילות ועוד). אין בו סקריפטים להרצה, אין גישה לסודות ואין קריאות רשת. הסיכון נמוך מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "writing-plans",
+      "title_he": "כתיבת תוכנית עבודה",
+      "description_he": "הופך דרישות למשימה רב-שלבית לתוכנית עבודה מסודרת לפני שנוגעים בקוד. פחות טעויות, פחות עבודה כפולה.",
+      "category": "productivity",
+      "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+      "origin": "imported",
+      "author": "obra",
+      "license": "MIT",
+      "upstream": "https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/writing-plans",
+      "upstream_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/writing-plans",
+      "install_command": "npx skills add Adidinahon/skills/skills/writing-plans",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.878Z",
+        "content_sha256": "079824e33216b952ee6cef03310eaeef9288e3a8a3681d9338f90aa73bfcf70b",
+        "summary_he": "הסקיל מנחה את הסוכן לכתוב תוכנית מימוש מפורטת (משימות, ממשקים, בדיקות TDD) ולשמור אותה כקובץ Markdown בתיקיית docs של הפרויקט, ואז לבקש מהמשתמש לסקור אותה ולבחור שיטת ביצוע. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מסוכנות, והוא מחכה לאישור המשתמש לפני מימוש. הסיכון נמוך.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "handoff",
+      "title_he": "מסירה בין שיחות",
+      "description_he": "מכווץ שיחה ארוכה למסמך מסירה, כדי שסוכן או שיחה חדשה ימשיכו בדיוק מאיפה שעצרתם, בלי להסביר הכל מחדש.",
+      "category": "productivity",
+      "description": "Compact the current conversation into a handoff document for another agent to pick up.",
+      "origin": "imported",
+      "author": "mattpocock",
+      "license": "MIT",
+      "upstream": "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/productivity/handoff",
+      "upstream_commit": "49dd158d1076134a641b33efb035946536778336",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/handoff",
+      "install_command": "npx skills add Adidinahon/skills/skills/handoff",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:28.156Z",
+        "content_sha256": "3c1e04f1e32b419b3e62d78fd7be709dab3c5aff1a102b11b8bb8afbf2f73f81",
+        "summary_he": "הסקיל מסכם את השיחה הנוכחית למסמך העברה (handoff) עבור סוכן חדש ושומר אותו בתיקייה הזמנית של מערכת ההפעלה. אין בו סקריפטים, אין קריאות רשת ואין גישה לסודות. הוא אף מורה במפורש להשמיט מפתחות API, סיסמאות ומידע אישי מזהה, ולכן הסיכון נמוך.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "caveman",
+      "title_he": "מצב קצר (חוסך טוקנים)",
+      "description_he": "הסוכן עונה קצר ולעניין: תשובה קודם, בלי מלל, כל העובדות נשארות. פחות טוקנים, כלומר פחות כסף ופחות זמן קריאה.",
+      "category": "productivity",
+      "description": "Terse caveman voice: answer first, fluff gone, every technical fact kept. Use for /caveman, \"caveman mode\", \"talk like caveman\", \"be brief\", \"less tokens\". Stays on until \"stop caveman\" or \"normal mode\".",
+      "origin": "imported",
+      "author": "juliusbrussee",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/juliusbrussee/caveman/tree/2e08b9177c07bb7249a8a2d1a6758e5db281d002/skills/caveman",
+      "upstream_commit": "2e08b9177c07bb7249a8a2d1a6758e5db281d002",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/caveman",
+      "install_command": "npx skills add Adidinahon/skills/skills/caveman",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:34:27.875Z",
+        "content_sha256": "d3a78b65e88977637d1fd68c004c33e7a295436d3ce87bc87e673d94fe2ed590",
+        "summary_he": "הסקיל משנה רק את סגנון התשובות של הסוכן לסגנון תמציתי ('איש מערות'): התשובה באה ראשונה, בלי מילות נימוס ומילוי, וכל הפרטים הטכניים נשמרים במלואם. הוא כולל קובץ הוראות בלבד, ללא סקריפטים, ללא גישה לרשת וללא בקשה לסודות. הוא אף מורה לחזור לפרוזה מלאה באזהרות אבטחה ובפעולות בלתי הפיכות, ולכן הסיכון זניח.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    }
+  ]
 }

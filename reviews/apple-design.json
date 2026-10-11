@@ -1,0 +1,24 @@
+{
+  "skill": "apple-design",
+  "verdict": "pass",
+  "content_sha256": "c4759771d2e7d46fc7145945c9f345e5972aeafa9e23d10e757eca012d265387",
+  "reviewed_at": "2026-10-11T08:34:27.693Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל הוא מסמך הנחיות עיצוב בלבד המתרגם את עקרונות העיצוב והתנועה של Apple (קפיצים, מחוות, חומרים שקופים, טיפוגרפיה ונגישות) לפיתוח ווב. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מזיקות, והסיכון זניח.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The 'Initial Response' section tells the agent to reply with a fixed message and give no other information until asked. This is a benign UX instruction, not an attempt to override user or system instructions."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/apple-design"
+  ]
+}

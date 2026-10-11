@@ -1,0 +1,29 @@
+{
+  "skill": "writing-plans",
+  "verdict": "pass",
+  "content_sha256": "079824e33216b952ee6cef03310eaeef9288e3a8a3681d9338f90aa73bfcf70b",
+  "reviewed_at": "2026-10-11T08:34:28.878Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן לכתוב תוכנית מימוש מפורטת (משימות, ממשקים, בדיקות TDD) ולשמור אותה כקובץ Markdown בתיקיית docs של הפרויקט, ואז לבקש מהמשתמש לסקור אותה ולבחור שיטת ביצוע. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מסוכנות, והוא מחכה לאישור המשתמש לפני מימוש. הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The plan template includes example git add/commit steps for the executing agent. These are normal commits inside the project and nothing rewrites history, but the user should know the plans encourage frequent commits."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill references other sub-skills (superpowers:subagent-driven-development, executing-plans, using-git-worktrees) that are not part of this package. Those skills should be reviewed separately."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/obra",
+    "https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/writing-plans"
+  ]
+}
