@@ -1,0 +1,45 @@
+{
+  "skill": "web-artifacts-builder",
+  "verdict": "warn",
+  "content_sha256": "9064b9bfc7d014f47aa1036c35d9e4c5615573ee41281045dde09785b4d0f60f",
+  "reviewed_at": "2026-10-11T11:10:39.247Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל יוצר פרויקט React עם Vite, Tailwind ו-shadcn/ui, ואורז אותו לקובץ HTML יחיד שמוצג כ-artifact. לא נמצאו גניבת סודות, הסתרה או הזרקת הוראות, וקבצי הרכיבים הם קוד shadcn סטנדרטי. עם זאת, הסקריפטים מתקינים חבילות npm רבות מהרשת, חלקן בגרסת latest, ועלולים להתקין את pnpm באופן גלובלי.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "scripts/init-artifact.sh",
+      "issue": "מריץ 'npm install -g pnpm' בלי לבקש אישור אם pnpm חסר. זו התקנה גלובלית מחוץ לפרויקט, שעשויה לדרוש הרשאות מוגברות."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/init-artifact.sh",
+      "issue": "מתקין מ-npm עשרות חבילות שרובן ללא גרסה נעולה, ו-create-vite ו-Vite בגרסת latest. זה חושף את המשתמש לסיכון שרשרת אספקה דרך סקריפטי install של החבילות."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/bundle-artifact.sh",
+      "issue": "מתקין את parcel, parcel-resolver-tspaths ו-html-inline ללא גרסה נעולה, ומריץ 'rm -rf dist bundle.html' בתיקייה הנוכחית. המחיקה מוגבלת לתוצרי build."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/init-artifact.sh",
+      "issue": "שם הפרויקט מוכנס לפקודת sed בלי סניטציה. שם עם תווים מיוחדים עלול לשבור את הפקודה, אבל זה קלט מקומי של המשתמש."
+    }
+  ],
+  "network_destinations": [
+    "registry.npmjs.org"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://github.com/anthropics",
+    "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/web-artifacts-builder",
+    "https://ui.shadcn.com/docs/components",
+    "https://ui.shadcn.com/schema.json"
+  ]
+}

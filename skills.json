@@ -765,6 +765,35 @@
       }
     },
     {
+      "name": "shadcn",
+      "title_he": "shadcn/ui",
+      "description_he": "הסקיל הרשמי של shadcn: הוספה, חיפוש, תיקון ועיצוב של קומפוננטות, כולל ממשקי צ'אט. הסוכן מכיר את הפרויקט ואת הדוקומנטציה.",
+      "category": "app-dev",
+      "description": "Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI, including chat interfaces. Provides project context, component docs, and usage examples. Applies when working with shadcn/ui, component registries, presets, --preset codes, or any project with a components.json file. Also triggers for \"shadcn init\", \"create an app with --preset\", \"switch to --preset\", and for building a design system or applying a DESIGN.md or brand spec to shadcn/ui.",
+      "origin": "imported",
+      "author": "shadcn",
+      "license": "MIT",
+      "upstream": "https://github.com/shadcn/ui/tree/c2a67849be260701852b0977ba15eb5f3a0ce2a4/skills/shadcn",
+      "upstream_commit": "c2a67849be260701852b0977ba15eb5f3a0ce2a4",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/shadcn",
+      "install_command": "npx skills add Adidinahon/skills/skills/shadcn",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T11:10:39.181Z",
+        "content_sha256": "fbad3892f6d65e3e9f53e1d1eee17bea864cf2d28c1543815d0dbf9cdd5c0bda",
+        "summary_he": "זהו הסקיל הרשמי של shadcn/ui לניהול רכיבים, פריסטים ומערכות עיצוב באמצעות ה-CLI של shadcn, יחד עם כללי סגנון וקומפוזיציה מפורטים. לא נמצאו גניבת סודות, הסתרה או הזרקת הוראות. עם זאת, הסקיל מריץ אוטומטית `npx shadcn@latest` בטעינה (גרסה לא נעוצה מ-npm), ומתקין קוד מרג'יסטריז של צד שלישי, ולכן מומלץ להיות מודעים לסיכון.",
+        "network_destinations": [
+          "registry.npmjs.org",
+          "ui.shadcn.com",
+          "raw.githubusercontent.com",
+          "github.com",
+          "user-configured / community shadcn registries"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
       "name": "supabase",
       "title_he": "Supabase",
       "description_he": "הסקיל הרשמי של Supabase לכל משימה: מסד נתונים, התחברות, Edge Functions, Storage ו-Realtime. כולל פתרון בעיות התחברות נפוצות.",
@@ -814,6 +843,31 @@
         "content_sha256": "9e190b0ca87e97b0a89b91bac2e8ed68ae8f79e4503921fa1bfe103139ff9323",
         "summary_he": "הסקיל הוא מדריך שיטות עבודה מומלצות ל-Postgres מבית Supabase, שמורכב מקובצי Markdown עם דוגמאות SQL בלבד (אינדקסים, RLS, חיבורים, נעילות ועוד). אין בו סקריפטים להרצה, אין גישה לסודות ואין קריאות רשת. הסיכון נמוך מאוד.",
         "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "web-artifacts-builder",
+      "title_he": "בונה Artifacts מתקדמים",
+      "description_he": "בניית Artifacts מורכבים ב-claude.ai עם React, Tailwind ו-shadcn/ui, כולל ניהול state וניווט בין מסכים.",
+      "category": "app-dev",
+      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "origin": "adapted",
+      "author": "anthropics",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/web-artifacts-builder",
+      "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/web-artifacts-builder",
+      "install_command": "npx skills add Adidinahon/skills/skills/web-artifacts-builder",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T11:10:39.247Z",
+        "content_sha256": "9064b9bfc7d014f47aa1036c35d9e4c5615573ee41281045dde09785b4d0f60f",
+        "summary_he": "הסקיל יוצר פרויקט React עם Vite, Tailwind ו-shadcn/ui, ואורז אותו לקובץ HTML יחיד שמוצג כ-artifact. לא נמצאו גניבת סודות, הסתרה או הזרקת הוראות, וקבצי הרכיבים הם קוד shadcn סטנדרטי. עם זאת, הסקריפטים מתקינים חבילות npm רבות מהרשת, חלקן בגרסת latest, ועלולים להתקין את pnpm באופן גלובלי.",
+        "network_destinations": [
+          "registry.npmjs.org"
+        ],
         "requires_secrets": [],
         "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
       }
@@ -915,6 +969,42 @@
         "summary_he": "הסקיל מורה לסוכן להפיק פלט מלא ללא קיצורים, placeholders או השמטות, ולפצל תשובות ארוכות בנקודות עצירה נקיות. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מסוכנות, ולכן הסיכון נמוך מאוד.",
         "network_destinations": [],
         "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "remotion-best-practices",
+      "title_he": "Remotion בעברית",
+      "description_he": "יצירת וידאו מקוד ב-React עם Remotion, כולל כתוביות RTL, אנימציות טקסט בעברית ותוכן לרשתות.",
+      "category": "video",
+      "description": "Best practices for Remotion video creation in React with Hebrew RTL support. Use when dealing with Remotion code, creating programmatic videos, building Hebrew video content with RTL captions and text animations, or generating social media videos with Hebrew fonts. Covers animations, compositions, sequencing, transitions, audio/video, captions, 3D, charts, voiceover, and Hebrew/RTL text rendering. Do NOT use for non-Remotion video editing, general React development, or static image generation.",
+      "origin": "imported",
+      "author": "skills-il",
+      "license": "MIT",
+      "upstream": "https://github.com/skills-il/developer-tools/tree/efbf431bec4c5cc8abec84680a9470784f37d8fa/remotion-best-practices",
+      "upstream_commit": "efbf431bec4c5cc8abec84680a9470784f37d8fa",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/remotion-best-practices",
+      "install_command": "npx skills add Adidinahon/skills/skills/remotion-best-practices",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T11:10:39.119Z",
+        "content_sha256": "0a9a9d1d7c434d25e0a7cd910859a07ae113d32fb82262fcc3a25f89096711bc",
+        "summary_he": "הסקיל הוא מדריך שיטות עבודה ל-Remotion (יצירת וידאו מקוד ב-React) עם דגש על עברית ו-RTL, ומורכב בעיקר מתיעוד ודוגמאות קוד שמקורם בסקיל הרשמי של Remotion. לא נמצאו הזרקות פרומפט, איסוף סודות, הסתרה או שליחת מידע ליעד שהמשתמש לא הגדיר. הסיכון נובע מהתקנת חבילות npx, הורדת whisper.cpp ומודלים, וקריאות לשירותים חיצוניים מוכרים (ElevenLabs, Mapbox) שדורשות מפתחות API.",
+        "network_destinations": [
+          "registry.npmjs.org",
+          "api.elevenlabs.io",
+          "api.mapbox.com",
+          "remotion.media",
+          "assets4.lottiefiles.com",
+          "fonts.google.com / fonts.gstatic.com (via @remotion/google-fonts)",
+          "github.com (whisper.cpp releases)",
+          "huggingface.co (Whisper models)",
+          "www.remotion.dev"
+        ],
+        "requires_secrets": [
+          "ELEVENLABS_API_KEY",
+          "REMOTION_MAPBOX_TOKEN"
+        ],
         "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
       }
     },
