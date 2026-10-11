@@ -1,0 +1,26 @@
+{
+  "skill": "theme-factory",
+  "verdict": "pass",
+  "content_sha256": "d2fedd8e3d1de69c8725e7a424d78ac420cef5200ab8b4d6c4c5a15187b2445d",
+  "reviewed_at": "2026-10-11T08:34:28.793Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק 10 ערכות עיצוב מוגדרות מראש (צבעים וגופנים) ותמונות תצוגה, ומנחה את הסוכן להציג אותן למשתמש, לבקש בחירה מפורשת ולהחיל את הערכה שנבחרה על מצגות, מסמכים או דפי HTML. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות חשודות, ולכן הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "showcase/",
+      "issue": "קובצי התמונות (JPEG) לא נכללו בבדיקה, ולכן לא ניתן לאמת את תוכנם. הסוכן רק מציג אותם ואינו מריץ אותם."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://github.com/anthropics",
+    "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/theme-factory"
+  ]
+}

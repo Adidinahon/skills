@@ -1,0 +1,492 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "hebrew-rtl-best-practices",
+  "generated_at": "2026-09-26T00:00:00Z",
+  "claims": [
+    {
+      "claim_id": "dir-pseudo-browser-support",
+      "claim": "The CSS :dir() pseudo-class shipped in Chrome and Edge version 120 (late 2023), Safari 16.4, and Firefox years earlier; it is now Baseline (widely available).",
+      "source_url": "https://caniuse.com/css-dir-pseudo",
+      "raw_snippet": ":dir(rtl) matches elements which are Right-to-Left. Chrome ❌ 4 - 90 : Not supported ❌ 91 - 119 : Disabled by default ✅ 120 - 150 : Supported ✅ 151 : Supported ✅ 152 - 154 : Supported Edge ❌ 12 - 104 : Not supported ❌ 105 - 119 : Disabled by default ✅ 120 - 150 : Supported ✅ 151 : Supported Safari ❌ 3.1 - 16.3 : Not supported ✅ 16.4 - 26.3 : Supported ✅ 26.4 : Supported ✅ 26.",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"120\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "tailwind-v4-current",
+      "claim": "Tailwind CSS v4 is the current major line and the latest published version is 4.3.3, per the npm registry.",
+      "source_url": "https://api.github.com/repos/tailwindlabs/tailwindcss/releases/latest",
+      "raw_snippet": "\"tag_name\": \"v4.3.3\", \"target_commitish\": \"main\", \"name\": \"v4.3.3\"",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "GitHub releases API for tailwindlabs/tailwindcss",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "tailwind-v43-inset-deprecation",
+      "claim": "The logical inset utilities start-*/end-* were deprecated in favor of inset-s-*/inset-e-* in Tailwind CSS v4.2.0, released 18 February 2026 (the v4.3 blog post only recaps it). Margin/padding ms-*/me-*/ps-*/pe-* are unaffected.",
+      "source_url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.2.0",
+      "raw_snippet": "Deprecate `start-*` and `end-*` utilities in favor of `inset-s-*` and `inset-e-*` utilities",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "verified_via": "release notes for v4.2.0 fetched; version attribution corrected from v4.3 (May 2026) to v4.2 (February 2026)",
+      "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "tailwind-logical-since-33",
+      "claim": "Tailwind logical property utilities (ms-, me-, ps-, pe-, start-, end-, text-start, text-end) require Tailwind v3.3+ and are fully supported in v4.",
+      "source_url": "https://tailwindcss.com/docs/margin",
+      "raw_snippet": "croll-margin scroll-padding scroll-snap-align scroll-snap-stop scroll-snap-type touch-action user-select will-change SVG fill stroke stroke-width Accessibility forced-color-adjust Spacing margin Utilities for controlling an element's margin.",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "reference-coverage entry; snippet is a contiguous sentence from its source page",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "mui-rtl-plugin",
+      "claim": "@mui/stylis-plugin-rtl has only a DEFAULT export; the MUI RTL guide imports it as `import rtlPlugin from '@mui/stylis-plugin-rtl';`. A named `{ rtlPlugin }` import resolves to undefined and silently disables RTL transformation.",
+      "source_url": "https://mui.com/material-ui/customization/right-to-left/",
+      "raw_snippet": "import rtlPlugin from '@mui/stylis-plugin-rtl';",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "MUI RTL guide plus the shipped type declarations of @mui/stylis-plugin-rtl@9.4.0 (`export default stylisRTLPlugin;`, no named rtlPlugin)",
+      "verified_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "nextfont-selfhost",
+      "claim": "next/font self-hosts Google fonts (Heebo) with no external request and zero layout shift; the API takes subsets and weight options.",
+      "source_url": "https://nextjs.org/docs/app/getting-started/fonts",
+      "raw_snippet": "It includes built-in self-hosting for any font file. This means you can optimally load web fonts with no layout shift. To start using next/font , import it from next/font/local or next/font/google , call it as a function with the appropriate options, and set the className of the element you want to apply the font to. For example: app/layout.",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "cited page fetched; 29 of 33 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"shift\"",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "hebrew-google-fonts",
+      "claim": "Google Fonts' Hebrew language filter lists 64 families, including Heebo, Assistant, Rubik and Frank Ruhl Libre. The legacy ?subset=hebrew query no longer filters (it lists all 1,946 families), so the Hebrew filter URL is https://fonts.google.com/?lang=he_Hebr.",
+      "source_url": "https://fonts.google.com/?lang=he_Hebr",
+      "raw_snippet": "64 of 1,946 families",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "browser",
+      "verified_at": "2026-09-25T00:00:00Z",
+      "verification_note": "Rendered with local Playwright (Chromium) 2026-09-25: ?lang=he_Hebr shows '64 of 1,946 families' and the rendered list contains Heebo, Assistant, Rubik, Frank Ruhl Libre; ?subset=hebrew shows '1,946 of 1,946 families' (no filtering). Per-family Hebrew subset availability is backed by the fonts.googleapis.com css2 entries below."
+    },
+    {
+      "claim_id": "intl-numberformat-ils",
+      "claim": "Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }) formats shekel amounts and Intl.DateTimeFormat('he-IL') formats dates for Hebrew locale.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+      "raw_snippet": "Intl.NumberFormat - JavaScript | MDN",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "ref-mdn-dir",
+      "claim": "MDN documents the :dir() pseudo-class behavior and how it differs from the [dir] attribute selector. The canonical URL is /Web/CSS/Reference/Selectors/:dir (the old /Web/CSS/:dir path 301-redirects there).",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:dir",
+      "raw_snippet": "The :dir() CSS pseudo-class matches elements based on the directionality of the text contained in them.",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "ref-mdn-logical-properties",
+      "claim": "The canonical MDN URL for CSS logical properties and values is /Web/CSS/Guides/Logical_properties_and_values; the old /Web/CSS/CSS_logical_properties_and_values path 301-redirects to it.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values",
+      "raw_snippet": "curl -L final effective URL: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values (HTTP 200 after redirect from .../Web/CSS/CSS_logical_properties_and_values)",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "curl -sLo /dev/null -w '%{url_effective} %{http_code}' on the legacy path returned the Guides path with 200",
+      "verified_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "ref-mdn-bdi",
+      "claim": "MDN documents the <bdi> element for isolating user-generated bidirectional content.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/bdi",
+      "raw_snippet": "The <bdi> HTML element tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text.",
+      "fetched_at": "2026-06-21T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "ref-tailwind-rtl-variant",
+      "claim": "Tailwind documents the rtl: and ltr: variants for direction-specific styling.",
+      "source_url": "https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support",
+      "raw_snippet": "--> </ div > RTL support Use the rtl and ltr variants to conditionally add styles in right-to-left and left-to-right modes respectively when building multi-directional layouts: Left-to-right Tom Cook Director of Operations Right-to-left تامر كرم الرئيس التنفيذي < div class = \"group flex items-center\" > < img class = \"h-12 w-12 shrink-0 rounded-full\" src = \"",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "ref-w3c-bidi",
+      "claim": "W3C Internationalization documents inline bidi markup and the Unicode bidirectional algorithm best practices.",
+      "source_url": "https://www.w3.org/International/articles/inline-bidi-markup/",
+      "raw_snippet": "Arabic, Hebrew, and other languages that use right-to-left scripts commonly include numerals or include text written in the Latin or other scripts: both of these typically flow left-to-right within the overall right-to-left context.",
+      "fetched_at": "2026-08-19",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "W3C i18n article read in a browser (w3.org challenges automated requests)",
+      "verified_at": "2026-08-19"
+    },
+    {
+      "claim_id": "illustrative-shekel-testcase",
+      "claim": "The canonical RTL test string includes a formatted shekel currency amount (such as the example output ₪1,234) to exercise currency rendering inside Hebrew text. This is an illustrative test vector, not a factual price claim; it mirrors the output of Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS' }).",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+      "raw_snippet": "Static methods Instance properties Instance methods Examples Specifications Browser compatibility See also Try it const number = 123456.789; console.log( new Intl.NumberFormat(\"de-DE\", { style: \"currency\", currency: \"EUR\" }).format( number, ), ); // Expected output: \"123.456,79 €\" // The Japanese yen doesn't use a minor unit console.log( new Intl.NumberFormat(\"ja-JP\", { style: \"currency\", currency: \"JPY\" }).format( number, ), ); // Expected output: \"￥123,457\" // Limit to three significant digits console.log( new Intl.",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"1234\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "scrollbar-gutter-baseline",
+      "claim": "scrollbar-gutter became Baseline (newly available) in December 2024; reserving the gutter avoids content reflow. text-wrap: balance is referenced in the skill only as a heading-readability aid, with no Baseline-date claim.",
+      "source_url": "https://web.dev/blog/baseline-scrollbar-props",
+      "raw_snippet": "CSS scrollbar-gutter and scrollbar-width are Baseline Newly available | Articles | web.dev",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "hebrew-script-has-no-case",
+      "claim": "Hebrew is a caseless (unicameral) script: the widely used modern scripts with case are Latin, Greek, Armenian and Cyrillic, so text-transform: uppercase/capitalize and small-caps are no-ops on Hebrew letters while still transforming embedded Latin.",
+      "source_url": "https://www.unicode.org/faq/casemap_charprop.html",
+      "raw_snippet": "The most widely used modern scripts with case are Latin, Greek, Armenian and Cyrillic.",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "Unicode case-mapping FAQ fetched; page also states \"The vast majority of scripts, modern or archaic, do not have case distinctions.\"",
+      "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "intl-hebrew-calendar",
+      "claim": "Intl.DateTimeFormat('he-IL') resolves to the Gregorian calendar; the Hebrew calendar is requested via the `ca` Unicode extension key, e.g. Intl.DateTimeFormat('he-IL-u-ca-hebrew'), which formats 2026-09-20 as '9 בתשרי 5787'.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat",
+      "raw_snippet": "The calendar to use, such as \"chinese\", \"gregory\", \"persian\", and so on. For a list of supported calendar types, see Intl.supportedValuesOf(); the default is locale dependent. This option can also be set through the ca Unicode extension key; if both are provided, this options property takes precedence.",
+      "fetched_at": "2026-09-20T00:00:00Z",
+      "source_fetched_at": "2026-09-20T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "MDN DateTimeFormat options fetched; behaviour confirmed locally: new Intl.DateTimeFormat('he-IL').resolvedOptions().calendar === 'gregory' and 'he-IL-u-ca-hebrew' formats 2026-09-20 as '9 בתשרי 5787'",
+      "verified_at": "2026-09-20T00:00:00Z"
+    },
+    {
+      "claim_id": "google-fonts-hebrew-subset-heebo",
+      "claim": "Heebo is served by Google Fonts with a hebrew subset.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Heebo",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Heebo';",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/css-logical-properties.md"
+      ]
+    },
+    {
+      "claim_id": "google-fonts-hebrew-subset-assistant",
+      "claim": "Assistant is served by Google Fonts with a hebrew subset.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Assistant:wght@200..800",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Assistant';",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/css-logical-properties.md"
+      ],
+      "verification_note": "Google Fonts serves this CSS by user agent: with no UA it returns a 1,421-byte TTF stylesheet with no subset comments; with a Chrome UA (the verifier's own) it returns 1,123 bytes containing the snippet verbatim (curl, 2026-09-26). The verifier's 'nearly empty' heuristic trips on that short but complete response. Recorded with --allow-unreachable."
+    },
+    {
+      "claim_id": "google-fonts-hebrew-subset-rubik",
+      "claim": "Rubik is served by Google Fonts with a hebrew subset.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Rubik",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Rubik';",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/css-logical-properties.md"
+      ]
+    },
+    {
+      "claim_id": "google-fonts-hebrew-subset-noto-sans-hebrew",
+      "claim": "Noto Sans Hebrew is served by Google Fonts with a hebrew subset.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Noto Sans Hebrew';",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/css-logical-properties.md"
+      ]
+    },
+    {
+      "claim_id": "google-fonts-hebrew-subset-cousine",
+      "claim": "Cousine is served by Google Fonts with a hebrew subset.",
+      "source_url": "https://fonts.googleapis.com/css2?family=Cousine",
+      "raw_snippet": "/* hebrew */ @font-face { font-family: 'Cousine';",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "references/css-logical-properties.md"
+      ]
+    },
+    {
+      "claim_id": "float-inline-start-support",
+      "claim": "float: inline-start / inline-end shipped in Chrome (and Edge, which mirrors Chrome) 118, Firefox 55 and Safari 15, later than most logical properties.",
+      "source_url": "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/float.json",
+      "raw_snippet": "\"support\": { \"chrome\": { \"version_added\": \"118\" }, \"chrome_android\": \"mirror\", \"edge\": \"mirror\", \"firefox\": {",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "references/css-logical-properties.md"
+      ],
+      "verification_note": "Also confirmed from @mdn/browser-compat-data 8.1.3 (2026-09-24): float.inline-start chrome 118, edge mirror, firefox 55, safari 15."
+    },
+    {
+      "claim_id": "grid-rtl-line-numbering",
+      "claim": "In an RTL grid container, line-based placement mirrors: line 1 is on the right-hand side and line -1 on the left.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Logical_values_and_writing_modes",
+      "raw_snippet": "If we add the direction property with a value of rtl to the grid container in the previous example, line 1 is placed on the right-hand side of the grid, and line -1 on the left.",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "references/css-logical-properties.md"
+      ]
+    },
+    {
+      "claim_id": "rtl-scrollleft-negative",
+      "claim": "With direction: rtl, scrollLeft is 0 at the start (rightmost) position and increasingly negative toward the end of the content.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollLeft",
+      "raw_snippet": "then scrollLeft is 0 when the scrollbar is at its rightmost position (at the start of the scrolled content), and then increasingly negative as you scroll towards the end of the content.",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "lang-assists-speech-braille",
+      "claim": "Language tagging (lang) is what speech synthesizers and Braille translators use to switch language mode; dir alone does not provide it.",
+      "source_url": "https://www.w3.org/International/questions/qa-lang-why",
+      "raw_snippet": "Language information assists speech synthesizers and Braille translators to produce usable results.",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "hebrew-letter-spacing-emphasis",
+      "claim": "Hebrew typography uses letter-spacing (tracking) to emphasise names, terms and concepts, so tracking should not be banned globally for Hebrew.",
+      "source_url": "https://w3c.github.io/hlreq/",
+      "raw_snippet": "Hebrew uses letter-spacing (tracking) to emphasise or highlight text (eg. people names, concepts, terms etc.).",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "tailwind-scrollbar-gutter-utility",
+      "claim": "Tailwind CSS v4.3.0 added scrollbar-gutter-* utilities (e.g. scrollbar-gutter-stable).",
+      "source_url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.3.0",
+      "raw_snippet": "Add scrollbar-gutter-* utilities",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "Compiled locally with tailwindcss 4.3.3: .scrollbar-gutter-stable { scrollbar-gutter: stable; }"
+    },
+    {
+      "claim_id": "bidi-single-separator-joins-numbers",
+      "claim": "Under the Unicode Bidirectional Algorithm (rule W4) a single European separator such as a hyphen between two numbers becomes part of the number, so 050-321-4450 stays one LTR run in RTL text, while space-separated groups (050 321 4450) and a +972 prefix are reordered.",
+      "source_url": "https://www.unicode.org/reports/tr9/",
+      "raw_snippet": "A single European separator between two European numbers changes to a European number.",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "Rendered in Chromium (Playwright, 2026-09-25) inside <html dir=rtl>: '050-321-4450' displays in order; '050 321 4450' displays as 4450 321 050; '+972 50-321-4450' displays as 50-321-4450 972+ (left-to-right glyph order measured with Range.getBoundingClientRect)."
+    },
+    {
+      "claim_id": "bidi-override-ignores-implicit",
+      "claim": "unicode-bidi: bidi-override lays characters out strictly in the direction value and ignores the implicit bidi algorithm, so Latin text inside an RTL override renders reversed; it is for forcing a known order, not for mixed content.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/unicode-bidi",
+      "raw_snippet": "This means that inside the element, reordering is strictly in sequence according to the direction property; the implicit part of the bidirectional algorithm is",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "unicode-bidi-plaintext",
+      "claim": "unicode-bidi: plaintext computes an element's direction from its own content (UBA rules P2/P3), ignoring the parent direction, which suits mixed or unknown-direction content.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/unicode-bidi",
+      "raw_snippet": "The directionality is calculated using the P2 and P3 rules of the Unicode Bidirectional Algorithm.",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "he-currency-rlm-pattern",
+      "claim": "The he-IL currency format carries right-to-left marks (U+200F) around the number and the currency sign, so it is laid out for an RTL context; forcing dir=ltr on it moves the shekel sign to the other side of the number.",
+      "source_url": "https://raw.githubusercontent.com/unicode-org/cldr/main/common/main/he.xml",
+      "raw_snippet": "‏#,##0.00 ‏¤;‏-#,##0.00 ‏¤ ‏#,##0.00 ‏¤;‏-#,##0.00 ‏¤",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "Node 20: Intl.NumberFormat('he-IL',{style:'currency',currency:'ILS'}).format(1234) === '\\u200f1,234.00\\u00a0\\u200f\\u20aa'. Chromium render in <html dir=rtl>: bare and <bdi> both place the shekel sign left of the digits; <span dir=ltr> places it right of them."
+    },
+    {
+      "claim_id": "nextjs-layout-params-scope",
+      "claim": "A Next.js App Router layout's params contain only the dynamic route parameters from the root segment down to that layout, so a plain app/layout.tsx gets no locale; the locale-aware root layout lives at app/[locale]/layout.tsx.",
+      "source_url": "https://nextjs.org/docs/app/api-reference/file-conventions/layout",
+      "raw_snippet": "A promise that resolves to an object containing the dynamic route parameters object from the root segment down to that layout.",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "mui-approuter-cache-options",
+      "claim": "In the Next.js App Router, MUI's AppRouterCacheProvider (@mui/material-nextjs, with per-Next-major subpaths such as v16-appRouter) accepts an options prop that is passed to Emotion's createCache, so the RTL key and stylisPlugins go there.",
+      "source_url": "https://mui.com/material-ui/integrations/nextjs/",
+      "raw_snippet": "Use the options prop to override the default cache options",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "@mui/material-nextjs@9.4.0 type declarations: 'These are the options passed to createCache() from import createCache from \"@emotion/cache\"'; package ships a v16-appRouter directory."
+    },
+    {
+      "claim_id": "tailwind-physical-only-utilities",
+      "claim": "In Tailwind v4 translate-x-* compiles to the physical translate property (translate-x-full is translate: 100%), origin-left/right to physical transform-origin, and linear gradients only have physical directions (bg-linear-to-r/l); there is no bg-linear-to-s or origin-start, so these need rtl: overrides.",
+      "source_url": "https://tailwindcss.com/docs/translate",
+      "raw_snippet": "translate-x-full translate: 100% var(--tw-translate-y);",
+      "fetched_at": "2026-09-25T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "Compiled with tailwindcss 4.3.3 on 2026-09-25: .translate-x-full { --tw-translate-x: 100%; translate: ... }, .origin-left { transform-origin: 0 }, .bg-linear-to-r { --tw-gradient-position: to right }; bg-linear-to-s and origin-start generate no CSS."
+    },
+    {
+      "claim_id": "clear-inline-start-support",
+      "claim": "clear: inline-start / inline-end shipped in Chrome and Edge 118, Firefox 55 and Safari 15.",
+      "source_url": "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/clear.json",
+      "raw_snippet": "\"spec_url\": \"https://drafts.csswg.org/css-logical/#float-clear\", \"tags\": [ \"web-features:logical-properties\" ], \"support\": { \"chrome\": { \"version_added\": \"118\" }",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "references/css-logical-properties.md"
+      ],
+      "verification_note": "@mdn/browser-compat-data 8.1.3: clear.inline-start chrome 118, edge mirror, firefox 55, safari 15."
+    },
+    {
+      "claim_id": "resize-inline-block-support",
+      "claim": "resize: inline / block shipped in Chrome and Edge 118, Firefox 63 and Safari 16.",
+      "source_url": "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/resize.json",
+      "raw_snippet": "\"spec_url\": \"https://drafts.csswg.org/css-ui/#resize\", \"tags\": [ \"web-features:resize\" ], \"support\": { \"chrome\": { \"version_added\": \"118\" }",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "references/css-logical-properties.md"
+      ],
+      "verification_note": "@mdn/browser-compat-data 8.1.3: resize.inline and resize.block chrome 118, edge mirror, firefox 63, safari 16."
+    },
+    {
+      "claim_id": "overflow-inline-block-support",
+      "claim": "overflow-inline / overflow-block shipped in Chrome and Edge 135, Safari 26 and Firefox 69.",
+      "source_url": "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/overflow-inline.json",
+      "raw_snippet": "\"tags\": [ \"web-features:logical-properties\" ], \"support\": { \"chrome\": { \"version_added\": \"135\" }",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "references/css-logical-properties.md"
+      ],
+      "verification_note": "@mdn/browser-compat-data 8.1.3: overflow-inline and overflow-block chrome 135, edge mirror, firefox 69, safari 26."
+    },
+    {
+      "claim_id": "html-tel-input-ltr-default",
+      "claim": "An input whose type is tel and that has no dir attribute has LTR directionality per the HTML spec, so it needs no dir attribute.",
+      "source_url": "https://html.spec.whatwg.org/multipage/dom.html",
+      "raw_snippet": "If element is an input element whose type attribute is in the Telephone state Return ' ltr '.",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verification_note": "The rendering section also carries input[type=tel i]:dir(ltr) { direction: ltr; } (https://html.spec.whatwg.org/multipage/rendering.html, 15.3.5)."
+    },
+    {
+      "claim_id": "hebrew-idn-tld",
+      "claim": "Hebrew-script domain names exist: .ישראל is a delegated country-code TLD for Israel, so an email or URL value can start with Hebrew and flip a dir=auto field to RTL.",
+      "source_url": "https://www.iana.org/domains/root/db/xn--4dbrk0ce.html",
+      "raw_snippet": "Delegation Record for .ישראל (Country-code top-level domain designated for two-letter country code IL)",
+      "fetched_at": "2026-09-26T00:00:00Z",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    }
+  ]
+}

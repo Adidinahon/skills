@@ -4,6 +4,7 @@
  *
  *   ANTHROPIC_API_KEY=... node scripts/ai-review.mjs skills/foo [skills/bar ...]
  *   node scripts/ai-review.mjs --json out.json skills/foo
+ *   node scripts/ai-review.mjs --dry-run skills/foo   # show review parts, no API calls
  *
  * Verdicts: pass | warn | fail. Exit 1 on any fail.
  * A model refusal is treated as "needs human review" (warn), never as a pass.
@@ -19,7 +20,6 @@ import { hashSkill } from "./hash.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const TEXT_EXT = new Set([".md", ".txt", ".json", ".yaml", ".yml", ".toml", ".csv", ".py", ".js", ".mjs", ".cjs", ".ts", ".sh", ".html", ".css", ".svg"]);
-const MAX_CHARS = 400_000;
 
 const Verdict = z.object({
   verdict: z.enum(["pass", "warn", "fail"]),
@@ -63,19 +63,49 @@ async function walk(dir) {
   return out;
 }
 
-async function bundle(skillDir) {
+const CHUNK_CHARS = 550_000; // ~150K tokens per request, well inside the context window
+
+/** Splits a skill into review parts. SKILL.md goes into every part so each one is judged in context. */
+async function chunks(skillDir) {
   const files = (await walk(skillDir)).filter((f) => TEXT_EXT.has(extname(f).toLowerCase()) || /LICENSE/.test(f)).sort();
-  let text = "";
+  const wrap = (rel, body) => `\n<file path="${rel}">\n${body}\n</file>\n`;
+  const skillMd = wrap("SKILL.md", await readFile(join(skillDir, "SKILL.md"), "utf8"));
+  const parts = [];
+  let current = skillMd;
+  const flush = () => {
+    if (current !== skillMd || parts.length === 0) parts.push(current);
+    current = skillMd;
+  };
   for (const f of files) {
+    const rel = relative(skillDir, f);
+    if (rel === "SKILL.md") continue;
     const body = await readFile(f, "utf8");
-    text += `\n<file path="${relative(skillDir, f)}">\n${body}\n</file>\n`;
+    // a single huge file is split by lines into labelled slices
+    const slices = [];
+    if (body.length > CHUNK_CHARS - skillMd.length) {
+      let buf = "";
+      for (const line of body.split("\n")) {
+        if (buf.length + line.length > CHUNK_CHARS - skillMd.length - 1000) {
+          slices.push(buf);
+          buf = "";
+        }
+        buf += line + "\n";
+      }
+      if (buf) slices.push(buf);
+    } else slices.push(body);
+    slices.forEach((slice, i) => {
+      const block = wrap(slices.length > 1 ? `${rel} (part ${i + 1}/${slices.length})` : rel, slice);
+      if (current.length + block.length > CHUNK_CHARS) flush();
+      current += block;
+    });
   }
-  if (text.length > MAX_CHARS) throw new Error(`Skill is too large for one review (${text.length} chars, max ${MAX_CHARS}). Split it or review manually.`);
-  return text;
+  flush();
+  return parts;
 }
 
-async function review(client, skillDir) {
-  const content = await bundle(skillDir);
+const RANK = { pass: 0, warn: 1, fail: 2 };
+
+async function reviewPart(client, skillDir, content, label) {
   const response = await client.messages.parse({
     model: "claude-opus-5-5",
     max_tokens: 16000,
@@ -84,7 +114,7 @@ async function review(client, skillDir) {
     messages: [
       {
         role: "user",
-        content: `Review this skill and return the verdict.\n\n<skill name="${relative(ROOT, skillDir)}">${content}</skill>`,
+        content: `Review this skill${label} and return the verdict.\n\n<skill name="${relative(ROOT, skillDir)}">${content}</skill>`,
       },
     ],
   });
@@ -92,24 +122,55 @@ async function review(client, skillDir) {
   if (response.stop_reason === "refusal") {
     return {
       verdict: "warn",
-      summary_he: "הבודק האוטומטי סירב לנתח את הסקיל. נדרשת בדיקה ידנית מלאה לפני אישור.",
+      summary_he: "הבודק האוטומטי סירב לנתח חלק מהסקיל. נדרשת בדיקה ידנית מלאה לפני אישור.",
       does_what_it_claims: false,
-      concerns: [{ severity: "high", file: "*", issue: `Model refusal: ${response.stop_details?.category ?? "unknown"}` }],
+      concerns: [{ severity: "high", file: "*", issue: `Model refusal${label}: ${response.stop_details?.category ?? "unknown"}` }],
       network_destinations: [],
       requires_secrets: [],
     };
   }
-  if (!response.parsed_output) throw new Error(`No structured verdict returned (stop_reason: ${response.stop_reason})`);
+  if (!response.parsed_output) throw new Error(`No structured verdict returned${label} (stop_reason: ${response.stop_reason})`);
   return response.parsed_output;
+}
+
+async function review(client, skillDir) {
+  const parts = await chunks(skillDir);
+  const results = [];
+  for (let i = 0; i < parts.length; i++) {
+    const label = parts.length > 1 ? ` (part ${i + 1} of ${parts.length}; SKILL.md is repeated in every part for context)` : "";
+    results.push(await reviewPart(client, skillDir, parts[i], label));
+  }
+  if (results.length === 1) return results[0];
+
+  // strictest verdict wins; everything else is merged
+  const worst = results.reduce((a, b) => (RANK[b.verdict] > RANK[a.verdict] ? b : a));
+  return {
+    verdict: worst.verdict,
+    summary_he: `${results[0].summary_he} (נבדק ב-${results.length} חלקים. ההחלטה לפי החלק המחמיר.)`,
+    does_what_it_claims: results.every((r) => r.does_what_it_claims),
+    concerns: results.flatMap((r) => r.concerns),
+    network_destinations: [...new Set(results.flatMap((r) => r.network_destinations))],
+    requires_secrets: [...new Set(results.flatMap((r) => r.requires_secrets))],
+  };
 }
 
 async function main() {
   const args = process.argv.slice(2);
   const jsonIdx = args.indexOf("--json");
   const jsonOut = jsonIdx >= 0 ? args.splice(jsonIdx, 2)[1] : null;
+  const dry = args.includes("--dry-run");
+  if (dry) args.splice(args.indexOf("--dry-run"), 1);
   if (args.length === 0) {
     console.error("Usage: node scripts/ai-review.mjs [--json out.json] skills/<name> [...]");
     process.exit(2);
+  }
+
+  if (dry) {
+    for (const target of args) {
+      const parts = await chunks(join(ROOT, target));
+      console.log(`${target}: ${parts.length} part(s), ${parts.map((p) => Math.round(p.length / 1000) + "K").join(" + ")} chars`);
+    }
+    return;
   }
 
   const client = new Anthropic();

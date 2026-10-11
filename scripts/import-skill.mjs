@@ -16,6 +16,7 @@ import { execFileSync } from "node:child_process";
 import { cp, mkdtemp, readFile, readdir, rm, writeFile, access } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, join } from "node:path";
+import { parseFrontmatter } from "./frontmatter.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 
@@ -55,16 +56,6 @@ function detectSpdx(text) {
   return null;
 }
 
-function parseFrontmatter(md) {
-  const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!m) return {};
-  const data = {};
-  for (const line of m[1].split(/\r?\n/)) {
-    const kv = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (kv) data[kv[1]] = kv[2].replace(/^["']|["']$/g, "").trim();
-  }
-  return data;
-}
 
 async function locateSkill(repoDir, subpath) {
   if (subpath) {
@@ -105,12 +96,16 @@ async function main() {
   try {
     const url = `https://github.com/${owner}/${repo}.git`;
     console.log(`Cloning ${url} ...`);
-    git(["clone", "--quiet", "--filter=blob:none", url, tmp]);
-    if (ref) git(["checkout", "--quiet", ref], tmp);
+    // Sparse, blobless clone: download only the skill folder and licence files, not the whole repo.
+    git(["clone", "--quiet", "--filter=blob:none", "--no-checkout", ...(ref ? [] : ["--depth", "1"]), url, tmp]);
+    const sparse = ["/LICENSE*", "/LICENCE*", "/COPYING*", "/SKILL.md"];
+    if (subpath) sparse.push(`/${subpath}/`, `/skills/${subpath}/`, `/.claude/skills/${subpath}/`);
+    git(["sparse-checkout", "set", "--no-cone", ...sparse], tmp);
+    git(["checkout", "--quiet", ref ?? "HEAD"], tmp);
     const commit = git(["rev-parse", "HEAD"], tmp);
 
     const skillDir = await locateSkill(tmp, subpath);
-    const fm = parseFrontmatter(await readFile(join(skillDir, "SKILL.md"), "utf8"));
+    const fm = parseFrontmatter(await readFile(join(skillDir, "SKILL.md"), "utf8")) ?? {};
     const name = (nameOverride ?? fm.name ?? basename(skillDir)).toLowerCase().replace(/[^a-z0-9-]+/g, "-");
 
     const license = await findLicense([skillDir, tmp]);

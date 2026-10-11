@@ -1,0 +1,74 @@
+{
+  "cycles": [
+    {
+      "version": "1.4.0",
+      "date": "2026-06-21",
+      "lessons": [
+        "Applied: Tailwind framing -> v4 current (v4.3); flagged v4.3 start-*/end- inset deprecation -> inset-s-*/inset-e-*; MUI version label v6/v7 -> v9 (mechanism @mui/stylis-plugin-rtl unchanged).",
+        "Applied coverage: Intl produce-vs-display framing, form dir=auto as first-class rule, portalled-UI dir (Radix DirectionProvider / MUI direction), fixed/sticky inset pitfall, mixed-direction tables technique, transform-origin/background-position/animation note, new Step 8 verification checklist.",
+        "Deferred (MINOR): explicit writing-mode vs direction distinction; clarify lang=he (not dir) drives screen-reader pronunciation; deeper SVG/charting RTL recipe beyond the one-line pitfall. Revisit next cycle.",
+        "persistent: description unchanged this cycle so Phase 5.7 eval skipped; revisit description trigger phrases if AI-mode routing data shows misroutes.",
+        "Expert MAJORs deferred to next cycle (non-blocking, gate PASSed): (1) RTL scrollLeft / JS-scroller cross-browser inconsistency for custom carousels; (2) CSS Grid track/line-based placement does NOT follow logical direction like flex row (reference file over-claims 'Grid just works'); (3) add general 'keep code/pre/kbd/file-paths LTR' rule beyond the table-cell case; (4) positive order + :dir(rtl) reorder pattern to complement the row-reverse gotcha; (5) lang+dir pairing on embedded spans for shaping/a11y; (6) typography section is partly folkloric -- word-spacing:0.05em and '16px because Hebrew' are weak; the real wins (Hebrew has no uppercase so text-transform:uppercase is a no-op; Latin webfonts silently lack Hebrew glyphs) are missing. Fixed this cycle: Example 3 rtl:rotate-180 -> rtl:-scale-x-100."
+      ]
+    },
+    {
+      "version": "1.5.0",
+      "date": "2026-09-20",
+      "findings": [
+        "STALE/breaking: MUI RTL snippet used a named import `{ rtlPlugin }` from @mui/stylis-plugin-rtl, which has only a default export. Copied code compiled and silently disabled RTL.",
+        "STALE: start-*/end-* inset deprecation attributed to Tailwind v4.3 (May 2026); it actually landed in v4.2.0 (18 February 2026).",
+        "URL drift: MDN CSS logical properties path 301-redirects to /Web/CSS/Guides/Logical_properties_and_values.",
+        "GAPS: Hebrew caselessness vs text-transform; nikkud vs tight line-height; Hebrew calendar via Intl -u-ca-hebrew; no automated RTL regression testing."
+      ],
+      "changes": [
+        "Fixed the MUI import to the default export in both files and added one line naming the silent-failure mode.",
+        "Recanonicalised the MDN logical-properties URL in both reference tables and in evidence.json.",
+        "Step 5: added the text-transform/small-caps trap (no-op on Hebrew, still uppercases embedded Latin) and the nikkud rationale for line-height 1.7.",
+        "Step 3: added Intl.DateTimeFormat('he-IL-u-ca-hebrew') for Hebrew dates (he-IL resolves to gregory).",
+        "Step 8: added a Playwright dir=rtl/dir=ltr screenshot-diff bullet.",
+        "Evidence: updated mui-rtl-plugin, tailwind-v43-inset-deprecation and ref-mdn-logical-properties in place (claim_ids kept); added hebrew-script-has-no-case and intl-hebrew-calendar.",
+        "Stated the start-*/end-* inset deprecation without a removal timing: no removal date has been announced by Tailwind (judge finding, the earlier wording was unbacked)"
+      ],
+      "deferred": [
+        "Hebrew punctuation (geresh/gershayim vs ASCII quotes) and Hebrew quotation marks: real but copy-level, would bloat a layout-focused skill.",
+        "Tailwind v4 @custom-variant authoring path for a v3 RTL config migration.",
+        "Tailwind v4.3 first-class scrollbar-gutter-* utilities in Step 7 item 10 (raw CSS still correct).",
+        "Unverified typography numbers (word-spacing 0.05em, font-size 16px, the absolute 'NEVER letter-spacing') left as-is pending a citable source.",
+        "references/css-logical-properties.md browser-support baselines and postcss-logical maintenance status not re-verified this cycle.",
+        "Prior-cycle expert MAJORs still open: RTL scrollLeft inconsistency, CSS Grid line-based placement not following logical direction, general keep-code/pre/kbd LTR rule, order + :dir(rtl) reorder pattern, lang+dir pairing on embedded spans."
+      ]
+    },
+    {
+      "version": "1.6.0",
+      "date": "2026-09-25",
+      "findings": [
+        "BUG: Example 2 claimed 050-321-4450 renders as 0544-123-050 in RTL. False: UAX#9 W4 joins digits across a single hyphen; Chromium render confirmed it displays in order. Real failures are space-separated groups (renders 4450 321 050) and a +972 prefix (renders 50-321-4450 972+). Example rewritten; enriched FAQ repeats the wrong premise.",
+        "BUG: Step 3 offered unicode-bidi: bidi-override 'for inline elements with mixed content'; it reverses Latin inside RTL. Replaced with unicode-bidi: plaintext plus a warning.",
+        "BUG: 'wrap Intl output in <span dir=ltr>' moves the shekel sign: he-IL currency output carries U+200F marks and is laid out for RTL (Chromium measured). Now <bdi>/isolate without forcing ltr.",
+        "BUG: Step 5 selector body[dir=rtl] never matches when dir is on <html> (as Step 1 instructs). Now html[dir=rtl] body.",
+        "BUG: Next.js snippet labelled app/layout.tsx read params.locale, which a root layout never receives. Relabelled app/[locale]/layout.tsx (Next docs: params cover root segment down to that layout).",
+        "CARRY-BUG: 'NEVER add letter-spacing for Hebrew' contradicted W3C hlreq (Hebrew uses tracking for emphasis). Unsourced font-size 16px and word-spacing 0.05em removed (carried unsourced for 2 cycles).",
+        "BROKEN-LINK: fonts.google.com/?subset=hebrew no longer filters (shows 1,946 of 1,946 families); ?lang=he_Hebr shows 64. The old evidence snippet for it was not a verbatim quote. MDN :dir URL 301s to /Reference/Selectors/:dir.",
+        "BUG (reference): monospace stack listed Noto Sans Mono, which has no Hebrew subset on Google Fonts; float: inline-start needs Chrome/Edge 118, not 89.",
+        "Rejected prior-cycle expert MAJOR 'CSS Grid line placement does not follow logical direction': MDN confirms line 1 is on the right in an RTL grid. Reference now states it."
+      ],
+      "changes": [
+        "Rewrote Example 2 and the phone bullet; changed the Step 8 test string to +972 50-123-4567.",
+        "Added: bidi-override warning, plaintext rule, Intl-output isolation guidance, tel/email/url dir=ltr, lang+dir pairing on embedded runs, letter-spacing-as-emphasis note, MUI AppRouterCacheProvider options for the App Router, non-flipping Tailwind utilities (translate-x, origin-left/right, bg-linear-to-r/l), scrollLeft-negative gotcha, code/pre/kbd/samp LTR rule, Tailwind v4.3 scrollbar-gutter-stable.",
+        "Reference: float inline-start support exception, Grid line mirroring, Cousine-only monospace stack.",
+        "Evidence: 21 entries added or re-pointed; all reachable snippets verified by --check-sources (1 Google Fonts CSS response flagged 'nearly empty' by length, confirmed by curl).",
+        "Panel fix round 1: reference now lists all late-arriving logical values (float/clear inline-* and resize inline/block at Chrome/Edge 118, overflow-inline/block at Chrome/Edge 135 and Safari 26) instead of 'one exception'; input guidance corrected (type=tel is LTR by default per the HTML spec, email/url get dir=ltr deliberately because a Hebrew IDN such as .ישראל flips dir=auto); added the raw-digits vs Intl-output distinction; bootstrapped references/domain-checklist.md."
+      ],
+      "lessons": [
+        "Deferred (MAJOR, unverified): arrow-key semantics reverse in RTL for tabs/sliders/menus/radio groups (Radix DirectionProvider, WAI-ARIA APG); needs a primary-source passage before encoding.",
+        "Deferred (MAJOR): carousel libraries need their own RTL flag (Embla direction: 'rtl', Swiper dir=rtl); not verified against their docs this cycle.",
+        "Deferred (MINOR): Intl date formatting in Next.js SSR should pin timeZone: 'Asia/Jerusalem' to avoid server/client mismatch; general i18n, not RTL-specific.",
+        "Deferred (MINOR): Step 7 items 2-5 (progress bars, sliders, labels, breadcrumbs) name symptoms without a technique; reference sizing rows (width->inline-size) only matter for vertical writing modes.",
+        "Deferred (MINOR): 'Punctuation at wrong end: use unicode-bidi: isolate' is better fixed by the correct base direction on the block (W3C inline-bidi-markup).",
+        "Deferred: Hebrew punctuation (geresh/gershayim) and Hebrew quotation marks; Tailwind v4 @custom-variant authoring path for v3 RTL config migration.",
+        "Rejected (not a gap): 'positive order + :dir(rtl) reorder pattern' from the 1.4.0 expert; logical flow already mirrors, reordering by direction is an edge case with no source asking for it.",
+        "Process: this skill was updated 2026-09-20 but no skill_updates row was inserted, so the oldest-skill selector (last_changelog) still saw it as 2026-06-21."
+      ]
+    }
+  ]
+}

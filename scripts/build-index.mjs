@@ -7,22 +7,13 @@
  *   node scripts/build-index.mjs --check   # fail if skills.json is out of date (CI)
  */
 import { readdir, readFile, writeFile } from "node:fs/promises";
+import { parseFrontmatter } from "./frontmatter.mjs";
 import { join } from "node:path";
 import { hashSkill } from "./hash.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const REPO = "Adidinahon/skills";
 
-function parseFrontmatter(md) {
-  const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!m) return {};
-  const data = {};
-  for (const line of m[1].split(/\r?\n/)) {
-    const kv = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (kv) data[kv[1]] = kv[2].replace(/^["']|["']$/g, "").trim();
-  }
-  return data;
-}
 
 async function readJson(p) {
   try {
@@ -33,13 +24,14 @@ async function readJson(p) {
 }
 
 async function build() {
+  const catalog = (await readJson(join(ROOT, "catalog.json"))) ?? { categories: [], skills: {} };
   const dirs = (await readdir(join(ROOT, "skills"), { withFileTypes: true }).catch(() => [])).filter((e) => e.isDirectory());
   const skills = [];
   const stale = [];
   for (const d of dirs.sort((a, b) => a.name.localeCompare(b.name))) {
     const base = join(ROOT, "skills", d.name);
-    const skill = parseFrontmatter(await readFile(join(base, "SKILL.md"), "utf8").catch(() => ""));
-    const source = parseFrontmatter(await readFile(join(base, "SOURCE.md"), "utf8").catch(() => ""));
+    const skill = (parseFrontmatter(await readFile(join(base, "SKILL.md"), "utf8").catch(() => "")) ?? {});
+    const source = (parseFrontmatter(await readFile(join(base, "SOURCE.md"), "utf8").catch(() => "")) ?? {});
     const review = await readJson(join(ROOT, "reviews", `${d.name}.json`));
     if (!review || !["pass", "warn"].includes(review.verdict)) continue; // not reviewed yet = not public
     if (review.content_sha256 !== (await hashSkill(base))) {
@@ -47,8 +39,12 @@ async function build() {
       continue; // edited after approval = not public until re-approved
     }
 
+    const copy = catalog.skills[d.name] ?? {};
     skills.push({
       name: d.name,
+      title_he: copy.title_he ?? d.name,
+      description_he: copy.description_he ?? "",
+      category: copy.category ?? "other",
       description: skill.description ?? "",
       origin: source.origin ?? "original",
       author: source.origin === "original" ? "Adidinahon" : source.author,
@@ -68,7 +64,14 @@ async function build() {
       },
     });
   }
-  return { index: { repo: REPO, generated_from: "scripts/build-index.mjs", skills }, stale };
+  // display order: category order, then the order skills appear in catalog.json
+  const catOrder = catalog.categories.map((c) => c.id);
+  const skillOrder = Object.keys(catalog.skills);
+  const pos = (arr, v) => (arr.indexOf(v) === -1 ? 999 : arr.indexOf(v));
+  skills.sort((a, b) => pos(catOrder, a.category) - pos(catOrder, b.category) || pos(skillOrder, a.name) - pos(skillOrder, b.name));
+  const missingCopy = skills.filter((x) => !catalog.skills[x.name]).map((x) => x.name);
+  if (missingCopy.length) console.warn(`No Hebrew copy in catalog.json for: ${missingCopy.join(", ")}`);
+  return { index: { repo: REPO, generated_from: "scripts/build-index.mjs", categories: catalog.categories, skills }, stale };
 }
 
 const { index, stale } = await build();

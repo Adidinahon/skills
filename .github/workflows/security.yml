@@ -62,9 +62,19 @@ jobs:
       - name: Changed skills
         id: changed
         run: |
-          skills=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" -- skills/ | cut -d/ -f1-2 | sort -u | while read d; do [ -d "$d" ] && echo "$d"; done | tr '\n' ' ')
+          changed=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" -- skills/ | cut -d/ -f1-2 | sort -u | while read d; do [ -d "$d" ] && echo "$d"; done)
+          # skip skills whose approval in reviews/ still matches their exact content
+          skills=$(for d in $changed; do
+            node --input-type=module -e "
+              import { hashSkill } from './scripts/hash.mjs';
+              import { readFileSync } from 'node:fs';
+              const name = '$d'.split('/')[1];
+              let r = null; try { r = JSON.parse(readFileSync('reviews/' + name + '.json', 'utf8')); } catch {}
+              process.exit(r && r.content_sha256 === await hashSkill('$d') ? 0 : 1);
+            " && echo "::notice::$d already approved for this exact content - AI review skipped" >&2 || echo "$d"
+          done | tr '\n' ' ')
           echo "skills=$skills" >> "$GITHUB_OUTPUT"
-          echo "Changed: ${skills:-none}"
+          echo "To review: ${skills:-none}"
       - name: Review
         if: steps.changed.outputs.skills != ''
         env:

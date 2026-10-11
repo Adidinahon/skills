@@ -1,0 +1,31 @@
+{
+  "skill": "caveman",
+  "verdict": "pass",
+  "content_sha256": "d3a78b65e88977637d1fd68c004c33e7a295436d3ce87bc87e673d94fe2ed590",
+  "reviewed_at": "2026-10-11T08:34:27.875Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל משנה רק את סגנון התשובות של הסוכן לסגנון תמציתי ('איש מערות'): התשובה באה ראשונה, בלי מילות נימוס ומילוי, וכל הפרטים הטכניים נשמרים במלואם. הוא כולל קובץ הוראות בלבד, ללא סקריפטים, ללא גישה לרשת וללא בקשה לסודות. הוא אף מורה לחזור לפרוזה מלאה באזהרות אבטחה ובפעולות בלתי הפיכות, ולכן הסיכון זניח.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "המצב נשאר פעיל לאורך כל הסשן עד שהמשתמש אומר 'stop caveman' או 'normal mode'. זו התמדה של סגנון בלבד, ללא שינוי בקבצים או במערכת."
+    },
+    {
+      "severity": "low",
+      "file": "README.md",
+      "issue": "ה-README מזכיר קבצי תצורה (.caveman.json, ~/.config/caveman/config.json) ומשתנה סביבה CAVEMAN_DEFAULT_MODE. כל אלה שייכים לתוסף/הוק חיצוני שאינו כלול בסקיל הזה. הסקיל עצמו לא כותב אותם ולא קורא אותם."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://github.com/juliusbrussee",
+    "https://github.com/juliusbrussee/caveman/tree/2e08b9177c07bb7249a8a2d1a6758e5db281d002/skills/caveman"
+  ]
+}

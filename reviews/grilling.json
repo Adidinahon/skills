@@ -1,0 +1,24 @@
+{
+  "skill": "grilling",
+  "verdict": "pass",
+  "content_sha256": "265888e1a59d779e9d12dde2890b467e34cafc6ed78eb3433539d2e03168d1f1",
+  "reviewed_at": "2026-10-11T08:36:10.997Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן לתחקר את המשתמש בסבבי שאלות ממוספרים על תוכנית או החלטה, לפי עץ החלטות, ולהציע תשובה מומלצת לכל שאלה. אין בו סקריפטים, אין קריאות רשת ואין גישה לסודות. הוא מסתפק בחקירת עובדות בסביבה המקומית דרך תת-סוכן, וממתין לאישור המשתמש לפני כל פעולה, ולכן הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill tells the agent to dispatch sub-agents to look up facts in the environment (filesystem, tools) without asking the user. This exploration is read-oriented, fits the stated purpose and has no defined scope, but it could read local files."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/mattpocock",
+    "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/productivity/grilling"
+  ]
+}

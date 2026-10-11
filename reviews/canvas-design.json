@@ -1,0 +1,60 @@
+{
+  "skill": "canvas-design",
+  "verdict": "warn",
+  "content_sha256": "76cd99796c46795f39fdbc7d438d08dc87ac52489500cc52d9876a6af7874c03",
+  "reviewed_at": "2026-10-11T08:34:29.125Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן לכתוב פילוסופיית עיצוב כקובץ .md ואז ליצור יצירה ויזואלית כקובץ PDF או PNG, בעזרת גופנים מקומיים בתיקייה canvas-fonts. אין בו סקריפטים, איסוף סודות או שליחת נתונים. הסיכון נמוך, אבל יש בו הוראה פתוחה להוריד גופנים ממקור לא מוגדר, וכן משפט שמוצג כאילו המשתמש אמר אותו למרות שלא אמר.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "ההוראה 'Download and use whatever fonts are needed' מתירה לסוכן להוריד קבצים מהרשת ממקורות לא מוגדרים, בלי לבקש אישור מהמשתמש. מדובר בגופנים ולא בקוד להרצה, אבל המקור אינו מוגבל."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הסקיל מייחס למשתמש ציטוט שהוא לא אמר ('The user ALREADY said \"It isn't perfect enough...\"'). זה דפוס דמוי prompt injection, גם אם מטרתו כאן תמימה: לגרום לסוכן ללטש את העבודה בסבב שני."
+    },
+    {
+      "severity": "low",
+      "file": "canvas-fonts/",
+      "issue": "בתיקייה מופיעים רק קובצי רישיון OFL. קובצי הגופנים הבינאריים לא נכללו בבדיקה, ולכן לא ניתן לאמת את תוכנם."
+    }
+  ],
+  "network_destinations": [
+    "unspecified font download sources (not defined in the skill)"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://github.com/Fonthausen/CrimsonPro",
+    "https://github.com/Instrument/instrument-sans",
+    "https://github.com/JetBrains/JetBrainsMono",
+    "https://github.com/Outfitio/Outfit-Fonts",
+    "https://github.com/RedHatOfficial/RedHatFont",
+    "https://github.com/anthropics",
+    "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/canvas-design",
+    "https://github.com/ateliertriay/bricolage",
+    "https://github.com/benhoepner/National-Park",
+    "https://github.com/cyrealtype/Lora-Cyrillic",
+    "https://github.com/duartp/gloock",
+    "https://github.com/eifetx/Pixelify-Sans",
+    "https://github.com/googlefonts/boldonse",
+    "https://github.com/googlefonts/silkscreen",
+    "https://github.com/googlefonts/smooch-sans",
+    "https://github.com/impallari/Libre-Baskerville",
+    "https://github.com/noirblancrouge/YoungSerif",
+    "https://github.com/ossobuffo/jura",
+    "https://github.com/vercel/geist-font.git",
+    "https://github.com/weiweihuanghuang/Work-Sans",
+    "https://github.com/xotypeco/big_shoulders",
+    "https://openfontlicense.org",
+    "https://www.github.com/googlefonts/dm-mono",
+    "https://www.github.com/hyvyys/Tektur"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "skill": "israeli-ui-design-system",
+  "verdict": "pass",
+  "content_sha256": "4f2f3e1ec7404e5215c8cffcb388fd6bfc734888aca89dbb15cffb83cbb38ff1",
+  "reviewed_at": "2026-10-11T08:34:28.393Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל הוא מדריך תיעודי בלבד לבניית מערכות עיצוב RTL לאפליקציות ישראליות: זיווגי גופנים עבריים, סולם טיפוגרפי, רכיבים עם תכונות CSS לוגיות, פורמטים ישראליים ותבניות gov.il. אין בו סקריפטים להרצה, אין גישה לסודות, אין הוראות נסתרות ואין שליחת נתונים. הסיכון נמוך מאוד. הפניה ל-Google Fonts היא דוגמת קוד CSS שמיועדת לאפליקציה של המשתמש ולא לסוכן.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "דוגמת ה-CSS טוענת גופנים מ-fonts.googleapis.com. זו הפניה לשירות מוכר שתיכלל באפליקציה שנבנית ולא פעולה שהסוכן מבצע, אבל כדאי שהמשתמש יידע שהיא חושפת את המבקרים באתר ל-Google. הקובץ hebrew-typography.md מציג גם אפשרות של אירוח עצמי."
+    },
+    {
+      "severity": "low",
+      "file": "evidence.json",
+      "issue": "קובץ המטא-דאטה מכיל כתובות URL חיצוניות כמקורות לטענות. הן מידע תיעודי בלבד, ואין שום הוראה לסוכן לגשת אליהן."
+    }
+  ],
+  "network_destinations": [
+    "fonts.googleapis.com"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch",
+    "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/date",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+    "https://fonts.google.com/?subset=hebrew",
+    "https://fonts.google.com/?subset=hebrew;",
+    "https://fonts.google.com/metadata/fonts",
+    "https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap",
+    "https://fonts.gstatic.com/s/heebo/v28/NGS6v5_NC0k9P9H0TbFhsqMA6aw.woff2",
+    "https://github.com/skills-il",
+    "https://github.com/skills-il/localization/tree/82aa931cd2a568cdc93b0c15e14bc74075606baf/israeli-ui-design-system",
+    "https://github.com/unicode-org/cldr/blob/main/common/main/he.xml",
+    "https://he.wikipedia.org/wiki/%D7%9E%D7%A1%D7%A4%D7%A8_%D7%96%D7%94%D7%95%D7%AA_(%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+    "https://he.wikipedia.org/wiki/%D7%A1%D7%A4%D7%A8%D7%AA_%D7%91%D7%99%D7%A7%D7%95%D7%A8%D7%AA",
+    "https://learn.microsoft.com/en-us/typography/font-list/arial",
+    "https://m2.material.io/design/usability/bidirectionality.html",
+    "https://nextjs.org/docs/app/api-reference/components/font",
+    "https://raw.githubusercontent.com/google/fonts/main/ofl/heebo/METADATA.pb",
+    "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/CHANGELOG.md",
+    "https://styledictionary.com/info/dtcg/",
+    "https://styledictionary.com/reference/hooks/formats/predefined/",
+    "https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support",
+    "https://tailwindcss.com/docs/theme",
+    "https://tailwindcss.com/docs/theme;",
+    "https://ui.shadcn.com/docs/rtl",
+    "https://www.designtokens.org/TR/2025.10/color/",
+    "https://www.designtokens.org/TR/2025.10/format/",
+    "https://www.figma.com/community/file/1426262348206342909/igds-design-system-file-2-0",
+    "https://www.figma.com/community/file/1637743894870099523/israeli-government-ds-3-0",
+    "https://www.figma.com/community/file/1637743894870099523/israeli-government-ds-3-0,",
+    "https://www.unicode.org/Public/UCD/latest/ucd/BidiMirroring.txt",
+    "https://www.w3.org/TR/WCAG21/#contrast-minimum",
+    "https://www.w3.org/TR/css-transforms-1/",
+    "https://www.w3.org/WAI/standards-guidelines/wcag/",
+    "https://www.w3.org/WAI/standards-guidelines/wcag/."
+  ]
+}

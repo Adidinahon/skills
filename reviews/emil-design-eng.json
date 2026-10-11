@@ -1,0 +1,31 @@
+{
+  "skill": "emil-design-eng",
+  "verdict": "pass",
+  "content_sha256": "2d89dd823dd7986e1635760f776ef284a422f138c41044716b47340491f381c6",
+  "reviewed_at": "2026-10-11T08:34:27.968Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל הוא מסמך הנחיות טקסטואלי בלבד המקודד את גישת העיצוב והאנימציה של אמיל קובלסקי (easing, משכי אנימציה, נגישות, ביצועים) ומגדיר פורמט טבלה לסקירת קוד UI. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מניפולטיביות, ולכן הסיכון זניח.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill dictates a fixed initial greeting and tells the agent to give no other information until the user asks a question. This only shapes the persona and is harmless, not an attempt to override the user."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "It links to external easing resources (easing.dev, easings.co) as plain references. Nothing tells the agent to fetch or execute anything from them."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://easing.dev/",
+    "https://easings.co/",
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/emil-design-eng"
+  ]
+}
