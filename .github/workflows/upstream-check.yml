@@ -1,0 +1,46 @@
+# Monthly: for every imported skill, check whether the original author changed it.
+# Opens (or updates) one issue listing the skills with upstream changes. Nothing is
+# pulled in automatically - updating means re-importing, re-scanning and re-approving.
+name: upstream-check
+
+on:
+  schedule:
+    - cron: "0 7 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Compare pinned commits with upstream
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          report=""
+          for src in skills/*/SOURCE.md; do
+            [ -f "$src" ] || continue
+            origin=$(sed -n 's/^origin: *//p' "$src")
+            [ "$origin" = "original" ] && continue
+            repo=$(sed -n 's/^repo: *//p' "$src")
+            path=$(sed -n 's/^path: *//p' "$src")
+            pinned=$(sed -n 's/^commit: *//p' "$src")
+            latest=$(gh api "repos/$repo/commits?path=${path#.}&per_page=1" --jq '.[0].sha' 2>/dev/null || echo "")
+            [ -z "$latest" ] && { report="$report\n- \`$(dirname "$src")\`: upstream unreachable ($repo)"; continue; }
+            compare=$(gh api "repos/$repo/compare/$pinned...$latest" --jq '.status' 2>/dev/null || echo "unknown")
+            if [ "$compare" = "ahead" ]; then
+              report="$report\n- \`$(dirname "$src")\`: [changes since pinned version](https://github.com/$repo/compare/$pinned...$latest)"
+            fi
+          done
+          if [ -n "$report" ]; then
+            body=$(printf "יש עדכונים אצל היוצרים המקוריים. לבדוק את השינויים, ואם רוצים - לייבא מחדש, להריץ סריקה ולאשר:\n%b" "$report")
+            num=$(gh issue list --label upstream-update --state open --json number --jq '.[0].number')
+            gh label create upstream-update --color 7B3FF2 --force >/dev/null
+            if [ -n "$num" ]; then gh issue edit "$num" --body "$body"; else gh issue create --title "עדכונים ממקורות הסקילים" --label upstream-update --body "$body"; fi
+          else
+            echo "All imported skills match upstream."
+          fi

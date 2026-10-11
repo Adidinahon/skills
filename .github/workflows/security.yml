@@ -1,0 +1,95 @@
+# Security gate for every change. Branch protection on main requires this workflow to pass
+# AND an approving review from @Adidinahon before anything can be merged.
+#
+# Runs on `pull_request` (not pull_request_target): code from forks never sees repo secrets.
+name: security
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: static scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+      - name: Secrets in history (gitleaks)
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Skill scan
+        run: node scripts/scan.mjs --json scan-report.json
+      - name: Approvals still match content
+        run: node scripts/build-index.mjs --check
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: scan-report
+          path: scan-report.json
+          if-no-files-found: ignore
+
+  ai-review:
+    name: AI review (changed skills)
+    needs: static
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+      - name: Changed skills
+        id: changed
+        run: |
+          skills=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" -- skills/ | cut -d/ -f1-2 | sort -u | while read d; do [ -d "$d" ] && echo "$d"; done | tr '\n' ' ')
+          echo "skills=$skills" >> "$GITHUB_OUTPUT"
+          echo "Changed: ${skills:-none}"
+      - name: Review
+        if: steps.changed.outputs.skills != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::warning::ANTHROPIC_API_KEY secret is not set (or this is a fork PR) - AI review skipped. Run scripts/approve.mjs locally."
+            exit 0
+          fi
+          npm install --no-audit --no-fund --silent
+          node scripts/ai-review.mjs --json ai-report.json ${{ steps.changed.outputs.skills }}
+      - name: Comment on PR
+        if: always() && steps.changed.outputs.skills != '' && hashFiles('ai-report.json') != ''
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const r = JSON.parse(require('fs').readFileSync('ai-report.json', 'utf8'));
+            const icon = { pass: '✅', warn: '⚠️', fail: '❌' };
+            let body = `## בדיקת אבטחה אוטומטית\n\n`;
+            for (const s of r.results) {
+              body += `### ${icon[s.verdict] ?? '❌'} \`${s.skill}\` - ${s.verdict}\n${s.summary_he ?? s.error ?? ''}\n\n`;
+              for (const c of s.concerns ?? []) body += `- **${c.severity}** \`${c.file}\` ${c.issue}\n`;
+              if (s.network_destinations?.length) body += `\nפונה אל: ${s.network_destinations.join(', ')}\n`;
+              if (s.requires_secrets?.length) body += `דורש: ${s.requires_secrets.join(', ')}\n`;
+              body += `\n`;
+            }
+            body += `\n_מודל: ${r.model}. בדיקה אוטומטית אינה תחליף לאישור ידני._`;
+            await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });

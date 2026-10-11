@@ -1,0 +1,18 @@
+{
+  "name": "adinahon-skills",
+  "private": true,
+  "type": "module",
+  "description": "Agent skills curated and security-reviewed by Adi Nahon",
+  "scripts": {
+    "scan": "node scripts/scan.mjs",
+    "review": "node scripts/ai-review.mjs",
+    "import": "node scripts/import-skill.mjs",
+    "index": "node scripts/build-index.mjs",
+    "check": "node scripts/scan.mjs && node scripts/build-index.mjs --check"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "zod": "^4"
+  },
+  "engines": { "node": ">=22" }
+}
