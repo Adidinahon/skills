@@ -1,4 +1,4 @@
-# Every change needs Adi's approval. The security tooling doubly so.
+# Owner of everything. Outside contributors' PRs request a review from @Adidinahon automatically.
 *            @Adidinahon
 /scripts/    @Adidinahon
 /.github/    @Adidinahon
