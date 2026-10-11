@@ -395,6 +395,55 @@
       }
     },
     {
+      "name": "grilling",
+      "title_he": "תחקור את התוכנית שלי",
+      "description_he": "ראיון בלתי מתפשר שמחדד תוכנית, החלטה או רעיון. הסוכן שואל את השאלות הקשות בסבבים, עם המלצה לכל שאלה, וחוסך שעות של עבודה בכיוון הלא נכון.",
+      "category": "productivity",
+      "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
+      "origin": "imported",
+      "author": "mattpocock",
+      "license": "MIT",
+      "upstream": "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/productivity/grilling",
+      "upstream_commit": "49dd158d1076134a641b33efb035946536778336",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/grilling",
+      "install_command": "npx skills add Adidinahon/skills/skills/grilling",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-11T08:36:10.997Z",
+        "content_sha256": "265888e1a59d779e9d12dde2890b467e34cafc6ed78eb3433539d2e03168d1f1",
+        "summary_he": "הסקיל מנחה את הסוכן לתחקר את המשתמש בסבבי שאלות ממוספרים על תוכנית או החלטה, לפי עץ החלטות, ולהציע תשובה מומלצת לכל שאלה. אין בו סקריפטים, אין קריאות רשת ואין גישה לסודות. הוא מסתפק בחקירת עובדות בסביבה המקומית דרך תת-סוכן, וממתין לאישור המשתמש לפני כל פעולה, ולכן הסיכון נמוך מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "brainstorming",
+      "title_he": "סיעור מוחות",
+      "description_he": "לפני כל עבודה יצירתית, פיצ'ר חדש או תכנון של משהו חדש: הסוכן חוקר את הרעיון איתכם ומגיע לכיוון ברור לפני שהוא בונה.",
+      "category": "productivity",
+      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation).",
+      "origin": "adapted",
+      "author": "obra",
+      "license": "MIT",
+      "upstream": "https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/brainstorming",
+      "upstream_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/brainstorming",
+      "install_command": "npx skills add Adidinahon/skills/skills/brainstorming",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-11T08:36:10.883Z",
+        "content_sha256": "de8d69b99461cb070f2c3a0d9ce7e35add9f1f2640fc2006ec031c098a4357d4",
+        "summary_he": "הסקיל מנחה את הסוכן לנהל שיחת בירור דרישות לפני בנייה, ולכתוב מסמך עיצוב. אפשר גם להפעיל שרת מקומי (Node) שמציג מוקאפים בדפדפן. הקוד נראה תואם לתיאור, הטלמטריה החיצונית בוטלה והשרת מוגן במפתח סשן. עם זאת, הוא מריץ תהליך רקע עם nohup, כותב קבצים לפרויקט ול-/tmp, ויכול להיחשף לרשת כשמשתמשים ב-0.0.0.0, ולכן מומלץ להיות מודעים לכך.",
+        "network_destinations": [
+          "localhost (שרת מקומי בפורט אקראי)",
+          "images.unsplash.com (אופציונלי, תמונות במוקאפים)"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
       "name": "writing-plans",
       "title_he": "כתיבת תוכנית עבודה",
       "description_he": "הופך דרישות למשימה רב-שלבית לתוכנית עבודה מסודרת לפני שנוגעים בקוד. פחות טעויות, פחות עבודה כפולה.",
