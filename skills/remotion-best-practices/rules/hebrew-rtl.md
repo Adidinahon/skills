@@ -1,0 +1,499 @@
+---
+name: hebrew-rtl
+description: Hebrew RTL text rendering, fonts, captions, and bidirectional text in Remotion
+metadata:
+  tags: hebrew, rtl, bidi, fonts, captions, israel
+---
+
+# Hebrew & RTL Video Production in Remotion
+
+## Hebrew Google Fonts
+
+Use `@remotion/google-fonts` with BOTH the `hebrew` and `latin` subsets. The `hebrew` subset covers only the Hebrew block (U+0590-05FF) plus a few marks and the shekel sign: it does NOT contain the space, the digits 0-9 or ASCII punctuation (`.` `,` `!` `?` `%` `"` `'`). Those live in `latin`, so a `hebrew`-only load renders every digit, comma and gershayim quote (מע"מ, צה"ל) in a fallback font next to the Heebo letters. These fonts have excellent Hebrew support:
+
+```tsx
+// Heebo -- clean, modern, great for titles and body
+import { loadFont } from "@remotion/google-fonts/Heebo";
+const { fontFamily } = loadFont("normal", {
+  weights: ["400", "700", "900"],
+  subsets: ["hebrew", "latin"],
+});
+
+// Rubik -- rounded, friendly, works for marketing videos
+import { loadFont as loadRubik } from "@remotion/google-fonts/Rubik";
+const { fontFamily: rubikFamily } = loadRubik("normal", {
+  weights: ["400", "600", "700"],
+  subsets: ["hebrew", "latin"],
+});
+
+// Assistant -- geometric, minimal, good for tech content
+import { loadFont as loadAssistant } from "@remotion/google-fonts/Assistant";
+const { fontFamily: assistantFamily } = loadAssistant("normal", {
+  weights: ["400", "600", "700"],
+  subsets: ["hebrew", "latin"],
+});
+
+// Noto Sans Hebrew -- widest Unicode coverage, fallback font
+import { loadFont as loadNoto } from "@remotion/google-fonts/NotoSansHebrew";
+const { fontFamily: notoFamily } = loadNoto("normal", {
+  weights: ["400", "700"],
+  subsets: ["hebrew", "latin"],
+});
+```
+
+Always specify the subsets (and weights) instead of loading everything: it avoids downloading every subset file, and Remotion 5.0 makes it mandatory. For Hebrew that means `["hebrew", "latin"]`, even for Hebrew-only copy, because spaces, numbers and punctuation come from `latin`.
+
+## RTL Text Direction
+
+Every Hebrew text container MUST have `direction: "rtl"` and `textAlign: "right"`. Without these, Hebrew text renders left-aligned and punctuation appears on the wrong side.
+
+```tsx
+const hebrewTextStyle: React.CSSProperties = {
+  direction: "rtl",
+  textAlign: "right",
+  fontFamily, // Hebrew font loaded above
+  fontSize: 48,
+  color: "white",
+};
+
+export const HebrewTitle: React.FC<{ text: string }> = ({ text }) => {
+  return (
+    <div style={hebrewTextStyle}>
+      {text}
+    </div>
+  );
+};
+```
+
+For full-frame Hebrew layouts, set RTL on the AbsoluteFill:
+
+```tsx
+import { AbsoluteFill } from "remotion";
+
+export const HebrewScene: React.FC = () => {
+  return (
+    <AbsoluteFill
+      style={{
+        direction: "rtl",
+        padding: 60,
+        justifyContent: "center",
+        alignItems: "flex-start", // "flex-start" is the RIGHT side in RTL
+      }}
+    >
+      <h1 style={{ fontFamily, fontSize: 72, color: "white" }}>
+        כותרת ראשית
+      </h1>
+      <p style={{ fontFamily, fontSize: 36, color: "#ccc" }}>
+        טקסט משנה עם הסבר נוסף
+      </p>
+    </AbsoluteFill>
+  );
+};
+```
+
+## RTL Flex Containers (Icons + Hebrew Text)
+
+In RTL flex containers, `flex-start` means RIGHT and `flex-end` means LEFT. This catches everyone. When you have icon + text rows (checkmarks, bullet points, list items), use `justifyContent: "flex-start"` to right-align them. The RTL direction already reverses DOM order, so the first child (icon) renders on the right:
+
+```tsx
+// WRONG -- icon on left, row centered (ignores RTL)
+<div style={{ direction: "rtl" }}>
+  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
+    <span>✅</span>
+    <span>פונטים עבריים</span>  {/* centered row, looks wrong in RTL */}
+  </div>
+</div>
+
+// CORRECT -- icon on right, row right-aligned
+<div style={{ direction: "rtl" }}>
+  <div style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    gap: 12,
+  }}>
+    <span>✅</span>
+    <span>פונטים עבריים</span>  {/* icon on RIGHT, row hugs the right edge */}
+  </div>
+</div>
+```
+
+The critical insight: in an RTL flex container, `flex-start` = RIGHT and `flex-end` = LEFT. This is the opposite of what you expect. So to right-align rows in RTL, use `justifyContent: "flex-start"`. No need for `flexDirection: "row-reverse"` -- the RTL direction already reverses item order (first DOM child renders on the right).
+
+Never set `direction: "ltr"` on Hebrew text spans inside an RTL flex container. It breaks the visual ordering and makes punctuation jump to the wrong side.
+
+## RTL Multi-Group Text (Equations, Mixed Colors, Accent Phrases)
+
+When you need a single line of Hebrew text split into multiple groups (different colors, different animation timings, or accent phrases), the same RTL rule applies at the outer flex level.
+
+Reading order for `A + B = C` in Hebrew should be: start from the RIGHT with "A", flow left through "+ B = C" and end with "C" on the LEFT.
+
+```tsx
+// WRONG -- row-reverse + RTL double-reverses, ordering is broken
+<div style={{
+  direction: "rtl",
+  display: "flex",
+  flexDirection: "row-reverse",
+  gap: 20,
+}}>
+  <KineticWords words={["Remotion", "+", "עברית", "="]} color="black" />
+  <KineticWords words={["כאב", "ראש"]} color="red" />
+</div>
+
+// CORRECT -- default flex row in RTL puts first DOM child on the RIGHT
+<div style={{
+  direction: "rtl",
+  display: "flex",
+  justifyContent: "flex-start",
+  gap: 20,
+}}>
+  <KineticWords words={["Remotion", "+", "עברית", "="]} color="black" />
+  {/* renders on the RIGHT */}
+  <KineticWords words={["כאב", "ראש"]} color="red" />
+  {/* renders on the LEFT */}
+</div>
+```
+
+The rule: the FIRST DOM child goes on the RIGHT in an RTL flex row. Write your DOM in natural reading order (what comes FIRST in Hebrew reading goes FIRST in the JSX), and RTL will position it correctly without needing `row-reverse`.
+
+## Preventing Line Wrapping on Hebrew Titles
+
+A multi-word Hebrew title can wrap to 2 lines at a size that worked for the English version, or leave unused space. Hebrew width relative to English varies by font and by wording, so do not reuse the English size and do not apply a fixed reduction.
+
+```tsx
+// WRONG -- words wrap, breaking the composition rhythm
+<div style={{ display: "flex", gap: 12 }}>
+  {words.map(w => <span>{w}</span>)}
+</div>
+
+// CORRECT -- force single line, size the font with fitText() (below)
+<div style={{
+  display: "flex",
+  gap: 12,
+  flexWrap: "nowrap",
+  whiteSpace: "nowrap",
+}}>
+  {words.map(w => <span>{w}</span>)}
+</div>
+```
+
+`nowrap` alone just moves the problem: a title that is too wide now overflows the frame instead of wrapping. Pair it with a computed size from `fitText()` (see "Text Measurement with Hebrew Fonts" below) so the line fits the available width.
+
+## Hebrew Copy in Video Captions -- Natural Israeli Phrasing
+
+Hebrew captions and on-screen text in videos must sound like natural spoken Israeli Hebrew, not translated English. Translated-sounding Hebrew makes videos feel AI-generated and loses native viewers.
+
+Red flags to avoid in Hebrew video copy:
+
+| Translated feel | Natural Israeli |
+|-----------------|-----------------|
+| "תמיכה מלאה ב-X" (full support for X) | "זה עובד עם X, כמו שצריך" (it works with X, as it should) |
+| "טקסט מיושר לשמאל" (passive participle, spec-like) | "עברית מתיישרת לשמאל" / "הטקסט נדחף לשמאל" (active verb) |
+| "פונטים לא נטענים" (formal) | "פונטים לא עולים" (Israeli dev slang for "load") |
+| "מכונת כתיבה" (typewriter = physical machine) | "אפקט הקלדה" (typing effect = actual CSS term) |
+| "ניתן להשתמש" (formal passive) | "אפשר להשתמש" / "השתמשו" (imperative or casual) |
+| "על ידי" (by means of) | just drop it, use active voice |
+
+For interjections and excitement: "סוף סוף" (finally), "כמו שצריך" (as it should), "באמת" (really), "בטח" (sure) -- these make Hebrew copy feel native.
+
+**Warning: do not invent vivid metaphors in Hebrew that work in English.** English metaphors rarely translate. "Hebrew falls to the left" (עברית נופלת שמאלה) sounds wrong in Hebrew because `נופלת` means "falls down" (gravity direction), not "goes sideways". Stick to active-voice verbs that Israeli developers actually say: `מתיישרת` (aligns itself), `נדחפת` (gets pushed), `יוצאת` (comes out), `מופיעה` (appears). When in doubt, keep it simple over poetic. Ask a native speaker before using any unusual verb choice.
+
+## Em Dashes Forbidden
+
+Never use em dashes (U+2014) or en dashes (U+2013) in skill content, video captions, or any Hebrew/English text. Replace with:
+- `,` (comma) for mid-sentence pauses
+- `:` (colon) for explanations
+- `()` (parentheses) for asides
+- `--` (double hyphen) for stronger breaks
+- `.` (period) to split into two sentences
+
+Em dashes do not exist on standard keyboards and don't render reliably in every rendering context. They also make text feel machine-generated to Israeli readers.
+
+## Bidirectional Text (Bidi)
+
+When mixing Hebrew with English or numbers, use Unicode bidi isolates to prevent reordering bugs:
+
+```tsx
+// Numbers in Hebrew context -- wrap numbers in LTR isolate
+const price = 299;
+const text = `המחיר הוא \u2066${price}\u2069 שקלים`;
+
+// Brand names in Hebrew -- wrap English in LTR isolate
+const brand = "Remotion";
+const text2 = `צור סרטונים עם \u2066${brand}\u2069 בקלות`;
+
+// Hebrew in English context -- wrap Hebrew in RTL isolate
+const feature = "כתוביות";
+const text3 = `Supports \u2067${feature}\u2069 rendering`;
+```
+
+Unicode bidi isolates:
+- `\u2066` (LRI) -- Left-to-Right Isolate (wrap English/numbers in Hebrew context)
+- `\u2067` (RLI) -- Right-to-Left Isolate (wrap Hebrew in English context)
+- `\u2069` (PDI) -- Pop Directional Isolate (close the isolate)
+
+For Remotion components, apply bidi at the container level:
+
+```tsx
+<div style={{ direction: "rtl", unicodeBidi: "isolate" }}>
+  {hebrewTextWithNumbers}
+</div>
+```
+
+## Hebrew Captions (RTL TikTok-Style)
+
+When displaying Hebrew captions using `createTikTokStyleCaptions()`, the caption container MUST have RTL direction. Without it, word highlighting breaks because tokens are rendered in visual LTR order.
+
+```tsx
+import type { TikTokPage } from "@remotion/captions";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
+import { loadFont } from "@remotion/google-fonts/Heebo";
+
+const { fontFamily } = loadFont("normal", { subsets: ["hebrew", "latin"], weights: ["700"] });
+const HIGHLIGHT_COLOR = "#39E508";
+
+const HebrewCaptionPage: React.FC<{ page: TikTokPage }> = ({ page }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+
+  const currentTimeMs = (frame / fps) * 1000;
+  const absoluteTimeMs = page.startMs + currentTimeMs;
+
+  return (
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
+      <div
+        style={{
+          fontSize: 72,
+          fontWeight: "bold",
+          whiteSpace: "pre",
+          direction: "rtl",        // CRITICAL for Hebrew
+          textAlign: "center",
+          fontFamily,              // Hebrew font
+        }}
+      >
+        {page.tokens.map((token) => {
+          const isActive =
+            token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
+
+          return (
+            <span
+              key={token.fromMs}
+              style={{ color: isActive ? HIGHLIGHT_COLOR : "white" }}
+            >
+              {token.text}
+            </span>
+          );
+        })}
+      </div>
+    </AbsoluteFill>
+  );
+};
+```
+
+For Hebrew transcription with Whisper, use the `medium` model (not `medium.en`) which supports Hebrew, AND pin the language when you transcribe (see `transcribe-captions.md` for the full script):
+
+```ts
+await downloadWhisperModel({
+  model: "medium",  // NOT "medium.en" -- Hebrew needs multilingual model
+  folder: to,
+});
+
+const whisperCppOutput = await transcribe({
+  model: "medium",
+  whisperPath: to,
+  whisperCppVersion: WHISPER_CPP_VERSION,
+  inputPath: "/path/to/voiceover-16khz.wav", // 16-bit 16kHz WAV only
+  language: "he", // never rely on auto-detect for Hebrew
+  tokenLevelTimestamps: true,
+});
+```
+
+## Hebrew Typewriter Effect
+
+A JS string holds Hebrew in LOGICAL order: index 0 is the first character read, and `direction: "rtl"` paints it at the RIGHT edge. So `slice(0, n)` is what reveals right-to-left in reading order, exactly as it does for English left-to-right. Slicing from the END of the string reveals the leftmost (last logical) characters first, which types the phrase backwards:
+
+```tsx
+const HebrewTypewriter: React.FC<{ text: string }> = ({ text }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+
+  // Characters per second
+  const CPS = 15;
+  const charsToShow = Math.min(
+    Math.floor((frame / fps) * CPS),
+    text.length
+  );
+
+  // A JS string holds Hebrew in LOGICAL order: index 0 is the FIRST character read,
+  // which `direction: "rtl"` paints at the RIGHT edge. So slicing from the start is
+  // what reveals right-to-left in reading order. Slicing from the end reveals the
+  // leftmost (last logical) characters first, i.e. backwards.
+  const visibleText = text.slice(0, charsToShow);
+
+  return (
+    <div
+      style={{
+        direction: "rtl",
+        textAlign: "right",
+        fontFamily,
+        fontSize: 64,
+        color: "white",
+        whiteSpace: "pre",
+      }}
+    >
+      {visibleText}
+    </div>
+  );
+};
+```
+
+For word-by-word reveal (more natural for Hebrew):
+
+```tsx
+const HebrewWordReveal: React.FC<{ text: string }> = ({ text }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+
+  const words = text.split(" ");
+  const WORDS_PER_SECOND = 3;
+  const wordsToShow = Math.min(
+    Math.floor((frame / fps) * WORDS_PER_SECOND),
+    words.length
+  );
+
+  // Take first N words (Hebrew reading order is maintained by RTL direction)
+  const visibleWords = words.slice(0, wordsToShow).join(" ");
+
+  return (
+    <div
+      style={{
+        direction: "rtl",
+        textAlign: "right",
+        fontFamily,
+        fontSize: 56,
+        color: "white",
+      }}
+    >
+      {visibleWords}
+    </div>
+  );
+};
+```
+
+## Hebrew Voiceover
+
+When using ElevenLabs TTS for Hebrew voiceover, use `eleven_v3` on the Text to Speech endpoint. `eleven_multilingual_v2` supports 29 languages and Hebrew is not one of them, so a Hebrew request against it will not produce correct Hebrew speech. The newer v4 family also lists Hebrew; see `voiceover.md` before switching to it. Check `response.ok` before writing the audio, as `voiceover.md` does:
+
+```ts
+const response = await fetch(
+  `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
+  {
+    method: "POST",
+    headers: {
+      "xi-api-key": process.env.ELEVENLABS_API_KEY!,
+      "Content-Type": "application/json",
+      Accept: "audio/mpeg",
+    },
+    body: JSON.stringify({
+      text: "שלום, ברוכים הבאים לסרטון שלנו",
+      model_id: "eleven_v3", // Hebrew is in the v3 language list, NOT in multilingual_v2
+      voice_settings: {
+        stability: 0.5,
+        similarity_boost: 0.75,
+        style: 0.3,
+      },
+    }),
+  },
+);
+
+if (!response.ok) {
+  throw new Error(`ElevenLabs ${response.status}: ${await response.text()}`);
+}
+```
+
+ElevenLabs Hebrew voices: check the voice library for voices tagged with Hebrew support. Use `eleven_v3` for pre-rendered voiceover. Behaviour with nikkud (vowel marks) is not documented by ElevenLabs, so test your own text both ways rather than assuming.
+
+## Israeli Map Defaults
+
+When using Mapbox for Israeli map animations, use these coordinates:
+
+```ts
+// Major Israeli cities
+const ISRAEL_LOCATIONS = {
+  telAviv: { center: [34.7818, 32.0853] as [number, number], zoom: 13 },
+  jerusalem: { center: [35.2137, 31.7683] as [number, number], zoom: 13 },
+  haifa: { center: [34.9896, 32.7940] as [number, number], zoom: 13 },
+  beerSheva: { center: [34.7913, 31.2520] as [number, number], zoom: 13 },
+  eilat: { center: [34.9519, 29.5577] as [number, number], zoom: 13 },
+};
+
+// Israel overview (shows full country)
+const ISRAEL_OVERVIEW = {
+  center: [35.0, 31.5] as [number, number],
+  zoom: 7.5,
+  pitch: 0,
+  bearing: 0,
+};
+
+// Tel Aviv to Jerusalem route
+const TLV_TO_JLM: [number, number][] = [
+  [34.7818, 32.0853], // Tel Aviv
+  [34.8516, 31.9000], // Ramla area
+  [34.9800, 31.8000], // Sha'ar HaGai
+  [35.2137, 31.7683], // Jerusalem
+];
+```
+
+**Mapbox has no Hebrew basemap localization.** Mapbox Streets v8, the label source behind the
+Standard style, ships `name_ar`, `name_de`, `name_en`, `name_es`, `name_fr`, `name_it`, `name_ja`,
+`name_ko`, `name_pt`, `name_ru`, `name_vi` and the two Chinese variants, and no `name_he`. Setting
+a `language` config property to `"he"` therefore does NOT produce Hebrew labels. Two paths that do
+work:
+
+1. **Render Hebrew labels as Remotion DOM or SVG overlays** positioned with `map.project()`. This
+   is the recommended route: you get the same fonts, RTL handling and bidi isolates as the rest of
+   the video, and the labels animate on the Remotion timeline.
+2. **Add a symbol layer with a Hebrew-capable glyph font.** The default `["DIN Pro Bold", "Arial
+   Unicode MS Bold"]` stack in `rules/maps.md` has no Hebrew glyphs in the first family, so Hebrew
+   `text-field` values fall through to the fallback or render as tofu. Supply a font stack whose
+   first family covers Hebrew. A Hebrew font alone is NOT enough: Mapbox GL JS also needs its RTL
+   text plugin, which its API reference calls "Necessary for supporting the Arabic and Hebrew
+   languages". Register it once, before creating the map:
+
+   ```ts
+   mapboxgl.setRTLTextPlugin(
+     "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.3.0/mapbox-gl-rtl-text.js",
+     null,
+     false, // load now; with true, RTL text renders only after a deferred load finishes
+   );
+   ```
+
+   Mapbox's own example passes `true` (lazy). For a video render prefer `false`, so the plugin starts
+   loading before the frames you capture. Loading is still asynchronous, so keep the map's
+   `delayRender()` handle open until the map has finished rendering the Hebrew labels.
+
+## Text Measurement with Hebrew Fonts
+
+When using `measureText()` or `fitText()` with Hebrew fonts, ensure the font is fully loaded first:
+
+```tsx
+import { loadFont } from "@remotion/google-fonts/Heebo";
+import { measureText, fitText } from "@remotion/layout-utils";
+
+const { fontFamily, waitUntilDone } = loadFont("normal", {
+  weights: ["400", "700"],
+  subsets: ["hebrew", "latin"],
+});
+
+// Wait for Hebrew font before measuring
+await waitUntilDone();
+
+const { fontSize } = fitText({
+  text: "כותרת ראשית לסרטון",
+  withinWidth: 800,
+  fontFamily,
+  fontWeight: "bold",
+});
+```
+
+Run `fitText()` per string and per font. There is no fixed Hebrew-to-English width ratio to plan container widths from: it changes with the font and with the wording.

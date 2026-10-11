@@ -1,0 +1,42 @@
+{
+  "cycles": [
+    {
+      "version": "1.9.0",
+      "date": "2026-10-07",
+      "lessons": [
+        "RESOLVED [CARRY] Hebrew-width heuristic: measured 2026-10-07 (canvas, Heebo/Rubik/Assistant 700-900, 72px, 8 matched HE/EN titles): Hebrew titles came out NARROWER in most pairs (mean ratio 0.75-0.90) and per-glyph Hebrew was 0.97x-1.14x Latin lowercase. The 20-30%/72->54-60 rule was wrong; replaced by fitText() everywhere.",
+        "RESOLVED [CARRY] nine ref-* slug-as-snippet evidence entries and the bundled remotion-version-4-stable entry were rebuilt with real page sentences, one claim per source.",
+        "Deterministic import check (npm pack 4.0.533 + grep every named import against .d.ts) found two compile-breaking bugs every prior gate missed: mediabunny FileSource (never existed) and getImageDimensions imported from 'remotion'. Re-run this script every cycle; it is in work/check_imports.py of the 2026-10-04 batch and is cheap.",
+        "Upstream remotion-dev/skills restructured into many sub-skills (remotion-markup, remotion-captions, ...). Diff our rules against the matching upstream file each cycle; upstream fixed several of our bugs first (getImageDimensions 2026-09-29, trimAfter -> durationInFrames, whisper-webgpu as primary).",
+        "Pin check: whisper.cpp v1.9.3 was a GitHub PRE-RELEASE and the skill pinned it as 'current'. Check the prerelease flag, not just the tag name.",
+        "Watch: ElevenLabs eleven_v4 (2026-09-28) lists Hebrew but the release note routes it through Text to Dialogue. Next cycle: confirm whether GET /v1/models reports can_do_text_to_speech for eleven_v4 and, if so, make it the Hebrew default (drop style from voice_settings).",
+        "Watch Remotion 5.0 stable (still 4.1.0-alpha12 on 2026-10-07).",
+        "Deferred MINORs (expert r1): text-animations-word-highlight.tsx transformOrigin 'left center' sweeps against Hebrew reading direction; gifs.md says <Gif> has the same props as <AnimatedImage> (loopBehavior differs: unmount-after-finish vs clear-after-finish); compositions.md should say ids/folder names must be Latin (Hebrew throws); voiceover.md calculateMetadata never returns sceneDurations as props and the generator does not mkdir; charts-bar-chart.tsx RTL axis + toLocaleString without locale; URL-based mediabunny helpers never dispose the Input; mention fitTextOnNLines for 2-line Hebrew titles.",
+        "Deferred older MINORs still open: display-captions.md CaptionedContent snippet boundary; assets.md raw FontFace vs loadFont(); lottie.md bare delayRender vs useDelayRender(); Troubleshooting waitUntilDone() is a measurement requirement, not a render requirement.",
+        "Deferred r2 MINORs: note durationInFrames on @remotion/media <Video>/<Audio> needs 4.0.446+; give the reason for pinning whisper.cpp 1.9.4 rather than 1.9.5 (or move to 1.9.5 once it has settled)."
+      ]
+    },
+    {
+      "version": "1.8.0",
+      "date": "2026-08-26",
+      "lessons": [
+        "[CARRY] The 20-30% Hebrew-width heuristic driving Gotcha #7 (English 72 -> Hebrew 54-60) is asserted, never measured. Next cycle: run measureText/canvas advance-width on Heebo, Rubik and Assistant at weights 700-900 over matched HE/EN strings and record the observed ratio as the evidence snippet; move the 54-60 guidance if the number differs.",
+        "[CARRY] Nine ref-* evidence entries (ref-img, ref-interpolate, ref-sequence, ref-series, ref-spring, ref-three, ref-transitions, ref-offthreadvideo, ref-the-fundamentals) use their own page slug as raw_snippet, so they can never fail. Replace each with a distinctive sentence from the cited page.",
+        "[CARRY] remotion-version-4-stable bundles 15 unrelated URLs behind one snippet via an 'Also covers:' list. Split into one claim per source and cite registry.npmjs.org for the dist-tags.",
+        "Watch for Remotion 5.0 stable. 4.1.0-alpha* is its pre-release train and the migration doc is titled 5.0. When it ships, Gotcha #13 stops being a horizon note and becomes required migration work in rules/light-leaks.md, rules/transitions.md, rules/fonts.md and rules/sequencing.md.",
+        "Root cause worth remembering: a Hebrew-first skill defaulted to an ElevenLabs model with no Hebrew for at least two cycles. Every gate passed because the model ID was live; only the LANGUAGE LIST was dead. Next cycle re-check the language list, not just that the model ID resolves.",
+        "Invisible-Unicode class of bug found twice in one cycle (U+2060 inside a Mapbox style URL, literal U+2066/U+2069 in prose). Add a zero-width/bidi-control grep to every cycle.",
+        "Deferred MINORs: rules/display-captions.md CaptionedContent references `pages` and SWITCH_CAPTIONS_EVERY_MS across a snippet boundary; rules/images.md points at <Gif> where gifs.md makes <AnimatedImage> primary; rules/assets.md teaches raw FontFace while fonts.md mandates loadFont(); rules/lottie.md uses bare delayRender while sibling files use useDelayRender(); rules/voiceover.md never checks response.ok before writing the MP3; the domain-checklist bidi bullet cites a bare /docs/ URL that documents nothing about bidi; the Troubleshooting waitUntilDone() remedy is a measurement requirement, not a render requirement, since Remotion auto-waits for fonts from 2.2."
+      ]
+    },
+    {
+      "version": "1.7.1",
+      "date": "2026-06-25",
+      "lessons": [
+        "Remotion 4.1.0-alpha exists; watch for 4.1 stable next cycle.",
+        "ElevenLabs v3 (74 langs, non-realtime) as broader-language voiceover option - expand next cycle.",
+        "Re-pin whisper.cpp each cycle (fast-moving)."
+      ]
+    }
+  ]
+}
