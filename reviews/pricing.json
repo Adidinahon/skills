@@ -1,0 +1,30 @@
+{
+  "skill": "pricing",
+  "verdict": "pass",
+  "content_sha256": "c116c3bb1480d2e9617af728acfe43cb0055e9126f179dab60b2cfeea19e0522",
+  "reviewed_at": "2026-10-14T07:59:53.537Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק ייעוץ באסטרטגיית תמחור ל-SaaS: מבנה מסלולים, מדדי ערך, מחקר תמחור (Van Westendorp, MaxDiff), העלאות מחירים וניתוח דפי תמחור. הוא מורכב מטקסט והפניות בלבד, ללא סקריפטים, ללא בקשת סודות וללא הוראות מזיקות. הסיכון נמוך מאוד. אפשר שהסוכן יאחזר את דף התמחור שהמשתמש עצמו מספק, והסקיל אף מזהיר במפורש להתייחס לתוכן שנאחזר כלא-מהימן.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "references/pricing-page-teardown.md",
+      "issue": "ניתוח דף תמחור עשוי לגרום לסוכן לאחזר כתובת URL שהמשתמש סיפק. ההוראות מזהירות במפורש לא לבצע הוראות המוטמעות בתוכן שנאחזר, וזה מקטין את הסיכון."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הסקיל קורא קבצי הקשר מקומיים (.agents/product-marketing.md, .claude/product-marketing.md). אלה קבצי הקשר שיווקי בתוך הפרויקט ואין בהם סודות."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/pricing",
+    "https://sawtoothsoftware.com/resources/blog/posts/van-westendorp-pricing-sensitivity-meter"
+  ]
+}

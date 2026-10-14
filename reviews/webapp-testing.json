@@ -1,0 +1,44 @@
+{
+  "skill": "webapp-testing",
+  "verdict": "warn",
+  "content_sha256": "523fe90417914789dd866ff6cfbb08ca8a9b546d81f82406c3b32f877e553246",
+  "reviewed_at": "2026-10-14T07:59:54.036Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק כלים לבדיקת אפליקציות ווב מקומיות עם Playwright, וכולל סקריפט שמפעיל שרתים מקומיים, ממתין שיהיו זמינים, מריץ פקודת בדיקה ואז סוגר אותם. לא נמצאו גניבת סודות, תעבורה חיצונית או קוד מוסתר. עם זאת, הסקריפט מריץ פקודות shell שרירותיות (shell=True), וה-SKILL.md מורה לסוכן להריץ אותו בלי לקרוא את הקוד, ולכן מומלצת זהירות.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "scripts/with_server.py",
+      "issue": "The script runs arbitrary server commands through subprocess.Popen with shell=True and then runs an arbitrary follow-up command. This is expected for its purpose, but it gives the agent broad shell execution."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Tells the agent not to read the script source and to treat it as a black box. The bundled script is small and benign, but this pattern discourages inspection. If the file is ever changed, the agent would run it without looking at it first."
+    },
+    {
+      "severity": "low",
+      "file": "examples/console_logging.py",
+      "issue": "The examples write output to fixed paths outside the project, /tmp and /mnt/user-data/outputs. This is harmless, but those paths may not exist and are outside the working directory."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/with_server.py",
+      "issue": "Server stdout/stderr are sent to PIPE but never read. A server that produces a lot of output could hang. This is a reliability issue, not a security one."
+    }
+  ],
+  "network_destinations": [
+    "localhost"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://localhost:5173",
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://github.com/anthropics",
+    "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/webapp-testing"
+  ]
+}

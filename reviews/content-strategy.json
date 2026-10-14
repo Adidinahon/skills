@@ -1,0 +1,41 @@
+{
+  "skill": "content-strategy",
+  "verdict": "pass",
+  "content_sha256": "fcf068d1390d0782eee20034f695c1004fcef8d7b401f1676b2ed83cac0d1c91",
+  "reviewed_at": "2026-10-14T07:59:52.880Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות לתכנון אסטרטגיית תוכן: עמודי תוכן, אשכולות נושאים, מחקר מילות מפתח לפי שלב בתהליך הקנייה, תעדוף רעיונות והפצה. אין בו סקריפטים, אין גישה לסודות או לקבצים רגישים, ואין הוראות זדוניות. הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill tells the agent to use web search (site:reddit.com, site:quora.com, competitor blogs) for research. This is ordinary behaviour that fits the stated purpose."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill reads local context files (.agents/product-marketing.md, .claude/product-marketing.md). These are within the project and relevant to the task."
+    },
+    {
+      "severity": "low",
+      "file": "references/headless-cms.md",
+      "issue": "Contains documentation links to GitHub integration guides. They are informational only and nothing is fetched or executed automatically."
+    }
+  ],
+  "network_destinations": [
+    "reddit.com (via web search)",
+    "quora.com (via web search)",
+    "competitor websites (via web search)"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/contentful.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/sanity.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/strapi.md",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/content-strategy"
+  ]
+}

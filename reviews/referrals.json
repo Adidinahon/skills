@@ -1,0 +1,54 @@
+{
+  "skill": "referrals",
+  "verdict": "pass",
+  "content_sha256": "cf3aab3ba42223d32306a5c4d2519f1fe26fcb292a2b67e0e63049c66ede97ad",
+  "reviewed_at": "2026-10-14T07:59:53.622Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות שיווקיות לתכנון ואופטימיזציה של תוכניות הפניה, שותפים (affiliate) וביקורות לקוחות, כולל חישובי כלכלה, תבניות מיילים וכללי פלטפורמות. אין בו סקריפטים, אין הרצת קוד מרוחק ואין איסוף אישורים. הוא אף מדגיש קבלת אישור מהמשתמש לפני שליחה ומתייחס לתוכן חיצוני כלא-מהימן, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Links to external GitHub integration guides (tools registry). These are documentation references only and are not fetched or executed automatically."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Reads local product-marketing context files (.agents/product-marketing.md, .claude/product-marketing.md). This is benign and scoped to the stated purpose."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://documentation.g2.com/help/docs/reporting-a-review-for-moderation",
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/REGISTRY.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/REGISTRY.md#reviews",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/dub-co.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/g2.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/introw.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/mention-me.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/partnerstack.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/rewardful.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/stripe.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/tolt.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/trustpilot.md",
+    "https://github.com/coreyhaines31/marketingskills/issues/475",
+    "https://github.com/coreyhaines31/marketingskills/pull/417",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/referrals",
+    "https://help.rewardful.com/en/articles/2773351-how-do-i-pay-commissions",
+    "https://legal.g2.com/community-guidelines",
+    "https://legal.trustpilot.com/for-reviewers/guidelines-for-businesses",
+    "https://stripe.com/resources/more/cac-in-saas",
+    "https://support.google.com/contributionpolicy/answer/7400114",
+    "https://support.google.com/google-ads/answer/1722066?hl=en",
+    "https://www.capterra.com/legal/community-guidelines/",
+    "https://www.capterra.com/legal/content-policy/",
+    "https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers",
+    "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking",
+    "https://www.rewardful.com/automated-refund-handling"
+  ]
+}

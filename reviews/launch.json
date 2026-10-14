@@ -1,0 +1,31 @@
+{
+  "skill": "launch",
+  "verdict": "pass",
+  "content_sha256": "a48bc32285ebe31e9448d087f0e00435339ef73e91e93354d9ef73c5ba54d38e",
+  "reviewed_at": "2026-10-14T07:59:53.371Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות לתכנון השקת מוצר: מסגרת ORB, שער מוכנות, השקה בחמישה שלבים, Product Hunt ורשימות בדיקה לאתר. הוא כולל גם תהליך אופציונלי להפקת changelog מתוך ה-repo באמצעות git log מקומי. אין בו סקריפטים, איסוף סודות, תקשורת רשת או הוראות מניפולטיביות, והטיוטות מועברות לבדיקה אנושית לפני פרסום. הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "references/shipped-changes.md",
+      "issue": "מבקש מהסוכן לקרוא את היסטוריית ה-git ואת ה-PRs של הפרויקט (git log, קבצים ששונו). זה מוצדק לייצור changelog ומוגבל לקריאה בלבד, ונאמר במפורש שהטיוטות לא מתפרסמות אוטומטית."
+    },
+    {
+      "severity": "low",
+      "file": "references/site-launch-qa.md",
+      "issue": "מכיל אזכור של 'Verified Partner' (Ploy) וקישורים לשותפים (Introw) במסמכים. זהו תוכן שיווקי בלבד ולא קוד לביצוע."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/REGISTRY.md#verified-partners",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/introw.md",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/launch"
+  ]
+}

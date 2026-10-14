@@ -1,0 +1,33 @@
+{
+  "skill": "copywriting",
+  "verdict": "pass",
+  "content_sha256": "a2455e3109d6a23659c64ee346b05365c47f7c8a81844a7b6a373939c7d91092",
+  "reviewed_at": "2026-10-14T07:59:52.963Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות לכתיבת קופי שיווקי לדפי אינטרנט (כותרות, CTA, מבנה עמוד, הימנעות מסימני כתיבת AI). הוא כולל רק קבצי טקסט והפניות, ללא סקריפטים, ללא קריאות רשת וללא גישה לסודות. הסיכון זניח.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill tells the agent to read local context files (.agents/product-marketing.md, .claude/product-marketing.md). These are project-scoped marketing notes and fit the stated purpose."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://aclanthology.org/2025.coling-main.426/",
+    "https://arxiv.org/abs/2406.07016",
+    "https://arxiv.org/abs/2510.15061",
+    "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing",
+    "https://eqbench.com/slop-score.html",
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/copywriting",
+    "https://robotsatemyhomework.substack.com/p/ai-writing-patterns",
+    "https://tropes.fyi/tropes-md",
+    "https://www.blakestockton.com/p/dont-write-like-ai-1-101-negation",
+    "https://www.ignorance.ai/p/the-field-guide-to-ai-slop"
+  ]
+}

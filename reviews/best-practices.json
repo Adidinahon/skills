@@ -1,0 +1,49 @@
+{
+  "skill": "best-practices",
+  "verdict": "pass",
+  "content_sha256": "ea604e79de11903a4ad6db5113761c1dbb5d67c4b00e21323974ab229703b59b",
+  "reviewed_at": "2026-10-14T07:59:52.716Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות לשיטות עבודה מומלצות בפיתוח ווב (אבטחה, תאימות דפדפנים ואיכות קוד) על בסיס בדיקות Lighthouse, וכולל קובץ עזר על כותרות אבטחה, CSP ו-SRI. אין בו סקריפטים, איסוף סודות, הורדת קוד מרוחק או הוראות חשודות, והסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "references/SECURITY.md",
+      "issue": "מציע להריץ 'npm audit fix' ו-'npm update'. הפקודות האלה משנות את התלויות בפרויקט, ולכן כדאי שהמשתמש יאשר אותן לפני ההרצה. זו פעולה לגיטימית ומקובלת."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "מזכיר שירותים חיצוניים (SecurityHeaders.com, W3C Validator, Mozilla Observatory) כהמלצות כלים בלבד. אין הוראה לשלוח אליהם נתונים באופן אוטומטי."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://cdn.example.com/script.js",
+    "http://example.com/image.jpg",
+    "https://angular.dev/best-practices/security#enforcing-trusted-types",
+    "https://api.example.com;",
+    "https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk/",
+    "https://cdn.example.com/lib@1.2.3/dist/lib.js",
+    "https://cdn.example.com/script.js",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html",
+    "https://developer.mozilla.org/en-US/docs/Web/Security",
+    "https://example.com/image.jpg",
+    "https://github.com/addyosmani",
+    "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/best-practices",
+    "https://github.com/cure53/DOMPurify",
+    "https://maps.example.com",
+    "https://observatory.mozilla.org",
+    "https://owasp.org/www-project-top-ten/",
+    "https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html",
+    "https://sansec.io/research/polyfill-supply-chain-attack",
+    "https://securityheaders.com",
+    "https://trusted-cdn.com;",
+    "https://trusted.com;",
+    "https://validator.w3.org"
+  ]
+}
