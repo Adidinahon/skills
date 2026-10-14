@@ -1,0 +1,68 @@
+{
+  "skill": "social",
+  "verdict": "warn",
+  "content_sha256": "1f764b418e6fded94600e6220ae266b021920c37ea0580ac5716c7a14cd5d0ea",
+  "reviewed_at": "2026-10-14T07:59:53.953Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "סקיל לאסטרטגיה ויצירת תוכן לרשתות חברתיות (LinkedIn, X, Instagram, TikTok, Facebook, Telegram) עם הנחיות לכתיבה, קרוסלות, וידאו קצר וניטור שיח. רובו הנחיות טקסטואליות בלבד. הסיכון בינוני-נמוך: הוא כולל פקודות curl ל-API ציבוריים (Reddit, Hacker News, Bluesky, YouTube) ושימוש בדפדפן עם סשן מחובר של המשתמש ל-LinkedIn ול-X, אך מדגיש שאין לפרסם אוטומטית בלי אישור.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "references/listening.md",
+      "issue": "Instructs the agent to drive an authenticated, persistent browser session (dev-browser/Playwright) on the user's LinkedIn and X accounts to read feeds. This is legitimate for the stated purpose, but gives the agent access to logged-in accounts. Mitigation: the skill says the user reviews and posts manually and should not auto-post."
+    },
+    {
+      "severity": "low",
+      "file": "references/listening.md",
+      "issue": "Runs curl requests against public endpoints (reddit.com, hn.algolia.com, public.api.bsky.app, youtube.com RSS, user-configured blog feeds). Fetched content is a prompt-injection surface; the skill explicitly says to treat it as untrusted data."
+    },
+    {
+      "severity": "low",
+      "file": "references/listening.md",
+      "issue": "Suggests installing jq and libxml2-utils via brew/apt. These are standard tools and installation is optional."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Suggests publishing through third-party scheduling tools (Typefully, Buffer, etc.) via MCP or API, which would need the user's own credentials. It requires drafts first and explicit approval before anything is scheduled."
+    }
+  ],
+  "network_destinations": [
+    "www.reddit.com",
+    "hn.algolia.com",
+    "public.api.bsky.app",
+    "www.youtube.com",
+    "linkedin.com",
+    "x.com",
+    "github.com",
+    "tgscope.io"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://bsky.app/profile/",
+    "https://example.com/feed/",
+    "https://example.substack.com/feed",
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/skills/influencer-marketing/references/telegram-channels.md",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/tools/REGISTRY.md",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/social",
+    "https://github.com/xai-org/x-algorithm",
+    "https://hn.algolia.com/api/v1/search_by_date?query=KEYWORD&tags=comment&numericFilters=created_at_i",
+    "https://hn.algolia.com/api/v1/search_by_date?query=KEYWORD&tags=story&numericFilters=created_at_i",
+    "https://linkedin.com/feed/hashtag/yourtopic/",
+    "https://linkedin.com/sales/search/people?...",
+    "https://news.ycombinator.com/item?id=",
+    "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=KEYWORD&limit=25&sort=latest",
+    "https://reddit.com",
+    "https://tgscope.io/rnd/posting-frequency-reach-decay",
+    "https://tgscope.io/rnd/telegram-channel-reach",
+    "https://www.reddit.com/r/SaaS/new.json?limit=25",
+    "https://www.reddit.com/search.json?q=KEYWORD&sort=new&t=day&limit=25",
+    "https://www.youtube.com/feeds/videos.xml?channel_id=CHANNEL_ID",
+    "https://x.com/search?q=...&f=live",
+    "https://…"
+  ]
+}

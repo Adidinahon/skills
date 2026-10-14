@@ -579,6 +579,32 @@
       }
     },
     {
+      "name": "accessibility",
+      "title_he": "נגישות לפי WCAG",
+      "description_he": "בודק ומשפר נגישות באתר לפי WCAG 2.2: קוראי מסך, ניווט במקלדת, ניגודיות וטפסים. הסוכן מתקן את הקוד ולא רק מצביע על בעיות.",
+      "category": "ui-ux",
+      "description": "Audit and improve web accessibility following WCAG 2.2 guidelines. Use when asked to \"improve accessibility\", \"a11y audit\", \"WCAG compliance\", \"screen reader support\", \"keyboard navigation\", or \"make accessible\".",
+      "origin": "imported",
+      "author": "addyosmani",
+      "license": "MIT",
+      "upstream": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/accessibility",
+      "upstream_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/accessibility",
+      "install_command": "npx skills add Adidinahon/skills/skills/accessibility",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-14T07:59:53.866Z",
+        "content_sha256": "c0ca7ffc4e8a0bab460870ee42530a349fd151853de2bb0ce80ea9d675e80008",
+        "summary_he": "הסקיל מספק הנחיות לבדיקה ולשיפור נגישות אתרים לפי WCAG 2.2, כולל דוגמאות קוד וזרימת עבודה עם Lighthouse ו-axe. לא נמצאו קוד זדוני, איסוף סודות או הזרקת הנחיות. הסיכון נמוך, אבל הסקיל מציע להריץ npx ולהתקין חבילת npm גלובלית, ולכן כדאי שהמשתמש יהיה מודע לכך.",
+        "network_destinations": [
+          "registry.npmjs.org",
+          "user-specified audited URLs"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
       "name": "canvas-design",
       "title_he": "פוסטרים ואמנות",
       "description_he": "יוצר פוסטרים ויצירות גרפיות כקובץ PNG או PDF, לפי פילוסופיה עיצובית מוגדרת. מגיע עם עשרות פונטים מוכנים.",
@@ -974,6 +1000,106 @@
         "network_destinations": [],
         "requires_secrets": [],
         "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "core-web-vitals",
+      "title_he": "Core Web Vitals",
+      "description_he": "משפר את מדדי המהירות של גוגל - LCP, INP ו-CLS - לפי נתונים אמיתיים. האתר נטען מהר יותר ולא קופץ בזמן הטעינה.",
+      "category": "app-dev",
+      "description": "Optimize Core Web Vitals (LCP, INP, CLS) for better page experience using field and lab evidence. Use when asked to \"improve Core Web Vitals\", \"fix LCP\", \"reduce CLS\", \"optimize INP\", \"page experience optimization\", or \"fix layout shifts\".",
+      "origin": "imported",
+      "author": "addyosmani",
+      "license": "MIT",
+      "upstream": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/core-web-vitals",
+      "upstream_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/core-web-vitals",
+      "install_command": "npx skills add Adidinahon/skills/skills/core-web-vitals",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.045Z",
+        "content_sha256": "7d1a396d98cdb37fe225acb91e2edfec565dc5bdf9e720f59a49a6146cd9e5ae",
+        "summary_he": "הסקיל מספק הנחיות ודוגמאות קוד לשיפור מדדי Core Web Vitals (LCP, INP, CLS) על בסיס מדידות שטח ומעבדה, כולל קבצי עיון מפורטים. אין בו סקריפטים להרצה, אין גישה לסודות, אין הזרקת הוראות ואין שליחת נתונים ליעדים חיצוניים. הסיכון נמוך.",
+        "network_destinations": [
+          "developer.chrome.com (documentation links)",
+          "web.dev (documentation links)",
+          "github.com (documentation links)",
+          "developer.mozilla.org (documentation links)",
+          "User-supplied target URL for performance tracing (via Chrome DevTools MCP)"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "best-practices",
+      "title_he": "בריאות קוד לאתר",
+      "description_he": "בודק את האתר לפי פרקטיקות עדכניות: אבטחה, תאימות לדפדפנים ואיכות קוד, ומתקן את מה שמצא.",
+      "category": "app-dev",
+      "description": "Apply modern web development best practices for security, compatibility, and code quality. Use when asked to \"apply best practices\", \"security audit\", \"modernize code\", \"code quality review\", or \"check for vulnerabilities\".",
+      "origin": "imported",
+      "author": "addyosmani",
+      "license": "MIT",
+      "upstream": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/best-practices",
+      "upstream_commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/best-practices",
+      "install_command": "npx skills add Adidinahon/skills/skills/best-practices",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:52.716Z",
+        "content_sha256": "ea604e79de11903a4ad6db5113761c1dbb5d67c4b00e21323974ab229703b59b",
+        "summary_he": "הסקיל מספק הנחיות לשיטות עבודה מומלצות בפיתוח ווב (אבטחה, תאימות דפדפנים ואיכות קוד) על בסיס בדיקות Lighthouse, וכולל קובץ עזר על כותרות אבטחה, CSP ו-SRI. אין בו סקריפטים, איסוף סודות, הורדת קוד מרוחק או הוראות חשודות, והסיכון נמוך מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "webapp-testing",
+      "title_he": "בדיקת אפליקציית ווב",
+      "description_he": "הסוכן מפעיל את האתר שלכם מקומית ובודק אותו בדפדפן עם Playwright: לוחץ, ממלא טפסים, מצלם מסך וקורא שגיאות קונסול.",
+      "category": "app-dev",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "origin": "imported",
+      "author": "anthropics",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/webapp-testing",
+      "upstream_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/webapp-testing",
+      "install_command": "npx skills add Adidinahon/skills/skills/webapp-testing",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-14T07:59:54.036Z",
+        "content_sha256": "523fe90417914789dd866ff6cfbb08ca8a9b546d81f82406c3b32f877e553246",
+        "summary_he": "הסקיל מספק כלים לבדיקת אפליקציות ווב מקומיות עם Playwright, וכולל סקריפט שמפעיל שרתים מקומיים, ממתין שיהיו זמינים, מריץ פקודת בדיקה ואז סוגר אותם. לא נמצאו גניבת סודות, תעבורה חיצונית או קוד מוסתר. עם זאת, הסקריפט מריץ פקודות shell שרירותיות (shell=True), וה-SKILL.md מורה לסוכן להריץ אותו בלי לקרוא את הקוד, ולכן מומלצת זהירות.",
+        "network_destinations": [
+          "localhost"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "requesting-code-review",
+      "title_he": "בקשת סקירת קוד",
+      "description_he": "לפני שמסיימים פיצ'ר או ממזגים: הסוכן שולח את השינויים לסוכן סוקר נפרד עם הקשר נקי, ומקבל רשימת בעיות לתקן לפני שהן מתגלגלות הלאה.",
+      "category": "app-dev",
+      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+      "origin": "imported",
+      "author": "obra",
+      "license": "MIT",
+      "upstream": "https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/requesting-code-review",
+      "upstream_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/requesting-code-review",
+      "install_command": "npx skills add Adidinahon/skills/skills/requesting-code-review",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.700Z",
+        "content_sha256": "520265920a8170b9ebe41d7ab1713e02e0ef4ffea5e0afae7909e70ceff7d250",
+        "summary_he": "הסקיל מנחה את הסוכן להפעיל תת-סוכן לסקירת קוד על טווח קומיטים ב-git, באמצעות תבנית פרומפט מוגדרת. הוא משתמש רק בפקודות git לקריאה בלבד (diff, log, rev-parse), ואופציונלית ב-git worktree בתיקייה זמנית. אין בו קריאות רשת, אין שימוש בסודות ואין הוראות מזיקות, ולכן הסיכון נמוך.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
       }
     },
     {
@@ -1408,6 +1534,324 @@
         "network_destinations": [],
         "requires_secrets": [],
         "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)"
+      }
+    },
+    {
+      "name": "copywriting",
+      "title_he": "קופירייטינג לאתר",
+      "description_he": "כותב ומשכתב טקסטים לדף הבית, לדפי נחיתה ולדפי מוצר: כותרות, הנעה לפעולה והצעת ערך. בלי ניסוחים שמסגירים שזה נכתב ב-AI, ועם טענות שאפשר לגבות.",
+      "category": "marketing",
+      "description": "When the user wants to write, rewrite, or improve marketing copy for any page, including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" \"CTA copy,\" \"value proposition,\" \"tagline,\" \"hero section copy,\" \"this copy is weak,\" \"this sounds like AI,\" \"AI slop,\" \"make it sound human,\" or \"help me describe my product.\" Use this whenever someone is working on website text that needs to persuade or convert. Drafts never use AI tells like \"it's not X, it's Y\" reveals, \"no X, no Y, no Z\" lists, or sentences that trail into extra comma clauses. For email copy, see emails. For popup copy, see popups. For editing existing copy, see copy-editing. For the offer underneath the copy (bonuses, guarantees, value framing), see offers. Claims must be supportable, and a declined claim names the evidence that would unlock it.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/copywriting",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/copywriting",
+      "install_command": "npx skills add Adidinahon/skills/skills/copywriting",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:52.963Z",
+        "content_sha256": "a2455e3109d6a23659c64ee346b05365c47f7c8a81844a7b6a373939c7d91092",
+        "summary_he": "הסקיל מספק הנחיות לכתיבת קופי שיווקי לדפי אינטרנט (כותרות, CTA, מבנה עמוד, הימנעות מסימני כתיבת AI). הוא כולל רק קבצי טקסט והפניות, ללא סקריפטים, ללא קריאות רשת וללא גישה לסודות. הסיכון זניח.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "seo-audit",
+      "title_he": "בדיקת SEO לאתר",
+      "description_he": "מאבחן למה האתר לא מופיע בגוגל: בעיות טכניות, אינדוקס, מהירות, תגיות מטא ו-SEO מקומי. מקבלים רשימת תיקונים לפי סדר עדיפות.",
+      "category": "marketing",
+      "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" \"SEO health check,\" \"my traffic dropped,\" \"lost rankings,\" \"not showing up in Google,\" \"site isn't ranking,\" \"Google update hit me,\" \"page speed,\" \"core web vitals,\" \"crawl errors,\" \"indexing issues,\" \"stuck on page 2,\" \"striking distance keywords,\" \"title tag rewrite,\" \"low CTR,\" \"local SEO,\" \"Google Business Profile,\" or \"map pack.\" Use this even if the user just says something vague like \"my SEO is bad\" or \"help with SEO\" — start with an audit. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema. For AI search optimization, see ai-seo.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/seo-audit",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/seo-audit",
+      "install_command": "npx skills add Adidinahon/skills/skills/seo-audit",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.785Z",
+        "content_sha256": "3b363269b20de5598d295666a19d4759a84550be671f349b322523efce84c9eb",
+        "summary_he": "הסקיל מספק מסגרת לביקורת SEO (טכני, תוכן, בינלאומי, מקומי) ומורה לסוכן לשאול שאלות, לבדוק עמודים ולהפיק דוח ממוקד. אין סקריפטים, אין איסוף סודות, אין הורדת קוד מרוחק ואין הוראות מסתתרות. הסקיל אף מזהיר במפורש להתייחס לתוכן עמודים שנשלפו כמידע לא מהימן, ולכן הסיכון נמוך.",
+        "network_destinations": [
+          "user's own website (user-supplied URL)",
+          "search.google.com (Rich Results Test, referenced)",
+          "developers.google.com / support.google.com (documentation links)"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "cro",
+      "title_he": "שיפור המרות בדף",
+      "description_he": "בודק דף נחיתה, דף מחירים או טופס יצירת קשר ומסביר למה הוא לא ממיר. מקבלים תיקונים ממוקדים ורעיונות לבדיקה.",
+      "category": "marketing",
+      "description": "When the user wants to optimize, improve, or increase conversions on any marketing page or form — including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms. Also use when the user says 'CRO,' 'conversion rate optimization,' 'this page isn't converting,' 'improve conversions,' 'why isn't this page working,' 'my landing page sucks,' 'form abandonment,' 'nobody's converting,' 'low conversion rate,' or 'this page needs work.' Use this even if the user just shares a URL and asks for feedback. For signup/registration flows, see signup. For post-signup activation, see onboarding. For popups/modals, see popups.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/cro",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/cro",
+      "install_command": "npx skills add Adidinahon/skills/skills/cro",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.125Z",
+        "content_sha256": "78cd7e5b005a239ce21ace816ba467fac4efc35a9717f05b0144f228efdacb63",
+        "summary_he": "הסקיל מספק מסגרת ייעוץ לאופטימיזציית המרות (CRO) עבור דפי שיווק וטפסים: ניתוח הצעת ערך, כותרות, קריאות לפעולה, אמון וחיכוך, וכן רעיונות לניסויים. הוא מורכב מהוראות טקסט בלבד, ללא סקריפטים, ללא גישה לסודות וללא פעולות מסוכנות, ולכן הסיכון נמוך.",
+        "network_destinations": [
+          "github.com"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "emails",
+      "title_he": "רצף מיילים אוטומטי",
+      "description_he": "מתכנן וכותב רצפי מיילים: ברוכים הבאים, טיפוח לידים, החזרת לקוחות רדומים. כולל תזמון, נושאים ותוכן לכל מייל.",
+      "category": "marketing",
+      "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" \"lifecycle emails,\" \"trigger-based emails,\" \"email funnel,\" \"email workflow,\" \"what emails should I send,\" \"welcome series,\" or \"email cadence.\" Use this for any multi-email automated flow. Emails avoid AI tells like 'it's not X, it's Y' reveals, 'no X, no Y, no Z' lists, and fake 'Re:' subject lines. For cold outreach and outbound sequences, see cold-email. For in-app onboarding, see onboarding.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/emails",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/emails",
+      "install_command": "npx skills add Adidinahon/skills/skills/emails",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.208Z",
+        "content_sha256": "21637dd296a0394f4a0465515cbb7f9764d1a09639733987ab78e96d5bf3d9cf",
+        "summary_he": "הסקיל מספק הנחיות לתכנון וכתיבת רצפי אימיילים שיווקיים (welcome, nurture, re-engagement ועוד) עם קבצי עזר טקסטואליים בלבד. אין בו סקריפטים, קריאות רשת, איסוף סודות או הוראות מניפולטיביות. הסיכון נמוך מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "social",
+      "title_he": "תוכן לרשתות חברתיות",
+      "description_he": "פוסטים ל-LinkedIn, אינסטגרם, טיקטוק, פייסבוק ו-X, תסריטים לרילס, לוח תוכן ומיחזור תוכן קיים לפורמטים חדשים.",
+      "category": "marketing",
+      "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, or Facebook, or wants to do social listening and engagement triage. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' 'grow my following,' 'TikTok video,' 'Reels,' 'Shorts,' 'video script,' 'video hook,' 'short-form video,' 'create a reel,' 'social listening,' 'brand mentions,' 'competitor monitoring,' 'top posts to comment on,' 'find people asking for,' 'carousel,' 'slide-by-slide,' or 'document post.' Use this for social content, repurposing, scheduling, video scripts, and listening. Posts avoid AI tells like 'it's not X, it's Y' reveals and broetry. For broader content strategy, see content-strategy. For paid ads, see ad-creative. For earned media, see public-relations.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/social",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/social",
+      "install_command": "npx skills add Adidinahon/skills/skills/social",
+      "review": {
+        "verdict": "warn",
+        "reviewed_at": "2026-10-14T07:59:53.953Z",
+        "content_sha256": "1f764b418e6fded94600e6220ae266b021920c37ea0580ac5716c7a14cd5d0ea",
+        "summary_he": "סקיל לאסטרטגיה ויצירת תוכן לרשתות חברתיות (LinkedIn, X, Instagram, TikTok, Facebook, Telegram) עם הנחיות לכתיבה, קרוסלות, וידאו קצר וניטור שיח. רובו הנחיות טקסטואליות בלבד. הסיכון בינוני-נמוך: הוא כולל פקודות curl ל-API ציבוריים (Reddit, Hacker News, Bluesky, YouTube) ושימוש בדפדפן עם סשן מחובר של המשתמש ל-LinkedIn ול-X, אך מדגיש שאין לפרסם אוטומטית בלי אישור.",
+        "network_destinations": [
+          "www.reddit.com",
+          "hn.algolia.com",
+          "public.api.bsky.app",
+          "www.youtube.com",
+          "linkedin.com",
+          "x.com",
+          "github.com",
+          "tgscope.io"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "launch",
+      "title_he": "תוכנית השקה",
+      "description_he": "מתכנן השקה של מוצר, פיצ'ר או אתר: מה עושים לפני, ביום ההשקה ואחריו, כולל רשימת בדיקות לפני שעולים לאוויר.",
+      "category": "marketing",
+      "description": "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch this,' 'site launch,' 'go live,' 'pre-launch QA,' 'launch checklist,' 'GTM plan,' 'we're about to ship,' 'changelog,' 'release notes,' or 'what did we ship this week.' Use this whenever someone is preparing to release something publicly. For ongoing marketing after launch, see marketing-ideas. For the offer being launched (bonuses, guarantees, scarcity, naming), see offers.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/launch",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/launch",
+      "install_command": "npx skills add Adidinahon/skills/skills/launch",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.371Z",
+        "content_sha256": "a48bc32285ebe31e9448d087f0e00435339ef73e91e93354d9ef73c5ba54d38e",
+        "summary_he": "הסקיל מספק הנחיות לתכנון השקת מוצר: מסגרת ORB, שער מוכנות, השקה בחמישה שלבים, Product Hunt ורשימות בדיקה לאתר. הוא כולל גם תהליך אופציונלי להפקת changelog מתוך ה-repo באמצעות git log מקומי. אין בו סקריפטים, איסוף סודות, תקשורת רשת או הוראות מניפולטיביות, והטיוטות מועברות לבדיקה אנושית לפני פרסום. הסיכון נמוך.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "pricing",
+      "title_he": "תמחור וחבילות",
+      "description_he": "עוזר להחליט כמה לגבות ואיך לבנות את החבילות: ניסיון חינם, מנוי חודשי או שנתי, העלאת מחיר ובדיקה של דף המחירים.",
+      "category": "marketing",
+      "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'how much should I charge,' 'my pricing is wrong,' 'pricing page,' 'annual vs monthly,' 'per seat pricing,' 'should I offer a free plan,' 'pricing page teardown,' 'pricing page audit,' 'is my pricing page AI-readable,' or 'can AI read my pricing.' Use this whenever someone is figuring out what to charge, how to structure their plans, or wants to audit a pricing page (for humans and for the AI agents that shortlist tools). For in-app upgrade screens, see paywalls. For offer construction (bonuses, guarantees, value framing, naming) on services/courses/coaching/high-ticket B2B, see offers.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/pricing",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/pricing",
+      "install_command": "npx skills add Adidinahon/skills/skills/pricing",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.537Z",
+        "content_sha256": "c116c3bb1480d2e9617af728acfe43cb0055e9126f179dab60b2cfeea19e0522",
+        "summary_he": "הסקיל מספק ייעוץ באסטרטגיית תמחור ל-SaaS: מבנה מסלולים, מדדי ערך, מחקר תמחור (Van Westendorp, MaxDiff), העלאות מחירים וניתוח דפי תמחור. הוא מורכב מטקסט והפניות בלבד, ללא סקריפטים, ללא בקשת סודות וללא הוראות מזיקות. הסיכון נמוך מאוד. אפשר שהסוכן יאחזר את דף התמחור שהמשתמש עצמו מספק, והסקיל אף מזהיר במפורש להתייחס לתוכן שנאחזר כלא-מהימן.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "ab-testing",
+      "title_he": "בדיקות A/B",
+      "description_he": "מתכנן ניסוי A/B מסודר: השערה, גרסאות, כמה זמן להריץ ואיך לקרוא את התוצאות. גם לבניית שגרה קבועה של ניסויים.",
+      "category": "marketing",
+      "description": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\" \"which version is better,\" \"test two versions,\" \"statistical significance,\" \"how long should I run this test,\" \"growth experiments,\" \"experiment velocity,\" \"experiment backlog,\" \"ICE score,\" \"experimentation program,\" or \"experiment playbook.\" Use this whenever someone is comparing two approaches and wants to measure which performs better, or when they want to build a systematic experimentation practice. For tracking implementation, see analytics. For page-level conversion optimization, see cro.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/ab-testing",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/ab-testing",
+      "install_command": "npx skills add Adidinahon/skills/skills/ab-testing",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:52.635Z",
+        "content_sha256": "1e4888e34e8cc609865a9e275bf92729b33215d48655b54039b80833b5f224ed",
+        "summary_he": "הסקיל מספק הנחיות ותבניות לתכנון, הרצה וניתוח של ניסויי A/B ותוכניות ניסויים, כולל טבלאות לגודל מדגם ומשך הניסוי. אין בו סקריפטים, אין גישה לסודות ואין פקודות רשת. הוא רק קורא קובץ הקשר שיווקי מקומי בתוך הפרויקט, ולכן הסיכון נמוך מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "content-strategy",
+      "title_he": "אסטרטגיית תוכן",
+      "description_he": "עוזר להחליט על מה לכתוב: נושאים מרכזיים, אשכולות תוכן ולוח תוכן לבלוג ולרשתות, לפי מה שהקהל שלכם מחפש.",
+      "category": "marketing",
+      "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" \"content planning,\" \"editorial calendar,\" \"content marketing,\" \"content roadmap,\" \"what content should I create,\" \"blog topics,\" \"content pillars,\" or \"I don't know what to write.\" Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/content-strategy",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/content-strategy",
+      "install_command": "npx skills add Adidinahon/skills/skills/content-strategy",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:52.880Z",
+        "content_sha256": "fcf068d1390d0782eee20034f695c1004fcef8d7b401f1676b2ed83cac0d1c91",
+        "summary_he": "הסקיל מספק הנחיות לתכנון אסטרטגיית תוכן: עמודי תוכן, אשכולות נושאים, מחקר מילות מפתח לפי שלב בתהליך הקנייה, תעדוף רעיונות והפצה. אין בו סקריפטים, אין גישה לסודות או לקבצים רגישים, ואין הוראות זדוניות. הסיכון נמוך מאוד.",
+        "network_destinations": [
+          "reddit.com (via web search)",
+          "quora.com (via web search)",
+          "competitor websites (via web search)"
+        ],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "onboarding",
+      "title_he": "חוויית משתמש ראשונה",
+      "description_he": "משפר את מה שקורה אחרי ההרשמה, כדי שמשתמשים חדשים יגיעו מהר לערך ולא ינטשו. כולל צ'קליסט, מסכים ריקים ומודלים של ניסיון חינם.",
+      "category": "marketing",
+      "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment,\" \"new user experience,\" \"users aren't activating,\" \"nobody completes setup,\" \"low activation rate,\" \"users sign up but don't use the product,\" \"time to value,\" or \"first session experience.\" Use this whenever users are signing up but not sticking around. For signup/registration optimization, see signup. For ongoing email sequences, see emails.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/onboarding",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/onboarding",
+      "install_command": "npx skills add Adidinahon/skills/skills/onboarding",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.453Z",
+        "content_sha256": "4824eb07ac890a1207f91479b6e0b31869729cf93d7fecefeaec5024d7aec774",
+        "summary_he": "הסקיל מספק הנחיות מקצועיות לאופטימיזציה של תהליך קליטת משתמשים (onboarding) והפעלה, כולל עקרונות פסיכולוגיים, צ'קליסטים, מצבים ריקים ורעיונות לניסויים. הוא מורכב מטקסט ומסמכי עזר בלבד, ללא סקריפטים, קריאות רשת או גישה לסודות, ולכן הסיכון נמוך מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "referrals",
+      "title_he": "תוכנית הפניות",
+      "description_he": "בונה תוכנית חבר-מביא-חבר, שותפים או שגרירים, וגם קמפיין לאיסוף ביקורות. מתאים לכל עסק שרוצה שלקוחות יביאו לקוחות.",
+      "category": "marketing",
+      "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' 'partner program,' 'referral incentive,' 'how to get referrals,' 'customers referring customers,' 'affiliate payout,' 'get more reviews,' 'G2 reviews,' 'review campaign,' or 'respond to a bad review.' Use this whenever someone wants existing users or partners to bring in new customers. For launch-specific virality, see launch.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/referrals",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/referrals",
+      "install_command": "npx skills add Adidinahon/skills/skills/referrals",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.622Z",
+        "content_sha256": "cf3aab3ba42223d32306a5c4d2519f1fe26fcb292a2b67e0e63049c66ede97ad",
+        "summary_he": "הסקיל מספק הנחיות שיווקיות לתכנון ואופטימיזציה של תוכניות הפניה, שותפים (affiliate) וביקורות לקוחות, כולל חישובי כלכלה, תבניות מיילים וכללי פלטפורמות. אין בו סקריפטים, אין הרצת קוד מרוחק ואין איסוף אישורים. הוא אף מדגיש קבלת אישור מהמשתמש לפני שליחה ומתייחס לתוכן חיצוני כלא-מהימן, ולכן הסיכון נמוך.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "competitors",
+      "title_he": "דפי השוואה למתחרים",
+      "description_he": "כותב דפי \"אנחנו מול המתחרה\" ודפי חלופות, שמביאים תנועה מגוגל ועוזרים ללקוחות להחליט. כולל בדיקה של דפים קיימים.",
+      "category": "marketing",
+      "description": "When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing use. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'competitor teardown,' 'audit our competitor pages,' 'are our comparison pages out of date,' or 'competitive asset audit.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For auditing existing claims (not researching competitors from scratch, which is competitor-profiling; not technical SEO on these pages, which is seo-audit), use the asset audit here. For internal battle cards and sales-specific competitor docs, see sales-enablement.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/competitors",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/competitors",
+      "install_command": "npx skills add Adidinahon/skills/skills/competitors",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:52.798Z",
+        "content_sha256": "111c5dcbc466737500a2f4c08a85080d2b26561fbe4c8b66a4f6a1cbe844a8b1",
+        "summary_he": "הסקיל מספק הנחיות לכתיבת דפי השוואה למתחרים ודפי חלופות לצורכי SEO, וכן לביקורת של טענות קיימות על מתחרים. הוא מורכב מטקסט בלבד, בלי סקריפטים, בלי בקשת סודות ובלי הוראות מזיקות, ולכן הסיכון נמוך.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
+      }
+    },
+    {
+      "name": "free-tools",
+      "title_he": "כלי חינמי לשיווק",
+      "description_he": "מתכנן כלי חינמי כמו מחשבון, מחולל או בודק, שמביא לידים ותנועה מגוגל. עוזר להחליט אם שווה לבנות ואיך לחבר אותו למוצר.",
+      "category": "marketing",
+      "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" \"free resource,\" \"ROI calculator,\" \"grader tool,\" \"audit tool,\" \"should I build a free tool,\" or \"tools for lead gen.\" Use this whenever someone wants to build something useful and give it away to attract leads or earn links. For downloadable content lead magnets (ebooks, checklists, templates), see lead-magnets.",
+      "origin": "imported",
+      "author": "coreyhaines31",
+      "license": "MIT",
+      "upstream": "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/free-tools",
+      "upstream_commit": "c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467",
+      "github_url": "https://github.com/Adidinahon/skills/tree/main/skills/free-tools",
+      "install_command": "npx skills add Adidinahon/skills/skills/free-tools",
+      "review": {
+        "verdict": "pass",
+        "reviewed_at": "2026-10-14T07:59:53.289Z",
+        "content_sha256": "3fc475519fdbdec2c9b0f57f92ef8ae801b4372acbb9e714059ead8449352561",
+        "summary_he": "הסקיל מספק מסגרת אסטרטגית לתכנון והערכה של כלים חינמיים למטרות שיווק (יצירת לידים, SEO ומודעות למותג), כולל טבלת ניקוד, סוגי כלים ומקרי בוחן. הוא מורכב מטקסט הנחיות וקבצי עיון בלבד, בלי סקריפטים, בלי קריאות רשת ובלי גישה לסודות. רמת הסיכון נמוכה מאוד.",
+        "network_destinations": [],
+        "requires_secrets": [],
+        "approved_by": "Adi Nahon"
       }
     }
   ]

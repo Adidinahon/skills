@@ -1,0 +1,24 @@
+{
+  "skill": "requesting-code-review",
+  "verdict": "pass",
+  "content_sha256": "520265920a8170b9ebe41d7ab1713e02e0ef4ffea5e0afae7909e70ceff7d250",
+  "reviewed_at": "2026-10-14T07:59:53.700Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן להפעיל תת-סוכן לסקירת קוד על טווח קומיטים ב-git, באמצעות תבנית פרומפט מוגדרת. הוא משתמש רק בפקודות git לקריאה בלבד (diff, log, rev-parse), ואופציונלית ב-git worktree בתיקייה זמנית. אין בו קריאות רשת, אין שימוש בסודות ואין הוראות מזיקות, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "code-reviewer.md",
+      "issue": "The reviewer may create a git worktree under /tmp (git worktree add /tmp/review-[SHA]). This writes outside the project and leaves worktree metadata that is never cleaned up. The impact is minor and not destructive."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/obra",
+    "https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/requesting-code-review"
+  ]
+}

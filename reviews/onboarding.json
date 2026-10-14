@@ -1,0 +1,27 @@
+{
+  "skill": "onboarding",
+  "verdict": "pass",
+  "content_sha256": "4824eb07ac890a1207f91479b6e0b31869729cf93d7fecefeaec5024d7aec774",
+  "reviewed_at": "2026-10-14T07:59:53.453Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות מקצועיות לאופטימיזציה של תהליך קליטת משתמשים (onboarding) והפעלה, כולל עקרונות פסיכולוגיים, צ'קליסטים, מצבים ריקים ורעיונות לניסויים. הוא מורכב מטקסט ומסמכי עזר בלבד, ללא סקריפטים, קריאות רשת או גישה לסודות, ולכן הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Instructs the agent to read local context files (.agents/product-marketing.md, .claude/product-marketing.md, product-marketing-context.md). These are project-scoped marketing files and fit the stated purpose."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://amplitude.com/docs/analytics/charts/compass/compass-aha-moment",
+    "https://amplitude.com/docs/analytics/charts/compass/compass-interpret-1",
+    "https://chartmogul.com/reports/saas-conversion-report-2/",
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/onboarding"
+  ]
+}

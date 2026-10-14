@@ -1,0 +1,29 @@
+{
+  "skill": "competitors",
+  "verdict": "pass",
+  "content_sha256": "111c5dcbc466737500a2f4c08a85080d2b26561fbe4c8b66a4f6a1cbe844a8b1",
+  "reviewed_at": "2026-10-14T07:59:52.798Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות לכתיבת דפי השוואה למתחרים ודפי חלופות לצורכי SEO, וכן לביקורת של טענות קיימות על מתחרים. הוא מורכב מטקסט בלבד, בלי סקריפטים, בלי בקשת סודות ובלי הוראות מזיקות, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הסקיל קורא קובץ הקשר מקומי (.agents/product-marketing.md או .claude/product-marketing.md). הקריאה מוגבלת לתוך הפרויקט ותואמת את המטרה המוצהרת."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הסקיל ממליץ לבדוק אתרים ציבוריים של מתחרים ואתרי ביקורות (G2, Capterra, TrustRadius) לצורך אימות טענות. זהו גלישה למטרות מחקר בלבד, ללא שליחת נתוני משתמש."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/competitors"
+  ]
+}

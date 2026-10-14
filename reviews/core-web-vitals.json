@@ -1,0 +1,47 @@
+{
+  "skill": "core-web-vitals",
+  "verdict": "pass",
+  "content_sha256": "7d1a396d98cdb37fe225acb91e2edfec565dc5bdf9e720f59a49a6146cd9e5ae",
+  "reviewed_at": "2026-10-14T07:59:53.045Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות ודוגמאות קוד לשיפור מדדי Core Web Vitals (LCP, INP, CLS) על בסיס מדידות שטח ומעבדה, כולל קבצי עיון מפורטים. אין בו סקריפטים להרצה, אין גישה לסודות, אין הזרקת הוראות ואין שליחת נתונים ליעדים חיצוניים. הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "מפנה לקבצים מחוץ לתיקיית הסקיל (../performance/references/MEASUREMENT.md, RUM.md, ../performance/SKILL.md) שאינם כלולים בבדיקה הזו. תוכנם לא נבדק."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "מציע שימוש ב-Chrome DevTools MCP וב-Lighthouse/PageSpeed Insights למדידת URL. מדובר בכלים מוכרים, אבל הם כרוכים בגלישה לאתר היעד ובפנייה לשירותי Google."
+    }
+  ],
+  "network_destinations": [
+    "developer.chrome.com (documentation links)",
+    "web.dev (documentation links)",
+    "github.com (documentation links)",
+    "developer.mozilla.org (documentation links)",
+    "User-supplied target URL for performance tracing (via Chrome DevTools MCP)"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://developer.chrome.com/docs/devtools/performance/insights#cls-culprits",
+    "https://developer.chrome.com/docs/web-platform/prerender-pages#detect_when_a_page_is_prerendered_or_used_for_a_full_navigation",
+    "https://developer.chrome.com/docs/web-platform/prerender-pages#eagerness",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust",
+    "https://github.com/GoogleChrome/web-vitals#attribution-build",
+    "https://github.com/addyosmani",
+    "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/core-web-vitals",
+    "https://video.example/embed/123",
+    "https://web.dev/articles/cls",
+    "https://web.dev/articles/inp",
+    "https://web.dev/articles/lcp",
+    "https://web.dev/articles/optimize-cls",
+    "https://web.dev/articles/optimize-inp",
+    "https://web.dev/articles/optimize-long-tasks#scheduler-yield"
+  ]
+}

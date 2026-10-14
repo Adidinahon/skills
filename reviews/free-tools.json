@@ -1,0 +1,24 @@
+{
+  "skill": "free-tools",
+  "verdict": "pass",
+  "content_sha256": "3fc475519fdbdec2c9b0f57f92ef8ae801b4372acbb9e714059ead8449352561",
+  "reviewed_at": "2026-10-14T07:59:53.289Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק מסגרת אסטרטגית לתכנון והערכה של כלים חינמיים למטרות שיווק (יצירת לידים, SEO ומודעות למותג), כולל טבלת ניקוד, סוגי כלים ומקרי בוחן. הוא מורכב מטקסט הנחיות וקבצי עיון בלבד, בלי סקריפטים, בלי קריאות רשת ובלי גישה לסודות. רמת הסיכון נמוכה מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הסקיל מורה לסוכן לקרוא את הקובץ המקומי .agents/product-marketing.md (או .claude/product-marketing.md) אם הוא קיים. זו קריאה של קובץ הקשר שיווקי בתוך הפרויקט, והיא תואמת את מטרת הסקיל."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/free-tools"
+  ]
+}

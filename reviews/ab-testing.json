@@ -1,0 +1,34 @@
+{
+  "skill": "ab-testing",
+  "verdict": "pass",
+  "content_sha256": "1e4888e34e8cc609865a9e275bf92729b33215d48655b54039b80833b5f224ed",
+  "reviewed_at": "2026-10-14T07:59:52.635Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות ותבניות לתכנון, הרצה וניתוח של ניסויי A/B ותוכניות ניסויים, כולל טבלאות לגודל מדגם ומשך הניסוי. אין בו סקריפטים, אין גישה לסודות ואין פקודות רשת. הוא רק קורא קובץ הקשר שיווקי מקומי בתוך הפרויקט, ולכן הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "מנחה את הסוכן לקרוא את הקובץ .agents/product-marketing.md או .claude/product-marketing.md, אם קיים. מדובר בקובץ הקשר מקומי של הפרויקט שקשור למטרת הסקיל."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "מכיל קישורים מידעיים למחשבוני גודל מדגם חיצוניים (evanmiller.org, optimizely.com ואחרים). אלה הפניות לקריאה בלבד ואין הוראה לסוכן לפנות אליהם."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/ab-testing",
+    "https://vwo.com/tools/ab-test-duration-calculator/",
+    "https://www.abtestguide.com/calc/",
+    "https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf",
+    "https://www.evanmiller.org/ab-testing/sample-size.html",
+    "https://www.optimizely.com/sample-size-calculator/"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "skill": "cro",
+  "verdict": "pass",
+  "content_sha256": "78cd7e5b005a239ce21ace816ba467fac4efc35a9717f05b0144f228efdacb63",
+  "reviewed_at": "2026-10-14T07:59:53.125Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק מסגרת ייעוץ לאופטימיזציית המרות (CRO) עבור דפי שיווק וטפסים: ניתוח הצעת ערך, כותרות, קריאות לפעולה, אמון וחיכוך, וכן רעיונות לניסויים. הוא מורכב מהוראות טקסט בלבד, ללא סקריפטים, ללא גישה לסודות וללא פעולות מסוכנות, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "מפנה לקישור חיצוני ב-GitHub (מדריך revops inbound-routing) כחומר עיון. זהו תיעוד בלבד ולא קוד להרצה, אך הסוכן עשוי לגשת אליו."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "קורא קובץ הקשר מקומי (.agents/product-marketing.md או .claude/product-marketing.md) מתוך הפרויקט. הקריאה סבירה ותואמת למטרת הסקיל."
+    }
+  ],
+  "network_destinations": [
+    "github.com"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://example.com/product.",
+    "https://github.com/coreyhaines31",
+    "https://github.com/coreyhaines31/marketingskills/blob/main/skills/revops/references/inbound-routing.md",
+    "https://github.com/coreyhaines31/marketingskills/tree/c7d7dfb6b460fc376b4b2204b78a9c9fd5ca6467/skills/cro"
+  ]
+}

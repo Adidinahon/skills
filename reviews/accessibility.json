@@ -1,0 +1,48 @@
+{
+  "skill": "accessibility",
+  "verdict": "warn",
+  "content_sha256": "c0ca7ffc4e8a0bab460870ee42530a349fd151853de2bb0ce80ea9d675e80008",
+  "reviewed_at": "2026-10-14T07:59:53.866Z",
+  "approved_by": "Adi Nahon",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות לבדיקה ולשיפור נגישות אתרים לפי WCAG 2.2, כולל דוגמאות קוד וזרימת עבודה עם Lighthouse ו-axe. לא נמצאו קוד זדוני, איסוף סודות או הזרקת הנחיות. הסיכון נמוך, אבל הסקיל מציע להריץ npx ולהתקין חבילת npm גלובלית, ולכן כדאי שהמשתמש יהיה מודע לכך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Suggests `npm install @axe-core/cli -g`, a global package install that writes outside the project and pulls code from the npm registry."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Suggests `npx lighthouse <url>`, which downloads and runs the Lighthouse package from npm at runtime. It is a well-known tool, but it is still fetched and executed on the fly."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The audit workflow has the agent load and audit live URLs through Chrome DevTools MCP or Lighthouse. This is expected for the stated purpose, but it does involve network access to the sites being audited."
+    }
+  ],
+  "network_destinations": [
+    "registry.npmjs.org",
+    "user-specified audited URLs"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://dequeuniversity.com/rules/axe/",
+    "https://example.com",
+    "https://external.com",
+    "https://github.com/addyosmani",
+    "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/accessibility",
+    "https://wave.webaim.org/",
+    "https://www.deque.com/axe/",
+    "https://www.nvaccess.org/",
+    "https://www.tpgi.com/color-contrast-checker/",
+    "https://www.w3.org/TR/WCAG22/",
+    "https://www.w3.org/WAI/ARIA/apg/",
+    "https://www.w3.org/WAI/WCAG22/quickref/",
+    "https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/"
+  ]
+}
