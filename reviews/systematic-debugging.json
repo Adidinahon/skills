@@ -1,0 +1,34 @@
+{
+  "skill": "systematic-debugging",
+  "verdict": "pass",
+  "content_sha256": "b60160e1882dc13067da11d49791637a1913f2562d02d8d4bfdd2b1e1187401e",
+  "reviewed_at": "2026-10-11T11:07:53.557Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק מתודולוגיית דיבאג שיטתית בארבעה שלבים (חקירת שורש הבעיה, ניתוח דפוסים, השערה ובדיקה, ומימוש), יחד עם מסמכי עזר וסקריפט bash לאיתור טסט שמשאיר קבצים או מצב לא רצויים. לא נמצאו קריאות רשת, איסוף סודות, הורדת קוד מרחוק או התמדה (persistence). הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "דוגמת האבחון בסביבה מרובת שכבות כוללת את הפקודות 'security list-keychains' ו-'security find-identity -v' ב-macOS. הן מציגות רק שמות של מחזיקי מפתחות וזהויות חתימה, לא את הסודות עצמם. מדובר בדוגמה להקשר של codesign, אבל הסוכן עלול להריץ אותן גם במקרים שאין בהם צורך."
+    },
+    {
+      "severity": "low",
+      "file": "find-polluter.sh",
+      "issue": "הסקריפט מריץ 'npm test' על כל קובץ טסט שתואם לתבנית, כלומר מריץ קוד טסטים של הפרויקט. זו התנהגות צפויה ותואמת למטרה המוצהרת, והסקריפט לא מוחק קבצים ולא פונה לרשת."
+    },
+    {
+      "severity": "low",
+      "file": "test-pressure-1.md",
+      "issue": "קבצי test-pressure מכילים ניסוחים כמו 'IMPORTANT: This is a real scenario. You must choose and act'. אלה תרחישי לחץ שנועדו לבדוק את הסקיל, לא הוראות לעקוף את המשתמש, ואינם מהווים prompt injection מזיק."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/obra",
+    "https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/systematic-debugging"
+  ]
+}

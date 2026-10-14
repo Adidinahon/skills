@@ -19,7 +19,9 @@ import { join, relative, extname } from "node:path";
 import { hashSkill } from "./hash.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
-const TEXT_EXT = new Set([".md", ".txt", ".json", ".yaml", ".yml", ".toml", ".csv", ".py", ".js", ".mjs", ".cjs", ".ts", ".sh", ".html", ".css", ".svg"]);
+// Review EVERY file except verified binary assets (images/fonts, which scan.mjs validates by magic bytes).
+// An allow-list of text extensions let .tsx files and extension-less scripts slip past review.
+const BINARY_EXT = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".ttf", ".otf", ".woff", ".woff2"]);
 
 const Verdict = z.object({
   verdict: z.enum(["pass", "warn", "fail"]),
@@ -67,7 +69,14 @@ const CHUNK_CHARS = 550_000; // ~150K tokens per request, well inside the contex
 
 /** Splits a skill into review parts. SKILL.md goes into every part so each one is judged in context. */
 async function chunks(skillDir) {
-  const files = (await walk(skillDir)).filter((f) => TEXT_EXT.has(extname(f).toLowerCase()) || /LICENSE/.test(f)).sort();
+  const all = (await walk(skillDir)).sort();
+  const files = [];
+  for (const f of all) {
+    if (BINARY_EXT.has(extname(f).toLowerCase())) continue;
+    const buf = await readFile(f);
+    if (buf.includes(0)) throw new Error(`${relative(skillDir, f)} looks binary but has no allowed binary extension - refusing to skip it silently`);
+    files.push(f);
+  }
   const wrap = (rel, body) => `\n<file path="${rel}">\n${body}\n</file>\n`;
   const skillMd = wrap("SKILL.md", await readFile(join(skillDir, "SKILL.md"), "utf8"));
   const parts = [];
@@ -135,12 +144,13 @@ async function reviewPart(client, skillDir, content, label) {
 
 async function review(client, skillDir) {
   const parts = await chunks(skillDir);
+  const reviewed = [...new Set(parts.flatMap((p) => [...p.matchAll(/<file path="([^"]+?)(?: \(part \d+\/\d+\))?">/g)].map((m) => m[1])))];
   const results = [];
   for (let i = 0; i < parts.length; i++) {
     const label = parts.length > 1 ? ` (part ${i + 1} of ${parts.length}; SKILL.md is repeated in every part for context)` : "";
     results.push(await reviewPart(client, skillDir, parts[i], label));
   }
-  if (results.length === 1) return results[0];
+  if (results.length === 1) return { ...results[0], files_reviewed: reviewed };
 
   // strictest verdict wins; everything else is merged
   const worst = results.reduce((a, b) => (RANK[b.verdict] > RANK[a.verdict] ? b : a));
@@ -151,6 +161,7 @@ async function review(client, skillDir) {
     concerns: results.flatMap((r) => r.concerns),
     network_destinations: [...new Set(results.flatMap((r) => r.network_destinations))],
     requires_secrets: [...new Set(results.flatMap((r) => r.requires_secrets))],
+    files_reviewed: reviewed,
   };
 }
 

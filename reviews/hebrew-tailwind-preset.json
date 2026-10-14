@@ -1,0 +1,58 @@
+{
+  "skill": "hebrew-tailwind-preset",
+  "verdict": "pass",
+  "content_sha256": "6ee442ddf695588ee0875ae7d169c34296964ac5a2132006122d471281213b72",
+  "reviewed_at": "2026-10-11T11:07:50.865Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות תיעודיות להגדרת Tailwind CSS v4 (ו-v3.3+) לאפליקציות בעברית ו-RTL: גופנים עבריים, כלי שירות לוגיים ווריאנטים כיווניים. אין בו סקריפטים, הוא לא ניגש לסודות ואין בו הוראות חשודות. הפעולות היחידות הן התקנות npm סטנדרטיות של חבילות Tailwind הרשמיות ודוגמת קישור ל-Google Fonts שתוכנס לקוד של המשתמש, ולכן הסיכון נמוך.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Suggests running standard npm installs of official Tailwind packages (tailwindcss, @tailwindcss/vite, @tailwindcss/postcss, @tailwindcss/webpack). This is expected for the stated purpose but does modify project dependencies."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Example HTML adds a Google Fonts <link> (fonts.googleapis.com / fonts.gstatic.com) to the user's web app. End users' browsers would contact Google; the agent itself does not. A self-hosting alternative is offered."
+    }
+  ],
+  "network_destinations": [
+    "registry.npmjs.org (npm install of Tailwind packages)",
+    "fonts.googleapis.com (in generated app HTML)",
+    "fonts.gstatic.com (in generated app HTML)"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face/font-display",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-direction",
+    "https://fonts.google.com/specimen/Assistant",
+    "https://fonts.google.com/specimen/Heebo",
+    "https://fonts.google.com/specimen/Heebo;",
+    "https://fonts.googleapis.com",
+    "https://fonts.googleapis.com/css2?family=Cousine",
+    "https://fonts.googleapis.com/css2?family=Heebo",
+    "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Assistant:wght@400;600&family=Cousine&display=swap",
+    "https://fonts.gstatic.com",
+    "https://fonts.gstatic.com/s/heebo/",
+    "https://github.com/skills-il",
+    "https://github.com/skills-il/localization/tree/82aa931cd2a568cdc93b0c15e14bc74075606baf/hebrew-tailwind-preset",
+    "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.2.0",
+    "https://nextjs.org/docs/app/getting-started/css",
+    "https://raw.githubusercontent.com/mdn/browser-compat-data/main/css/properties/float.json",
+    "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/CHANGELOG.md",
+    "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/main/packages/tailwindcss/theme.css",
+    "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/v3.4.17/CHANGELOG.md",
+    "https://tailwindcss.com/blog/tailwindcss-v4-3",
+    "https://tailwindcss.com/docs/background-image",
+    "https://tailwindcss.com/docs/dark-mode",
+    "https://tailwindcss.com/docs/detecting-classes-in-source-files",
+    "https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support",
+    "https://tailwindcss.com/docs/margin",
+    "https://tailwindcss.com/docs/theme",
+    "https://tailwindcss.com/docs/upgrade-guide"
+  ]
+}

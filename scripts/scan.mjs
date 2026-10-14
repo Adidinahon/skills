@@ -32,6 +32,8 @@ const FONT_EXT = new Set([".ttf", ".otf", ".woff", ".woff2"]);
 // A font must really be a font: TrueType 00 01 00 00 / "true", OpenType "OTTO", WOFF "wOFF", WOFF2 "wOF2"
 const isFont = (buf) => ["00010000", "74727565", "4f54544f", "774f4646", "774f4632"].includes(buf.subarray(0, 4).toString("hex"));
 const SCRIPT_EXT = new Set([".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".sh"]);
+const DOC_EXT = new Set([".md", ".txt"]);
+const SHEBANG = /^#!\s*\/(?:usr\/)?(?:bin\/)?(?:env\s+)?(?:ba|z)?sh|^#!\s*\/usr\/bin\/env\s+(?:python3?|node)\b/;
 const LICENSE_NAMES = new Set(["LICENSE", "LICENSE.md", "LICENSE.txt", "LICENSE.upstream"]);
 
 /** @typedef {{ level: "high" | "medium", rule: string, file: string, line?: number, detail: string }} Finding */
@@ -79,11 +81,11 @@ const INJECTION_RULES = [
 
 const HIDDEN_CHARS = [
   // bidi overrides can make code read differently than it runs ("Trojan Source")
-  ["bidi-override", "high", /[‪-‮⁦-⁩]/],
+  ["bidi-override", "high", /[\u202A-\u202E]/],
   // Unicode tag block - invisible text that models still read
   ["unicode-tags", "high", /[\u{E0000}-\u{E007F}]/u],
   // zero-width chars hide words inside text
-  ["zero-width", "medium", /[​-‍⁠﻿]/],
+  ["zero-width", "medium", /[\u200B-\u200D\u2060\uFEFF]/],
 ];
 
 async function walk(dir) {
@@ -108,6 +110,21 @@ function isExecutableBinary(buf) {
     (h[0] === 0x4d && h[1] === 0x5a) || // PE / MZ
     [0xfeedface, 0xfeedfacf, 0xcefaedfe, 0xcffaedfe, 0xcafebabe].includes(buf.readUInt32BE(0)) // Mach-O / fat
   );
+}
+
+/**
+ * Human-reviewed exceptions (scan-allowlist.json). An entry silences one finding only if the
+ * file, rule AND the exact flagged excerpt still match - editing that line revives the finding.
+ */
+let ALLOW = null;
+async function allowlist() {
+  if (ALLOW) return ALLOW;
+  try {
+    ALLOW = JSON.parse(await readFile(join(ROOT, "scan-allowlist.json"), "utf8")).entries ?? [];
+  } catch {
+    ALLOW = [];
+  }
+  return ALLOW;
 }
 
 /** @returns {Promise<Finding[]>} */
@@ -162,12 +179,15 @@ export async function scanSkill(skillDir) {
     const ext = extname(file).toLowerCase();
     const base = basename(file);
 
-    if (!ALLOWED_EXT.has(ext) && !LICENSE_NAMES.has(base) && base !== "NOTICE") {
+    if (base === ".gitkeep" && st.size === 0) continue;
+    const headBytes = !ext ? (await readFile(file)).subarray(0, 120).toString("utf8") : "";
+    const isShebangScript = !ext && SHEBANG.test(headBytes);
+    if (!ALLOWED_EXT.has(ext) && !LICENSE_NAMES.has(base) && base !== "NOTICE" && !isShebangScript) {
       add("high", "file-type", file, `File type "${ext || base}" is not allowed`);
       continue;
     }
     if (st.size > MAX_FILE_BYTES) add("high", "file-size", file, `File is ${(st.size / 1e6).toFixed(1)}MB (max 1MB)`);
-    if (st.mode & 0o111 && !SCRIPT_EXT.has(ext)) add("medium", "exec-bit", file, "Non-script file has the executable bit set");
+    if (st.mode & 0o111 && !SCRIPT_EXT.has(ext) && !isShebangScript) add("medium", "exec-bit", file, "Non-script file has the executable bit set");
 
     const buf = await readFile(file);
     if (buf.length >= 4 && isExecutableBinary(buf)) { add("high", "binary-executable", file, "Compiled executable detected"); continue; }
@@ -198,6 +218,10 @@ export async function scanSkill(skillDir) {
       }
       if (/data:[a-z]+\/[a-z0-9.+-]+;base64,[A-Za-z0-9+/]{200,}/i.test(text)) add("medium", "embedded-blob", file, "Large base64 data: URI embedded in text");
     }
+    {
+      const m = /[\u2066-\u2069]/.exec(text);
+      if (m) add(DOC_EXT.has(ext) ? "medium" : "high", "hidden:bidi-isolate", file, `U+${m[0].codePointAt(0).toString(16).toUpperCase()} found${DOC_EXT.has(ext) ? " (prose)" : " (code)"}`, lineOf(text, m.index));
+    }
     for (const [rule, level, re] of HIDDEN_CHARS) {
       const m = re.exec(text);
       if (m) add(level, `hidden:${rule}`, file, `U+${m[0].codePointAt(0).toString(16).toUpperCase()} found`, lineOf(text, m.index));
@@ -207,7 +231,14 @@ export async function scanSkill(skillDir) {
 
   if (total > MAX_SKILL_BYTES) add("high", "skill-size", skillDir, `Skill is ${(total / 1e6).toFixed(1)}MB (max 8MB)`);
 
-  return { name, origin, findings, externalUrls: [...externalUrls].sort() };
+  const allow = await allowlist();
+  const allowed = [];
+  const kept = findings.filter((f) => {
+    const hit = allow.find((a) => a.file === f.file && a.rule === f.rule && a.excerpt === f.detail);
+    if (hit) allowed.push({ ...f, reason: hit.reason });
+    return !hit;
+  });
+  return { name, origin, findings: kept, allowed, externalUrls: [...externalUrls].sort() };
 }
 
 async function main() {
@@ -234,6 +265,7 @@ async function main() {
     const status = h.length ? "FAIL" : m.length ? "WARN" : "PASS";
     console.log(`\n[${status}] ${r.name} (${r.origin})`);
     for (const f of r.findings) console.log(`  ${f.level.toUpperCase().padEnd(6)} ${f.rule}  ${f.file}${f.line ? `:${f.line}` : ""}  ${f.detail}`);
+    for (const f of r.allowed) console.log(`  ALLOWED ${f.rule}  ${f.file}${f.line ? `:${f.line}` : ""}  (${f.reason})`);
     if (r.externalUrls.length) console.log(`  external URLs (review manually): ${r.externalUrls.length}`);
   }
   console.log(`\n${results.length} skill(s) scanned · ${high} high · ${medium} medium`);

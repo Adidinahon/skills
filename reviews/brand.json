@@ -1,0 +1,41 @@
+{
+  "skill": "brand",
+  "verdict": "warn",
+  "content_sha256": "cadb68f8052e2fa66257e379647eade74c49fe38625cfe4561f1917ca6077b38",
+  "reviewed_at": "2026-10-11T11:07:49.953Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק מסגרות לקול מותג, זהות חזותית ומסרים, וכולל סקריפטים מקומיים ב-Node. הסקריפטים קוראים את docs/brand-guidelines.md, בודקים נכסים וכותבים את assets/design-tokens.json ו-assets/design-tokens.css. לא נמצאו קריאות רשת, איסוף סודות, הסתרה או התמדה. הסיכון העיקרי הוא שסקריפט הסנכרון מריץ סקריפט של סקיל אחר (design-system) שאינו כלול בחבילה ולכן לא נבדק.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "scripts/sync-brand-to-tokens.cjs",
+      "issue": "Runs ../../design-system/scripts/generate-tokens.cjs via execFileSync. That sibling skill's script is not part of this bundle and was not reviewed. Whatever code is installed at that path will be executed."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/sync-brand-to-tokens.cjs",
+      "issue": "Overwrites assets/design-tokens.json and assets/design-tokens.css in the project. A detection guard refuses to run without --force, but --force bypasses it."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/inject-brand-context.cjs",
+      "issue": "Turns content from the project's brand-guidelines.md into text meant for system-prompt injection. If that file is untrusted, it could carry instructions into the agent's context."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://colorhunt.co",
+    "https://coolors.co",
+    "https://example.com/theme.css",
+    "https://fonts.googleapis.com",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "https://github.com/nextlevelbuilder",
+    "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/67803eac81607188194aea9842a723b89326d90d/.claude/skills/brand",
+    "https://tailwindcss.com/docs/customizing-colors",
+    "https://webaim.org/resources/contrastchecker/"
+  ]
+}

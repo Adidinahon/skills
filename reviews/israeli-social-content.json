@@ -1,0 +1,38 @@
+{
+  "skill": "israeli-social-content",
+  "verdict": "pass",
+  "content_sha256": "071f30c85734bf584b37df06a007bf3767e9029582fe41f2160b61a71bf030e7",
+  "reviewed_at": "2026-10-11T11:07:51.732Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות ליצירת תוכן לרשתות חברתיות לקהל ישראלי: קופי בעברית, האשטגים, עיצוב RTL ותזמון פרסום לפי לוח השנה הישראלי. הסקריפט המצורף רק מדפיס לוח זמנים סטטי, ללא גישה לרשת, לקבצים או לסודות. לא נמצאו הוראות זדוניות, הזרקת פרומפט או פעולות מסוכנות.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Contains reference URLs (Meta, Instagram, TikTok, LinkedIn, DataReportal) and suggests Hebcal for calendar dates. These are informational links for the user to verify against, not automatic fetches."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+    "https://ads.tiktok.com/business/en",
+    "https://business.linkedin.com",
+    "https://creators.instagram.com",
+    "https://creators.instagram.com/grow",
+    "https://datareportal.com/reports/digital-2026-israel",
+    "https://developers.facebook.com/documentation/instagram-platform/instagram-graph-api/reference/ig-user/media",
+    "https://developers.tiktok.com/doc/content-posting-api-reference-direct-post",
+    "https://github.com/skills-il",
+    "https://github.com/skills-il/marketing-growth/tree/92f14037d52fb810099cc2818c91cda5e95e8433/israeli-social-content",
+    "https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/israel",
+    "https://help.instagram.com",
+    "https://napoleoncat.com/stats/facebook-users-in-israel/2026/01/",
+    "https://transparency.meta.com/en-us/features/approach-to-ranking/types-of-content-we-demote/",
+    "https://www.facebook.com/business/help",
+    "https://www.tiktok.com/support/faq_detail?id=7636670084747893268"
+  ]
+}

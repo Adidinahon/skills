@@ -1,0 +1,32 @@
+{
+  "skill": "break-ui",
+  "verdict": "warn",
+  "content_sha256": "a86e4228dc9ac11b26b9298cd18bf98f94698380015a7ae3925dda046be6d620",
+  "reviewed_at": "2026-10-11T11:07:50.062Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל בודק רכיבי ממשק משתמש באמצעות נתוני קצה מציאותיים (שמות ארוכים, אימיילים בלי נקודות שבירה, ספירות קיצוניות ועוד). הוא בונה מתג פיתוח בלבד בין נתוני הדמו לנתוני המקרה הגרוע, ומדווח מה נשבר ואיך לתקן. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מזיקות, והוא אף מורה להתייחס לתוכן המאגר כנתונים בלבד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הסקיל כותב קבצי fixture ומתג פיתוח בתוך הפרויקט ועשוי לשנות קוד רכיבים. התיקונים מתבצעים רק לבקשת המשתמש, וזה תואם למטרה המוצהרת."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הוראת 'Initial Response' מגבילה את התשובה הראשונה למשפט קבוע. זו הוראה קוסמטית ולא מזיקה."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [
+    "hidden:zero-width skills/break-ui/CATALOG.md:26"
+  ],
+  "external_urls": [
+    "https://example.com/workspaces/acme/projects/q3-launch/docs/9f8e7d6c5b4a?tab=comments&filter=unresolved",
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/break-ui"
+  ]
+}

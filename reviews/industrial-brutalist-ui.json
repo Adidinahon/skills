@@ -1,0 +1,18 @@
+{
+  "skill": "industrial-brutalist-ui",
+  "verdict": "pass",
+  "content_sha256": "da899aab6b12bb1664881698493d89b466bc943ee12f21d3c06eb7aa90c52ee5",
+  "reviewed_at": "2026-10-11T11:07:51.577Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק הנחיות עיצוב בלבד לבניית ממשקים בסגנון ברוטליזם תעשייתי וטרמינל צבאי: טיפוגרפיה, צבעים, גריד ואפקטים של CSS/SVG. אין בו סקריפטים, קריאות רשת, דרישה לסודות או הוראות חשודות, ולכן הסיכון זניח.",
+  "does_what_it_claims": true,
+  "concerns": [],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/leonxlnx",
+    "https://github.com/leonxlnx/taste-skill/tree/717446e07a78d4e6d7918b1fde1a263378eebac9/skills/brutalist-skill"
+  ]
+}

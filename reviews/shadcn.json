@@ -2,41 +2,36 @@
   "skill": "shadcn",
   "verdict": "warn",
   "content_sha256": "fbad3892f6d65e3e9f53e1d1eee17bea864cf2d28c1543815d0dbf9cdd5c0bda",
-  "reviewed_at": "2026-10-11T08:34:29.293Z",
+  "reviewed_at": "2026-10-11T11:10:39.181Z",
   "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
   "ai_model": "claude-opus-5-5",
-  "summary_he": "זהו הסקיל הרשמי של shadcn/ui. הוא מנחה את הסוכן להוסיף, לעצב ולתקן רכיבי UI ולבנות מערכות עיצוב באמצעות ה-CLI של shadcn. אין בו סימנים לזדוניות, אבל הוא מריץ אוטומטית את `npx shadcn@latest` (קוד שמורד מ-npm בגרסה האחרונה) עם הרשאות מאושרות מראש, ועלול להתקין קוד מרג'יסטרים של צד שלישי, ולכן מומלץ לשים לב.",
+  "summary_he": "זהו הסקיל הרשמי של shadcn/ui לניהול רכיבים, פריסטים ומערכות עיצוב באמצעות ה-CLI של shadcn, יחד עם כללי סגנון וקומפוזיציה מפורטים. לא נמצאו גניבת סודות, הסתרה או הזרקת הוראות. עם זאת, הסקיל מריץ אוטומטית `npx shadcn@latest` בטעינה (גרסה לא נעוצה מ-npm), ומתקין קוד מרג'יסטריז של צד שלישי, ולכן מומלץ להיות מודעים לסיכון.",
   "does_what_it_claims": true,
   "concerns": [
     {
       "severity": "medium",
       "file": "SKILL.md",
-      "issue": "הזרקת הקשר דינמית (!`npx shadcn@latest info --json`) מריצה פקודה אוטומטית ברגע טעינת הסקיל. הפקודה מורידה ומריצה את חבילת npm בגרסת latest, שאינה נעוצה לגרסה מסוימת, בלי אישור מהמשתמש."
+      "issue": "Dynamic context injection (!`npx shadcn@latest info --json`) runs a shell command automatically when the skill loads. It downloads and executes the latest unpinned shadcn package from npm. This is the official tool and matches the stated purpose, but a compromised npm release would execute without any user action."
     },
     {
       "severity": "medium",
       "file": "SKILL.md",
-      "issue": "allowed-tools מאשר מראש כל פקודת `npx/pnpm dlx/bunx shadcn@latest *`, כולל add/apply/init --force. פקודות אלה כותבות ודורסות קבצים בפרויקט ומתקינות תלויות בלי בקשת הרשאה."
-    },
-    {
-      "severity": "medium",
-      "file": "cli.md",
-      "issue": "ה-CLI מסוגל להתקין רכיבים מכתובות URL שרירותיות, מרג'יסטרים של צד שלישי ומריפו GitHub (owner/repo/item). זהו קוד חיצוני שנכתב לפרויקט. הסקיל אמנם מורה לשאול את המשתמש איזה רג'יסטרי להשתמש בו ולבדוק את הקבצים לאחר ההוספה."
+      "issue": "Encourages adding components from community and third-party registries (@magicui, @bundui, owner/repo GitHub, arbitrary URLs). Those writes install unreviewed third-party source code and npm dependencies into the project. The skill partially mitigates this by requiring the user to name the registry explicitly and recommending --dry-run/--view and reviewing added files."
     },
     {
       "severity": "low",
       "file": "SKILL.md",
-      "issue": "הסוכן מתבקש להביא (fetch) כתובות תיעוד ודוגמאות מ-ui.shadcn.com ומ-raw.githubusercontent.com."
-    },
-    {
-      "severity": "low",
-      "file": "mcp.md",
-      "issue": "מתועדת תמיכה ברג'יסטרים פרטיים עם כותרות Authorization שנלקחות ממשתני סביבה (${MY_TOKEN}). המשתמש מגדיר אותם בעצמו, והסקיל אינו אוסף אותם."
+      "issue": "Instructs the agent to fetch documentation and example URLs (ui.shadcn.com, raw.githubusercontent.com) returned by the CLI. This is network access to well-known hosts."
     },
     {
       "severity": "low",
       "file": "design-system.md",
-      "issue": "הסקיל מתקין חבילות גופנים מ-Fontsource דרך npm ומריץ שרת פיתוח. אלה פעולות לגיטימיות אך כוללות גישה לרשת."
+      "issue": "Design-system workflow runs `add --all -y` and `init ... -y` (skipping confirmation prompts) and installs npm font packages. These are scoped to a newly scaffolded app."
+    },
+    {
+      "severity": "low",
+      "file": "mcp.md",
+      "issue": "Documents registry config with Authorization headers resolved from env vars (${MY_TOKEN}). This is user-configured and only sent to the user's own registries, so it is not exfiltration."
     }
   ],
   "network_destinations": [
@@ -44,7 +39,7 @@
     "ui.shadcn.com",
     "raw.githubusercontent.com",
     "github.com",
-    "third-party shadcn registries configured by the user (e.g. @magicui, @tailark)"
+    "user-configured / community shadcn registries"
   ],
   "requires_secrets": [],
   "scan_warnings": [],

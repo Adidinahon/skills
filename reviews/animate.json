@@ -1,0 +1,31 @@
+{
+  "skill": "animate",
+  "verdict": "pass",
+  "content_sha256": "80e36cf041951def51a1bb422f7182b76a82d1108f65557de5e6f327479e85a2",
+  "reviewed_at": "2026-10-11T11:07:49.523Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן לבנות אנימציות ממשק (CSS, WAAPI, Motion) לפי סדר החלטות מוגדר, כולל טבלאות עקומות, משכים ותמיכה ב-reduced motion. אין בו סקריפטים, אין גישה לסודות או לרשת, ואין הוראות מזיקות. הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "Instructs a fixed initial canned response and withholding other info until asked; benign stylistic instruction, not an attempt to hide actions."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "References external sites (easing.dev, easings.co) as reading suggestions for easing curves; no automatic fetching or execution."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://easing.dev/",
+    "https://easings.co/",
+    "https://github.com/emilkowalski",
+    "https://github.com/emilkowalski/skills/tree/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/skills/animate"
+  ]
+}

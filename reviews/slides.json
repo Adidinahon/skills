@@ -1,0 +1,39 @@
+{
+  "skill": "slides",
+  "verdict": "warn",
+  "content_sha256": "5caff163ee75a959e002efc869d07b858690dd05459ba8dcf8745c1eacff501a",
+  "reviewed_at": "2026-10-11T11:07:53.274Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מספק תבניות HTML, דפוסי פריסה ונוסחאות קופירייטינג ליצירת מצגות עם Chart.js. אין בו קוד זדוני, אך הוא מפנה להרצת סקריפט Python מסקיל אחר (design-system) שאינו כלול בחבילה ולא נבדק, והתבנית טוענת ספרייה מ-CDN חיצוני.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "medium",
+      "file": "references/layout-patterns.md",
+      "issue": "Instructs the agent to run python ../design-system/scripts/search-slides.py, a script from a sibling skill that is not included here and could not be reviewed. The same applies to copywriting-formulas.md and slide-strategies.md."
+    },
+    {
+      "severity": "low",
+      "file": "references/html-template.md",
+      "issue": "The generated HTML loads Chart.js from cdn.jsdelivr.net. The URL is version-pinned but has no SRI integrity hash, and the example background images point to images.pexels.com."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "The skill references an embed-tokens.cjs script and CSV knowledge files (layout-logic.csv and others) that are not included in the package."
+    }
+  ],
+  "network_destinations": [
+    "cdn.jsdelivr.net",
+    "images.pexels.com"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js",
+    "https://github.com/nextlevelbuilder",
+    "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/67803eac81607188194aea9842a723b89326d90d/.claude/skills/slides",
+    "https://images.pexels.com/..."
+  ]
+}

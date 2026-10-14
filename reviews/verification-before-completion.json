@@ -1,0 +1,24 @@
+{
+  "skill": "verification-before-completion",
+  "verdict": "pass",
+  "content_sha256": "7f6df9497f5cdd10db7d2aef894782e85e28ee7bdd8d01f0237851f2b17ce6c2",
+  "reviewed_at": "2026-10-11T11:07:54.246Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנחה את הסוכן להריץ פקודות אימות (בדיקות, build, linter) ולקרוא את הפלט לפני שהוא טוען שעבודה הושלמה או תוקנה. אין בו סקריפטים, קריאות רשת, גישה לסודות או הוראות מזיקות, ולכן הסיכון נמוך מאוד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "מנחה להריץ פקודות בדיקה, build ו-linter של הפרויקט, ובדפוס red-green גם לבטל זמנית תיקון ולשחזר אותו. זה סטנדרטי ותואם את מטרת הסקיל, אבל פקודות הבדיקה עצמן הן קוד של הפרויקט."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://github.com/obra",
+    "https://github.com/obra/superpowers/tree/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/verification-before-completion"
+  ]
+}

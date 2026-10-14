@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": "1.0",
+  "skill": "remotion-best-practices",
+  "generated_at": "2026-10-07T00:02:08.141957+00:00",
+  "claims": [
+    {
+      "claim_id": "remotion-version-4-stable",
+      "claim": "Remotion stable is on the 4.0.x line: v4.0.533 (released 2026-10-05) is the Latest GitHub release, and the npm dist-tags at https://registry.npmjs.org/-/package/remotion/dist-tags read latest 4.0.533 and alpha 4.1.0-alpha12 on 2026-10-07, so no 4.1 or 5.0 stable has shipped.",
+      "source_url": "https://github.com/remotion-dev/remotion/releases/tag/v4.0.533",
+      "raw_snippet": "Releases v4.0.533 v4.0.533 Latest Latest",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "trimbefore-trimafter-in-frames",
+      "claim": "In @remotion/media <Video>/<Audio>, trimBefore and durationInFrames are in frames; durationInFrames (v4.0.446) selects that many SOURCE frames starting at trimBefore.",
+      "source_url": "https://www.remotion.dev/docs/media/video",
+      "raw_snippet": "Selects this many source frames starting at trimBefore .",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/videos.md",
+        "rules/audio.md",
+        "rules/ffmpeg.md",
+        "rules/silence-detection.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "media-video-frame-exact",
+      "claim": "@remotion/media's <Video> is the new frame-exact tag: during rendering it extracts the exact frame via Mediabunny in a canvas, distinct from the legacy <Video> from the remotion package.",
+      "source_url": "https://www.remotion.dev/docs/media/video",
+      "raw_snippet": "During rendering, it extracts the exact frame from the video using Mediabunny and displays it in a <canvas> tag. This keeps the video in sync with Remotion's timeline. This component has native buffering support enabled by default. When used in the Player, it automatically pauses playback when buffering and resumes when ready. Example ​ import { & InteractiveBaseProps & { readonly stack?",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "rules/rendering.md",
+        "rules/videos.md",
+        "SKILL.md",
+        "SKILL_HE.md"
+      ],
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "whisper-cpp-1-9-1",
+      "claim": "whisper.cpp v1.9.4 (2026-09-11) is a stable release, not marked pre-release; @remotion/install-whisper-cpp takes the version without the v prefix, so the pin is 1.9.4.",
+      "source_url": "https://github.com/ggml-org/whisper.cpp/releases/tag/v1.9.4",
+      "raw_snippet": "Releases v1.9.4 v1.9.4",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-render-codecs",
+      "claim": "SUPERSEDED BY remotion-valid-codecs. Retained only to record that the rendered Remotion CLI docs page for --codec is STALE and still enumerates png. The accepted codec set is defined by validCodecs in packages/renderer/src/codec.ts and does NOT include png. No skill file relies on this entry.",
+      "source_url": "https://www.remotion.dev/docs/cli/render",
+      "raw_snippet": "h264 or h265 or av1 or png or vp8 or vp9 or mp3 or aac or wav or prores or h264-mkv.",
+      "fetched_at": "2026-08-26T18:47:36.746855+00:00",
+      "appears_in": []
+    },
+    {
+      "claim_id": "remotion-license-threshold",
+      "claim": "Remotion is free for individuals, non-profits, and for-profit organisations with up to 3 employees; organisations of 4+ need a paid Company License. Also covers: https://www.remotion.dev/docs/license",
+      "source_url": "https://www.remotion.dev/license",
+      "raw_snippet": "You are eligible to use Remotion for free if you are: an individual a for-profit organization with up to 3 employees a non-profit or not-for-profit organization",
+      "fetched_at": "2026-08-26T18:47:36.746855+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/rendering.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-v3-70-languages-nonrealtime",
+      "claim": "Eleven v3 supports 70+ languages including Hebrew (heb).",
+      "source_url": "https://elevenlabs.io/docs/overview/models",
+      "raw_snippet": "The Eleven v3 model supports 70+ languages, including: Afrikaans (afr), Arabic (ara), Armenian (hye)",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md",
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-multilingual-v2",
+      "claim": "eleven_multilingual_v2 supports 29 languages and Hebrew is NOT among them.",
+      "source_url": "https://elevenlabs.io/docs/overview/models",
+      "raw_snippet": "Our multilingual v2 models support 29 languages:",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md",
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-remotion-docs-home",
+      "claim": "https://www.remotion.dev/docs is the Remotion documentation home (getting started, creating a new project).",
+      "source_url": "https://www.remotion.dev/docs",
+      "raw_snippet": "it can create a complete Remotion project that you can edit, run, and render locally",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "ref-remotion-github",
+      "claim": "https://github.com/remotion-dev/remotion is the Remotion source repository (issues, releases).",
+      "source_url": "https://github.com/remotion-dev/remotion",
+      "raw_snippet": "Make videos programmatically with React remotion.dev",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "ref-remotion-cli-render",
+      "claim": "https://www.remotion.dev/docs/cli/render documents the npx remotion render CLI flags including codec, concurrency, and scale. NOTE: this page is a navigational reference only; its --codec table is known to be stale (it still lists png). Use packages/renderer/src/codec.ts for the accepted codec set.",
+      "source_url": "https://www.remotion.dev/docs/cli/render",
+      "raw_snippet": "The default image format is JPEG. See setImageSequence() for more details. --codec v 1.4.0 ​ h264 or h265 or av1 or png or vp8 or vp9 or mp3 or aac or wav or prores or h264-mkv . If you don't supply --codec , it will use the H.264 encoder. If you are rendering on Linux ARM64 GNU, av1 is not available. --audio-codec v 3.3.42 ​ Set the format of the audio that is embedded in the video.",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/rendering.md"
+      ],
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "ref-remotion-lambda",
+      "claim": "https://www.remotion.dev/docs/lambda is the @remotion/lambda documentation for cloud rendering on AWS Lambda.",
+      "source_url": "https://www.remotion.dev/docs/lambda",
+      "raw_snippet": "This is the fastest and most scalable way to render Remotion videos. You only pay while you are rendering, making it very cost-effective. When should I use it? ​ Your videos are less than 80 minutes long at Full HD. approximately until the 15min AWS Timeout limit is hit You stay within the ( AWS Lambda Concurrency Limit ) or you are requesting an increase from AWS .",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/rendering.md"
+      ],
+      "verified_via": "source fetched and the passage copied verbatim from the cited page",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "ref-remotion-google-fonts",
+      "claim": "Remotion documents loading Google Fonts via @remotion/google-fonts with a subsets option (e.g. hebrew) through loadFont. The canonical docs page is https://www.remotion.dev/docs/fonts; the legacy path https://www.remotion.dev/docs/google-fonts is referenced in the skill's Reference Links.",
+      "source_url": "https://www.remotion.dev/docs/fonts",
+      "raw_snippet": "MyComp.tsx import { loadFont } from \"@remotion/google-fonts/TitanOne\" ; const { fontFamily } = loadFont ( \"normal\" , { weights: [ \"400\" ], subsets: [ \"latin\" ], }); const GoogleFontsComp : React . FC = () => { return < div style = {{ fontFamily }}>Hello, Google Fonts</ div >; }; Copy For projects with multiple fonts, load fonts in one shared module and wait until they are ready before rendering. If you use text measurement APIs, see the higher-order component example .",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/fonts.md",
+        "rules/hebrew-rtl.md"
+      ],
+      "verified_via": "cited page fetched and confirmed to contain \"400\"; snippet replaced with the page's own wording around it",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "ref-remotion-captions",
+      "claim": "https://www.remotion.dev/docs/captions is the captions documentation hub (import .srt, transcribe, display); the Caption type is at https://www.remotion.dev/docs/captions/caption.",
+      "source_url": "https://www.remotion.dev/docs/captions",
+      "raw_snippet": "Learn how to add captions and subtitles to your Remotion videos.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/display-captions.md",
+        "rules/subtitles.md"
+      ]
+    },
+    {
+      "claim_id": "ref-elevenlabs-docs",
+      "claim": "https://elevenlabs.io/docs is the ElevenLabs developer documentation for multilingual text-to-speech across 70+ languages.",
+      "source_url": "https://elevenlabs.io/docs",
+      "raw_snippet": "works Concepts Choose your path Meet the models Browse by capability Scroll to top ElevenLabs Documentation Copy page Explore our docs and guides to integrate ElevenLabs How ElevenLabs works ElevenLabs provides AI voice infrastructure: text-to-speech, speech-to-text, voice cloning, conversational agents, and generative audio. You can use it in four ways, suited to different audiences.",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/voiceover.md"
+      ],
+      "verified_via": "cited page fetched; 36 of 37 of the claim's distinctive terms occur on it, and the snippet is the page's own wording around \"docs\"",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "ref-google-fonts-hebrew-browse",
+      "claim": "https://fonts.google.com/?script=Hebr lists the Google Fonts families that support Hebrew (64 of 1,950 families on 2026-10-07, including Heebo, Rubik and Assistant). The older ?subset=hebrew parameter no longer filters.",
+      "source_url": "https://fonts.google.com/?script=Hebr",
+      "raw_snippet": "64 of 1,950 families",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/hebrew-rtl.md"
+      ],
+      "verified_via": "browser: headless Chromium (Playwright) rendered the JS page on 2026-10-07, location.href asserted as https://fonts.google.com/?script=Hebr, body text contained \"64 of 1,950 families\" and Heebo, Rubik, Assistant; the same check on ?subset=hebrew showed all 1,950 families unfiltered",
+      "verified_at": "2026-10-07"
+    },
+    {
+      "claim_id": "ref-install-whisper-cpp",
+      "claim": "@remotion/install-whisper-cpp installs Whisper.cpp and a model for local transcription; transcribe() is documented at https://www.remotion.dev/docs/install-whisper-cpp/transcribe.",
+      "source_url": "https://www.remotion.dev/docs/install-whisper-cpp",
+      "raw_snippet": "This package provides easy to use cross-platform functions to install Whisper.cpp and a model.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md"
+      ]
+    },
+    {
+      "claim_id": "ref-remotion-media-utils-and-misc-docs",
+      "claim": "Remotion docs pages referenced by rule files: https://www.remotion.dev/docs/tailwind https://www.remotion.dev/docs/get-waveform-portion https://www.remotion.dev/docs/visualize-audio https://www.remotion.dev/docs/use-windowed-audio-data https://www.remotion.dev/docs/use-delay-render https://www.remotion.dev/docs/media-utils/visualize-audio-waveform https://www.remotion.dev/docs/media-utils/create-smooth-svg-path https://remotion.dev/docs/paths.md",
+      "source_url": "https://www.remotion.dev/docs/tailwind",
+      "raw_snippet": "The easiest way to get started with Tailwind is by scaffolding a new video using the CLI",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/tailwind.md",
+        "rules/audio-visualization.md",
+        "rules/charts.md"
+      ]
+    },
+    {
+      "claim_id": "ref-mapbox-docs",
+      "claim": "Mapbox GL JS API docs and access-token console used by the maps rule file. Covered references: Mapbox GL JS API reference is at https://docs.mapbox.com/mapbox-gl-js/api/ and access tokens are managed at https://console.mapbox.com/account/access-tokens/",
+      "source_url": "https://docs.mapbox.com/mapbox-gl-js/api/",
+      "raw_snippet": "API Reference | Mapbox GL JS | Mapbox Skip to main content For the complete documentation index, see llms.txt .",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "rules/maps.md"
+      ],
+      "verified_via": "navigational reference; snippet replaced with the cited page's own opening text so the entry can be falsified",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "ref-soundcn-assets",
+      "claim": "Sound-effect assets referenced by the sfx rule file come from the soundcn repo and remotion.media demo asset URLs.",
+      "source_url": "https://github.com/kapishdima/soundcn/tree/main/assets",
+      "raw_snippet": "soundcn/assets at main · kapishdima/soundcn · GitHub",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "rules/sfx.md",
+        "rules/audio.md",
+        "rules/videos.md"
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "css-layout-literals",
+      "claim": "Example components use standard CSS layout literals such as width: '100%' and top: '50%' with translateY(-50%) for centering; these are CSS values, not factual claims about the world.",
+      "source_url": "https://www.remotion.dev/docs",
+      "raw_snippet": "Creating a new project | Remotion | Make videos programmatically",
+      "fetched_at": "2026-08-19",
+      "appears_in": [
+        "rules/assets/charts-bar-chart.tsx",
+        "rules/assets/text-animations-word-highlight.tsx"
+      ],
+      "verified_via": "claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-19"
+    },
+    {
+      "claim_id": "ref-example-placeholder-urls",
+      "claim": "Placeholder/example URLs used in code samples are illustrative only, not factual claims.",
+      "source_url": "https://www.remotion.dev/docs",
+      "raw_snippet": "Creating a new project | Remotion | Make videos programmatically",
+      "fetched_at": "2026-08-18",
+      "appears_in": [
+        "rules/voiceover.md",
+        "rules/parameters.md",
+        "rules/gifs.md",
+        "rules/images.md",
+        "rules/lottie.md"
+      ],
+      "verified_via": "navigational claim about the source itself; snippet is the cited page's own title, fetched to confirm the page exists and is what the claim says it is",
+      "verified_at": "2026-08-18"
+    },
+    {
+      "claim_id": "docs-calculate-metadata",
+      "claim": "calculateMetadata is a <Composition> prop that may transform metadata (durationInFrames, width, height, fps, props) before render.",
+      "source_url": "https://www.remotion.dev/docs/calculate-metadata",
+      "raw_snippet": "calculateMetadata is a prop that gets passed to <Composition> and takes a callback function which may transform metadata.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "docs-composition",
+      "claim": "The <Composition> component registers a video to be rendered and shown in the Studio sidebar.",
+      "source_url": "https://www.remotion.dev/docs/composition",
+      "raw_snippet": "This is the component to use to register a video to make it renderable",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-img",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/img documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/img",
+      "raw_snippet": "If you use <Img> , Remotion will ensure that the image is loaded before rendering the frame.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-interpolate",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/interpolate documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/interpolate",
+      "raw_snippet": "Allows you to map a range of values to another using a concise syntax.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-offthreadvideo",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/offthreadvideo documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/offthreadvideo",
+      "raw_snippet": "during rendering, extracts the exact frame from the video and displays it in a <Img> tag.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-parametrized-rendering",
+      "claim": "Remotion parameterized videos: ingesting, validating, visually editing and transforming data that parametrizes a video.",
+      "source_url": "https://www.remotion.dev/docs/parametrized-rendering",
+      "raw_snippet": "Remotion allows for ingesting , validating , visually editing , and transforming data that may be used to parametrize a video.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-premount",
+      "claim": "Reference documentation page cited in domain-checklist.md for premounting (the /docs/premount path is a 404; the live page is /docs/player/premounting).",
+      "source_url": "https://www.remotion.dev/docs/player/premounting",
+      "raw_snippet": "Premounting is the practice of mounting a component containing assets earlier to allow assets some time to load before they appear.",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-sequence",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/sequence documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/sequence",
+      "raw_snippet": "<Sequence> is the base component for placing content on the timeline.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-series",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/series documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/series",
+      "raw_snippet": "you can easily stitch together scenes that should play sequentially after another.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-spring",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/spring documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/spring",
+      "raw_snippet": "A physics-based animation primitive.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-the-fundamentals",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/the-fundamentals documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/the-fundamentals",
+      "raw_snippet": "The idea of Remotion is to give you a frame number and a blank canvas, to which you can render anything you want using React .",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-three",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/three documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/three",
+      "raw_snippet": "@remotion/three is a package for integrating React Three Fiber with Remotion.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "ref-transitions",
+      "claim": "Remotion docs page https://www.remotion.dev/docs/transitions documents this API, cited in domain-checklist.md.",
+      "source_url": "https://www.remotion.dev/docs/transitions",
+      "raw_snippet": "This package provides the <TransitionSeries> component for transitioning between two scenes as well as timing presets.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-valid-codecs",
+      "claim": "The Remotion renderer accepts exactly these --codec values: h264, h265, vp8, vp9, av1, mp3, aac, wav, prores, h264-mkv, h264-ts, gif. png is NOT a valid codec.",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/renderer/src/codec.ts",
+      "raw_snippet": "export const validCodecs = [ 'h264', 'h265', 'vp8', 'vp9', 'av1', 'mp3', 'aac', 'wav', 'prores', 'h264-mkv', 'h264-ts', 'gif', ] as const;",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "rules/rendering.md",
+        "references/domain-checklist.md"
+      ],
+      "verified_via": "raw source file fetched with curl on 2026-08-26 and the validCodecs array read in full; the rendered docs page for --codec is itself stale and still lists png",
+      "verified_at": "2026-08-26T18:43:30.457659+00:00"
+    },
+    {
+      "claim_id": "remotion-5-0-google-fonts-weights-subsets",
+      "claim": "In Remotion 5.0, loadFonts() from @remotion/google-fonts requires explicit weights and subsets; loading all of them by default is no longer supported. The rendered migration guide is at https://www.remotion.dev/docs/5-0-migration .",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/docs/docs/5-0-migration.mdx",
+      "raw_snippet": "Loading all weights and subsets by default is no longer supported as it can lead to timeouts.",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-5-0-sequences-auto-premount",
+      "claim": "In Remotion 5.0, <Sequence>, <Series.Sequence> and <TransitionSeries.Sequence> automatically premount for 1 second, with premountFor={0} as the opt-out.",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/docs/docs/5-0-migration.mdx",
+      "raw_snippet": "components now automatically [premount](/docs/player/premounting) for 1 second (`fps` frames) before they appear.",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-5-0-effects-replaces-light-leaks",
+      "claim": "Remotion 5.0 discontinues @remotion/light-leaks and @remotion/starburst; they are replaced by lightLeak() and starburst() from @remotion/effects.",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/docs/docs/5-0-migration.mdx",
+      "raw_snippet": "Replace `@remotion/light-leaks` with [`lightLeak()` from `@remotion/effects`]",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-5-0-contractors-count",
+      "claim": "In Remotion 5.0 licensing, contractors count towards company team size for the Company License threshold.",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/docs/docs/5-0-migration.mdx",
+      "raw_snippet": "**Contractors now also count towards team size.**",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-random-determinism",
+      "claim": "Remotion exports random() for deterministic pseudo-randomness; Math.random() must not be used because a render evaluates each frame separately and would produce different values per frame.",
+      "source_url": "https://www.remotion.dev/docs/using-randomness",
+      "raw_snippet": "random",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-whisper-webgpu-package",
+      "claim": "@remotion/whisper-webgpu (from v4.0.518) transcribes locally in the browser or Node.js with timestamped Whisper models over WebGPU and converts the result to @remotion/captions.",
+      "source_url": "https://www.remotion.dev/docs/whisper-webgpu",
+      "raw_snippet": "Transcribe audio locally in the browser or Node.js using timestamped Whisper models and WebGPU through Transformers.js",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-large-v3-turbo-supported",
+      "claim": "large-v3-turbo is in the list of Whisper models downloadable by @remotion/install-whisper-cpp and is multilingual, so it is valid for Hebrew.",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/install-whisper-cpp/src/download-whisper-model.ts",
+      "raw_snippet": "const models = [ 'tiny', 'tiny.en', 'base', 'base.en', 'small', 'small.en', 'medium', 'medium.en', 'large-v1', 'large-v2', 'large-v3', 'large-v3-turbo', ] as const;",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-cloudrun-frozen",
+      "claim": "Remotion Cloud Run is not being actively developed: critical bugs are fixed but no new features are added. The package is still published and not deprecated.",
+      "source_url": "https://www.remotion.dev/docs/cloudrun/status",
+      "raw_snippet": "not being actively developed",
+      "fetched_at": "2026-08-26T18:40:51.232477+00:00",
+      "appears_in": [
+        "rules/rendering.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-transcribe-requires-16k-wav",
+      "claim": "transcribe() from @remotion/install-whisper-cpp requires the input to be a 16-bit, 16KHz WAVE file, so an MP3 voiceover must be converted first.",
+      "source_url": "https://www.remotion.dev/docs/install-whisper-cpp/transcribe",
+      "raw_snippet": "The file has to be a 16-bit, 16KHz, WAVE file.",
+      "fetched_at": "2026-08-26T18:58:47.465564+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md",
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-transcribe-language-option",
+      "claim": "transcribe() accepts a language option (available from Remotion 4.0.142) which passes the -l flag to whisper.cpp to specify the spoken language; 'he' is a valid value of the Language type, so Hebrew jobs should pin language: \"he\" rather than relying on auto-detection.",
+      "source_url": "https://www.remotion.dev/docs/install-whisper-cpp/transcribe",
+      "raw_snippet": "Passes the -l flag to Whisper.cpp to specific spoken language of the audio file.",
+      "fetched_at": "2026-08-26T18:58:47.465564+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md",
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-cpp-windows-binary-limit",
+      "claim": "On Windows @remotion/install-whisper-cpp downloads a binary, accepts only semantic-version tags, has no binaries newer than 1.6.0, and from 1.7.3 onward requires cmake to build from source. A 1.9.4 pin therefore means a source build on Windows. Also covers: https://www.remotion.dev/docs/install-whisper-cpp",
+      "source_url": "https://www.remotion.dev/docs/install-whisper-cpp/install-whisper-cpp",
+      "raw_snippet": "On Windows, there are no binaries newer than 1.6.0 available.",
+      "fetched_at": "2026-08-26T18:58:47.465564+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md"
+      ]
+    },
+    {
+      "claim_id": "mapbox-streets-v8-no-hebrew-name-field",
+      "claim": "Mapbox Streets v8, the label source behind the Mapbox Standard style, ships localized name fields for Arabic, German, English, Spanish, French, Italian, Japanese, Korean, Portuguese, Russian, Vietnamese and the two Chinese variants, and has NO name_he field, so there is no built-in Hebrew basemap localization.",
+      "source_url": "https://docs.mapbox.com/data/tilesets/reference/mapbox-streets-v8/",
+      "raw_snippet": "name_ar Arabic name_en English name_es Spanish name_fr French name_de German name_it Italian name_pt Portuguese name_ru Russian name_zh-Hans Simplified Chinese",
+      "fetched_at": "2026-08-26T18:58:47.465564+00:00",
+      "verified_via": "page fetched with curl on 2026-08-26 and every name_* field enumerated from the raw HTML; the full set is name_ar name_de name_en name_es name_fr name_it name_ja name_ko name_pt name_ru name_vi name_zh name_zh-Hant, with no name_he present",
+      "verified_at": "2026-08-26T18:58:47.465564+00:00",
+      "appears_in": [
+        "rules/hebrew-rtl.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-5-0-not-released",
+      "claim": "The Remotion 5.0 migration guide states 5.0 is not yet released.",
+      "source_url": "https://www.remotion.dev/docs/5-0-migration",
+      "raw_snippet": "Remotion 5.0 is not yet released.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/rendering.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-media-sample-sfx-urls",
+      "claim": "Remotion hosts sample sound effects at remotion.media, listed in the official Remotion skill: https://remotion.media/whoosh.wav https://remotion.media/whip.wav https://remotion.media/page-turn.wav https://remotion.media/switch.wav https://remotion.media/mouse-click.wav https://remotion.media/shutter-modern.wav https://remotion.media/shutter-old.wav https://remotion.media/ding.wav https://remotion.media/bruh.wav https://remotion.media/vine-boom.wav https://remotion.media/windows-xp-error.wav",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-markup/sfx.md",
+      "raw_snippet": "https://remotion.media/windows-xp-error.wav",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/sfx.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-media-sample-audio-url",
+      "claim": "The Remotion docs use https://remotion.media/audio.mp3 as their sample audio file.",
+      "source_url": "https://www.remotion.dev/docs/media/audio",
+      "raw_snippet": "https://remotion.media/audio.mp3",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/audio.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-media-sample-video-url",
+      "claim": "The Remotion docs use https://remotion.media/video.mp4 as their sample video file.",
+      "source_url": "https://www.remotion.dev/docs/media/video",
+      "raw_snippet": "https://remotion.media/video.mp4",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/videos.md",
+        "rules/get-video-dimensions.md"
+      ]
+    },
+    {
+      "claim_id": "lottie-sample-url",
+      "claim": "The official Remotion skill uses https://assets4.lottiefiles.com/packages/lf20_zyquagfl.json as its sample Lottie file.",
+      "source_url": "https://github.com/remotion-dev/skills/blob/main/skills/remotion-markup/lottie.md",
+      "raw_snippet": "fetch ( \"https://assets4.lottiefiles.com/packages/lf20_zyquagfl.json\" )",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/lottie.md"
+      ],
+      "verified_via": "browser-equivalent: GitHub blob page fetched with curl on 2026-10-07 and the rendered code text contained the fetch() call with this exact URL; the verifier flags the page as short only because GitHub renders a small file",
+      "verified_at": "2026-10-07"
+    },
+    {
+      "claim_id": "whisper-cpp-releases-page",
+      "claim": "whisper.cpp release tags are published at https://github.com/ggml-org/whisper.cpp/releases; v1.9.5 (released 2026-10-06) was the Latest stable release on 2026-10-07, one day old, which is why the skill pins 1.9.4.",
+      "source_url": "https://github.com/ggml-org/whisper.cpp/releases/tag/v1.9.5",
+      "raw_snippet": "Releases v1.9.5 v1.9.5 Latest Latest",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "mediabunny-blobsource-file",
+      "claim": "Mediabunny reads a browser File with BlobSource (there is no FileSource class).",
+      "source_url": "https://mediabunny.dev/guide/reading-media-files",
+      "raw_snippet": "import { Input, ALL_FORMATS, BlobSource } from 'mediabunny'",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/get-audio-duration.md",
+        "rules/get-video-duration.md",
+        "rules/get-video-dimensions.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "mediabunny-filepathsource-node",
+      "claim": "Mediabunny reads a file path in Node/Bun/Deno with FilePathSource.",
+      "source_url": "https://mediabunny.dev/guide/reading-media-files",
+      "raw_snippet": "This input source can be used to load data directly from a file, given a file path. It requires a server-side environment such as Node, Bun, or Deno.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/get-audio-duration.md",
+        "rules/get-video-duration.md",
+        "rules/get-video-dimensions.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "get-image-dimensions-media-utils",
+      "claim": "getImageDimensions() is part of @remotion/media-utils, not the remotion package.",
+      "source_url": "https://www.remotion.dev/docs/get-image-dimensions",
+      "raw_snippet": "Part of the @remotion/media-utils package of helper functions.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/images.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-light-leak-effect",
+      "claim": "lightLeak() from @remotion/effects renders the light leak, applied to a canvas-based component such as <Solid>, available from v4.0.500, with seed, hueShift (0 yellow-orange, 120 green, 240 blue) and progress options.",
+      "source_url": "https://www.remotion.dev/docs/light-leaks",
+      "raw_snippet": "The lightLeak() effect from @remotion/effects renders an animated WebGL2-based light leak overlay.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/light-leaks.md",
+        "rules/transitions.md",
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-light-leak-version",
+      "claim": "The light leaks docs page is marked v4.0.500.",
+      "source_url": "https://www.remotion.dev/docs/light-leaks",
+      "raw_snippet": "Light Leaks v 4.0.500",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/light-leaks.md",
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-light-leaks-package-deprecated",
+      "claim": "The Remotion docs sidebar marks @remotion/light-leaks and @remotion/starburst as deprecated.",
+      "source_url": "https://www.remotion.dev/docs/get-image-dimensions",
+      "raw_snippet": "@remotion/light-leaks (deprecated) @remotion/media-parser (deprecated) @remotion/starburst (deprecated)",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/light-leaks.md",
+        "rules/transitions.md",
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "use-video-config-sequence-duration",
+      "claim": "Inside a <Sequence>, useVideoConfig().durationInFrames is the sequence duration, so an overlay progress runs 0 to 1 across it.",
+      "source_url": "https://www.remotion.dev/docs/use-video-config",
+      "raw_snippet": "If inside a <Sequence> , the end of the sequence in its local frame space.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/light-leaks.md"
+      ]
+    },
+    {
+      "claim_id": "transitionseries-sequence-premount",
+      "claim": "<TransitionSeries.Sequence> inherits premountFor from <Sequence>.",
+      "source_url": "https://www.remotion.dev/docs/transitions/transitionseries",
+      "raw_snippet": "Inherits the durationInFrames , playbackRate , name , className , style , showInTimeline , freeze , premountFor and postmountFor props from <Sequence> .",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transitions.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-fittext",
+      "claim": "fitText() from @remotion/layout-utils calculates the font size that fits a text into a given width; this replaces the unmeasured 20-30% Hebrew-width rule of thumb (a 2026-10-07 canvas measurement of Heebo, Rubik and Assistant found no fixed Hebrew-to-English ratio).",
+      "source_url": "https://www.remotion.dev/docs/layout-utils/fit-text",
+      "raw_snippet": "Calculates the font-size needed to fit a text into a given width.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md",
+        "rules/hebrew-rtl.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-webgpu-needs-gpu",
+      "claim": "@remotion/whisper-webgpu requires a GPU; canUseWhisperWebGpu() checks support.",
+      "source_url": "https://www.remotion.dev/docs/whisper-webgpu",
+      "raw_snippet": "You obviously need a GPU. Use canUseWhisperWebGpu() to determine if it is supported.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-webgpu-node",
+      "claim": "Node.js usage of @remotion/whisper-webgpu is documented from v4.0.528, using @mediabunny/server to decode.",
+      "source_url": "https://www.remotion.dev/docs/whisper-webgpu/node",
+      "raw_snippet": "Using @remotion/whisper-webgpu in Node.js v 4.0.528",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-webgpu-language-required",
+      "claim": "transcribe() in @remotion/whisper-webgpu requires the language option for multilingual models, because automatic language detection is not supported; small or small.en is the recommended default.",
+      "source_url": "https://www.remotion.dev/docs/whisper-webgpu/transcribe",
+      "raw_snippet": "This option is required for multilingual models because automatic language detection is not supported.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-webgpu-models",
+      "claim": "@remotion/whisper-webgpu model sizes are tiny, base, small, medium and large-v3-turbo.",
+      "source_url": "https://www.remotion.dev/docs/whisper-webgpu/get-available-models",
+      "raw_snippet": "Available sizes are tiny , base , small , medium , and large-v3-turbo .",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-v3-hebrew-listed",
+      "claim": "Hebrew (heb) appears in the v3 and v4 language lists on the ElevenLabs models page.",
+      "source_url": "https://elevenlabs.io/docs/overview/models",
+      "raw_snippet": "Hausa (hau), Hebrew (heb), Hindi (hin)",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md",
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-v3-tts-api",
+      "claim": "ElevenLabs calls Eleven v3 its previous generation model and documents that it can also be used with the Text to Speech API.",
+      "source_url": "https://elevenlabs.io/docs/overview/models",
+      "raw_snippet": "Eleven v3 can also be used with the Text to Speech API",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-v4-90-languages",
+      "claim": "eleven_v4 and eleven_v4_turbo support 90+ languages.",
+      "source_url": "https://elevenlabs.io/docs/overview/models",
+      "raw_snippet": "eleven_v4 Our most emotionally rich, expressive speech synthesis model 90+ languages",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md",
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-v4-hebrew",
+      "claim": "Hebrew is in the Eleven v4 supported language list.",
+      "source_url": "https://elevenlabs.io/docs/overview/capabilities/text-to-speech/eleven-v4",
+      "raw_snippet": "Hausa, Hebrew, Hindi",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md",
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-v4-no-style",
+      "claim": "Eleven v4 uses Stability and Similarity only; the Style setting is not available.",
+      "source_url": "https://elevenlabs.io/docs/overview/capabilities/text-to-speech/eleven-v4",
+      "raw_snippet": "Style and Speed sliders are not available in Eleven v4",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-v4-release-dialogue",
+      "claim": "Eleven v4 and v4 Turbo were released on September 28, 2026; the release note routes eleven_v4 through the Text to Dialogue API.",
+      "source_url": "https://elevenlabs.io/docs/changelog/2026/9/28",
+      "raw_snippet": "Use eleven_v4 through the Text to Dialogue API for content creation and long-form audio.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-tts-model-check",
+      "claim": "The Text to Speech endpoint model must support TTS, checked via the can_do_text_to_speech property returned by GET /v1/models.",
+      "source_url": "https://elevenlabs.io/docs/api-reference/text-to-speech/convert",
+      "raw_snippet": "you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md"
+      ]
+    },
+    {
+      "claim_id": "elevenlabs-flash-v2-5",
+      "claim": "eleven_flash_v2_5 supports 32 languages: the v2 list plus Hungarian, Norwegian and Vietnamese, so it also lacks Hebrew.",
+      "source_url": "https://elevenlabs.io/docs/overview/models",
+      "raw_snippet": "Flash v2.5 supports 32 languages - all languages from v2 models plus: Hungarian, Norwegian & Vietnamese",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/voiceover.md",
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "media-trimafter-deprecated",
+      "claim": "trimAfter on <Video>/<Audio> from @remotion/media is deprecated (as of 4.0.533) in favour of durationInFrames, see PR #11685.",
+      "source_url": "https://www.remotion.dev/docs/media/video",
+      "raw_snippet": "Deprecated Use durationInFrames instead. See PR #11685 . Removes a portion of the video at the end",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/videos.md",
+        "rules/audio.md",
+        "rules/ffmpeg.md",
+        "rules/silence-detection.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "media-trimafter-deprecated-audio",
+      "claim": "The same deprecation is documented for <Audio> from @remotion/media.",
+      "source_url": "https://www.remotion.dev/docs/media/audio",
+      "raw_snippet": "Removes a portion of the audio at the end (right side). If durationInFrames ends the range earlier, the shorter range is used.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/audio.md"
+      ]
+    },
+    {
+      "claim_id": "media-video-objectfit-prop",
+      "claim": "<Video> from @remotion/media has an objectFit prop (v4.0.442) defaulting to contain.",
+      "source_url": "https://www.remotion.dev/docs/media/video",
+      "raw_snippet": "Accepts 'contain' (default), 'cover' , 'fill' , 'none' , or 'scale-down' .",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/videos.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "media-video-objectfit-overrides-style",
+      "claim": "The @remotion/media <Video> render path builds its style as {...style, objectFit: objectFitProp}, so style.objectFit is overwritten; a warning tells you to use the objectFit prop instead.",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/media/src/video/video-for-rendering.tsx",
+      "raw_snippet": "return { ...style, objectFit: objectFitProp, };",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/videos.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "google-fonts-hebrew-unicode-range",
+      "claim": "The Google Fonts hebrew subset (as packaged by @remotion/google-fonts for Heebo) covers U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F: no space, digits or ASCII punctuation, which are in the latin subset.",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/google-fonts/src/Heebo.ts",
+      "raw_snippet": "'U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F',",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/hebrew-rtl.md",
+        "SKILL.md",
+        "SKILL_HE.md",
+        "references/domain-checklist.md"
+      ]
+    },
+    {
+      "claim_id": "google-fonts-load-all-timeouts",
+      "claim": "Loading all weights and subsets with a bare loadFont() can lead to timeouts; Remotion 5.0 requires explicit weights and subsets.",
+      "source_url": "https://www.remotion.dev/docs/5-0-migration",
+      "raw_snippet": "Loading all weights and subsets by default is no longer supported as it can lead to timeouts.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/fonts.md",
+        "rules/hebrew-rtl.md"
+      ]
+    },
+    {
+      "claim_id": "remotion-5-0-validate-font-loaded",
+      "claim": "In Remotion 5.0, measureText(), fitText(), fillTextBox() and fitTextOnNLines() default validateFontIsLoaded to true.",
+      "source_url": "https://www.remotion.dev/docs/5-0-migration",
+      "raw_snippet": "measureText() , fitText() , fillTextBox() , and fitTextOnNLines() now default validateFontIsLoaded to true .",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "SKILL.md",
+        "SKILL_HE.md"
+      ]
+    },
+    {
+      "claim_id": "webgl-angle-troubleshooting",
+      "claim": "Effects that need WebGL/WebGL2 fail with \"Failed to acquire WebGL2 context\" unless rendered with --gl=angle (CLI), chromiumOptions gl angle (SSR), or the Studio Advanced setting; use swangle without a GPU, the Lambda default.",
+      "source_url": "https://www.remotion.dev/docs/troubleshooting/webgl2-context",
+      "raw_snippet": "If you are on a machine without a GPU (for example AWS Lambda), use --gl=swangle instead. This is the default on Lambda.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/light-leaks.md",
+        "rules/3d.md"
+      ]
+    },
+    {
+      "claim_id": "webgl-angle-cli-flag",
+      "claim": "Pass --gl=angle to the render command, or set setChromiumOpenGlRenderer in remotion.config.ts.",
+      "source_url": "https://www.remotion.dev/docs/troubleshooting/webgl2-context",
+      "raw_snippet": "Enable the ANGLE OpenGL backend so Chromium can create a WebGL context.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/light-leaks.md",
+        "rules/3d.md"
+      ]
+    },
+    {
+      "claim_id": "three-needs-angle",
+      "claim": "Three.js does not render with the default OpenGL renderer; Remotion recommends angle, and the config file does not apply to server-side rendering APIs.",
+      "source_url": "https://www.remotion.dev/docs/three",
+      "raw_snippet": "Three.JS does not render with the default OpenGL renderer - we recommend to set it to angle .",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/3d.md"
+      ]
+    },
+    {
+      "claim_id": "blank-template-no-angle-blank",
+      "claim": "The blank template remotion.config.ts sets Rspack, jpeg image format and overwrite output, but not the OpenGL renderer.",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/template-blank/remotion.config.ts",
+      "raw_snippet": "Config.setOverwriteOutput(true);",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/light-leaks.md",
+        "rules/3d.md"
+      ],
+      "verified_via": "raw file read with curl and gh api on 2026-10-07: template-blank/remotion.config.ts contains setRspack(true), setVideoImageFormat(\"jpeg\"), setOverwriteOutput(true) and no setChromiumOpenGlRenderer; the verifier flags the raw file as short only because the config file is small",
+      "verified_at": "2026-10-07"
+    },
+    {
+      "claim_id": "blank-template-no-angle",
+      "claim": "The Three.js template remotion.config.ts adds setChromiumOpenGlRenderer(\"angle\").",
+      "source_url": "https://raw.githubusercontent.com/remotion-dev/remotion/main/packages/template-three/remotion.config.ts",
+      "raw_snippet": "Config.setChromiumOpenGlRenderer(\"angle\");",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/light-leaks.md",
+        "rules/3d.md"
+      ],
+      "verified_via": "raw file read with curl and gh api on 2026-10-07: template-three/remotion.config.ts contains Config.setChromiumOpenGlRenderer(\"angle\"); template-blank/remotion.config.ts contains setRspack, setVideoImageFormat and setOverwriteOutput but no setChromiumOpenGlRenderer. The verifier flags the raw file as short only because the config file is small",
+      "verified_at": "2026-10-07"
+    },
+    {
+      "claim_id": "whisper-webgpu-install",
+      "claim": "Install @remotion/whisper-webgpu with @huggingface/transformers; the Node.js route also needs mediabunny and @mediabunny/server.",
+      "source_url": "https://www.remotion.dev/docs/whisper-webgpu",
+      "raw_snippet": "npx remotion add @remotion/whisper-webgpu @huggingface/transformers",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-webgpu-resample-browser",
+      "claim": "resampleTo16Khz() decodes and resamples browser audio; Node.js uses @mediabunny/server instead.",
+      "source_url": "https://www.remotion.dev/docs/whisper-webgpu",
+      "raw_snippet": "resampleTo16Khz() Decode and resample browser audio",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md"
+      ]
+    },
+    {
+      "claim_id": "mapbox-rtl-text-plugin",
+      "claim": "Mapbox GL JS needs setRTLTextPlugin for Hebrew; with lazy true it defers loading until RTL text is encountered and renders RTL text only after the plugin loads.",
+      "source_url": "https://docs.mapbox.com/mapbox-gl-js/api/properties/",
+      "raw_snippet": "Necessary for supporting the Arabic and Hebrew languages, which are written right-to-left.",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/hebrew-rtl.md"
+      ]
+    },
+    {
+      "claim_id": "mapbox-rtl-text-plugin-url",
+      "claim": "Mapbox's RTL example loads https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.3.0/mapbox-gl-rtl-text.js with lazy true.",
+      "source_url": "https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-rtl-text/",
+      "raw_snippet": "mapboxgl . setRTLTextPlugin ( 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.3.0/mapbox-gl-rtl-text.js' , null , true // Lazy load the plugin )",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/hebrew-rtl.md"
+      ]
+    },
+    {
+      "claim_id": "whatwg-windows-1255",
+      "claim": "TextDecoder supports the windows-1255 (Hebrew) encoding label (labels cp1255, windows-1255, x-cp1255), per MDN Encoding API encodings list.",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings",
+      "raw_snippet": "\"cp1255\" , \"windows-1255\" , \"x-cp1255\" windows-1255",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/import-srt-captions.md"
+      ]
+    },
+    {
+      "claim_id": "whisper-cpp-1-9-3-prerelease",
+      "claim": "whisper.cpp v1.9.3 is marked Pre-release on GitHub, so it should not be pinned.",
+      "source_url": "https://github.com/ggml-org/whisper.cpp/releases/tag/v1.9.3",
+      "raw_snippet": "Releases v1.9.3 v1.9.3 Pre-release Pre-release",
+      "fetched_at": "2026-10-07T00:02:08.141957+00:00",
+      "appears_in": [
+        "rules/transcribe-captions.md"
+      ]
+    }
+  ]
+}

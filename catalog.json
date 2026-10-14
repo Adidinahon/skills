@@ -122,6 +122,181 @@
       "category": "productivity",
       "title_he": "מצב קצר (חוסך טוקנים)",
       "description_he": "הסוכן עונה קצר ולעניין: תשובה קודם, בלי מלל, כל העובדות נשארות. פחות טוקנים, כלומר פחות כסף ופחות זמן קריאה."
+    },
+    "high-end-visual-design": {
+      "category": "ui-ux",
+      "title_he": "עיצוב ברמת סוכנות",
+      "description_he": "מלמד את ה-AI לעצב כמו סוכנות יוקרה: פונטים, ריווחים, צללים, כרטיסים ואנימציות שגורמים לאתר להיראות יקר. חוסם את ברירות המחדל שנראות זולות."
+    },
+    "industrial-brutalist-ui": {
+      "category": "ui-ux",
+      "title_he": "ממשק ברוטליסטי",
+      "description_he": "ממשקים גולמיים ומכניים: טיפוגרפיה שוויצרית, אסתטיקה של טרמינל, גרידים נוקשים וניגודיות קיצונית. מתאים לדשבורדים עמוסי מידע ולתיקי עבודות."
+    },
+    "stitch-design-taste": {
+      "category": "ui-ux",
+      "title_he": "Google Stitch בטעם טוב",
+      "description_he": "מייצר קובץ DESIGN.md שמכתיב ל-Google Stitch עיצוב פרימיום ולא גנרי: טיפוגרפיה מדויקת, צבעים מכוילים, פריסות א-סימטריות ותנועה עדינה."
+    },
+    "image-to-code": {
+      "category": "ui-ux",
+      "title_he": "מתמונה לקוד",
+      "description_he": "קודם מייצר תמונת עיצוב לאתר, מנתח אותה לעומק, ואז בונה את האתר כך שייראה כמה שיותר קרוב אליה. נבנה במיוחד ל-Codex."
+    },
+    "design-system": {
+      "category": "ui-ux",
+      "title_he": "מערכת עיצוב וטוקנים",
+      "description_he": "ארכיטקטורת טוקנים בשלוש שכבות, משתני CSS, סולמות ריווח וטיפוגרפיה ומפרטי קומפוננטות. הבסיס למערכת עיצוב שלא מתפרקת."
+    },
+    "ui-styling": {
+      "category": "ui-ux",
+      "title_he": "עיצוב ממשק עם shadcn ו-Tailwind",
+      "description_he": "ממשקים יפים ונגישים עם קומפוננטות shadcn/ui ו-Tailwind, כולל ערכות נושא, מצב כהה ועיצוב רספונסיבי."
+    },
+    "hebrew-tailwind-preset": {
+      "category": "ui-ux",
+      "title_he": "Tailwind לעברית",
+      "description_he": "הגדרת Tailwind v4 לאפליקציות בעברית: וריאנטים לפי כיוון, פונטים עבריים ומחלקות לוגיות. ה-RTL עובד נכון מהרגע הראשון."
+    },
+    "animate": {
+      "category": "ui-ux",
+      "title_he": "בניית אנימציה מאפס",
+      "description_he": "בונה אנימציה לפי הסדר הנכון: האם בכלל להנפיש, למה, באיזה כלי, איזה עקומה ומשך, ואיך היא נקטעת ויוצאת. מאת Emil Kowalski."
+    },
+    "improve-animations": {
+      "category": "ui-ux",
+      "title_he": "ביקורת אנימציות",
+      "description_he": "סוקר את כל האנימציות בפרויקט כמו יועץ מושן בכיר, ומפיק דוח מתועדף ותוכניות תיקון מוכנות לביצוע. לא נוגע בקוד בעצמו."
+    },
+    "review-animations": {
+      "category": "ui-ux",
+      "title_he": "בודק אנימציות",
+      "description_he": "בודק קוד אנימציה לפי רף איכות גבוה בגישה של Emil Kowalski. מסמן כל מה שלא מספיק טוב, ואישור צריך להרוויח."
+    },
+    "animation-vocabulary": {
+      "category": "ui-ux",
+      "title_he": "מילון אנימציות",
+      "description_he": "מתארים במילים שלכם (\"הדבר הקופצני כשפופאפ נפתח\") ומקבלים את השם המקצועי של האפקט, כדי לבקש בדיוק את מה שרוצים."
+    },
+    "break-ui": {
+      "category": "ui-ux",
+      "title_he": "לשבור את הממשק",
+      "description_he": "מזין לממשק נתונים קיצוניים - שמות ארוכים, שדות חסרים, אימוג'י, עברית, מספרים ענקיים - ומראה איפה הוא נשבר לפני שמשתמשים אמיתיים יגלו."
+    },
+    "prototype": {
+      "category": "ui-ux",
+      "title_he": "כמה גרסאות לעיצוב",
+      "description_he": "בונה כמה גרסאות שונות באמת לאותו רכיב, עם בורר חי שמאפשר לדפדף ביניהן ולבחור את זו שמרגישה נכון."
+    },
+    "pick-ui-library": {
+      "category": "ui-ux",
+      "title_he": "איזו ספרייה לבחור",
+      "description_he": "בחירת ספריית Frontend מתוך רשימה מוקפדת: גרפים, OTP, תפריטי פקודות, גרירה, הודעות טוסט, ניהול state ועוד."
+    },
+    "banner-design": {
+      "category": "graphic",
+      "title_he": "עיצוב באנרים",
+      "description_he": "באנרים לרשתות, למודעות, לראש אתר ולדפוס, בכמה כיווני ארט שונים. מותאם למידות של פייסבוק, LinkedIn, X ועוד."
+    },
+    "brand": {
+      "category": "graphic",
+      "title_he": "קול ומיתוג",
+      "description_he": "קול מותג, זהות חזותית, מסרים ועקביות. שומר שכל תוכן שיוצא - פוסט, דף או מודעה - נשמע ונראה כמו המותג."
+    },
+    "imagegen-frontend-web": {
+      "category": "graphic",
+      "title_he": "רפרנסים עיצוביים לאתר",
+      "description_he": "מייצר תמונת רפרנס פרימיום לכל אזור בדף הנחיתה, כדי שיהיה כיוון עיצובי ברור לפני שכותבים שורת קוד."
+    },
+    "algorithmic-art": {
+      "category": "graphic",
+      "title_he": "אמנות גנרטיבית",
+      "description_he": "יצירות אמנות מקוד עם p5.js: שדות זרימה, מערכות חלקיקים ואקראיות מבוקרת, עם פרמטרים שאפשר לשחק בהם בזמן אמת."
+    },
+    "slack-gif-creator": {
+      "category": "graphic",
+      "title_he": "יוצר GIF",
+      "description_he": "יוצר GIF מונפשים במידות ובמגבלות הנכונות לסלאק ולצ'אטים, עם כלי בדיקה."
+    },
+    "web-artifacts-builder": {
+      "category": "app-dev",
+      "title_he": "בונה Artifacts מתקדמים",
+      "description_he": "בניית Artifacts מורכבים ב-claude.ai עם React, Tailwind ו-shadcn/ui, כולל ניהול state וניווט בין מסכים."
+    },
+    "telegram-bot-builder": {
+      "category": "app-dev",
+      "title_he": "בונה בוטים לטלגרם",
+      "description_he": "בניית בוטים לטלגרם עם grammY, Telegraf או python-telegram-bot: מקלדות, פקודות, תשלומים, Mini Apps והודעות בעברית."
+    },
+    "systematic-debugging": {
+      "category": "app-dev",
+      "title_he": "דיבאג שיטתי",
+      "description_he": "כשיש באג, בדיקה שנכשלת או התנהגות מוזרה: מאתר את שורש הבעיה בשיטה, לפני שמציע תיקון. סוף לניחושים."
+    },
+    "test-driven-development": {
+      "category": "app-dev",
+      "title_he": "פיתוח מונחה בדיקות",
+      "description_he": "כותב קודם את הבדיקה ורק אחר כך את הקוד, בכל פיצ'ר ובכל תיקון באג. פחות רגרסיות, יותר ביטחון."
+    },
+    "full-output-enforcement": {
+      "category": "app-dev",
+      "title_he": "קוד מלא בלי קיצורים",
+      "description_he": "מונע מה-AI לקצר: בלי \"// ...שאר הקוד\" ובלי placeholders. מקבלים קוד שלם, וכשהוא ארוך מדי - חלוקה מסודרת."
+    },
+    "remotion-best-practices": {
+      "category": "video",
+      "title_he": "Remotion בעברית",
+      "description_he": "יצירת וידאו מקוד ב-React עם Remotion, כולל כתוביות RTL, אנימציות טקסט בעברית ותוכן לרשתות."
+    },
+    "hyperframes-best-practices": {
+      "category": "video",
+      "title_he": "HyperFrames בעברית",
+      "description_he": "וידאו מקוד עם HyperFrames: קומפוזיציות HTML ואנימציות GSAP שמרונדרות ל-MP4, עם תמיכה מלאה בעברית וב-RTL. מסמך ידע בלבד."
+    },
+    "video-use-best-practices": {
+      "category": "video",
+      "title_he": "עריכת וידאו בעברית עם AI",
+      "description_he": "עריכת סרטונים בעברית מקצה לקצה עם Claude Code ו-video-use: כתוביות עבריות שעובדות, פונטים נכונים ודגימת פריימים לבדיקה."
+    },
+    "hebrew-podcast-postproduction": {
+      "category": "video",
+      "title_he": "פוסט-פרודקשן לפודקאסט",
+      "description_he": "חבילת פוסט מלאה לפודקאסט בעברית: הערות פרק עם חותמות זמן, קליפים לחיתוך וכיתובים מותאמים לכל רשת."
+    },
+    "presentation-generator": {
+      "category": "video",
+      "title_he": "מצגות בעברית",
+      "description_he": "מייצר מצגות RTL בעברית: פיץ' למשקיעים, דוח רבעוני או הרצאה, עם פונטים עבריים ופריסה מימין לשמאל."
+    },
+    "open-slide-best-practices": {
+      "category": "video",
+      "title_he": "מצגות ב-React",
+      "description_he": "בניית מצגות עם open-slide, ספריית שקפים ב-React על קנבס קבוע של 1920×1080, עם תמיכה מלאה בעברית."
+    },
+    "slides": {
+      "category": "video",
+      "title_he": "מצגות HTML אסטרטגיות",
+      "description_he": "מצגות HTML עם גרפים, טוקני עיצוב, פריסה רספונסיבית ונוסחאות קופירייטינג, לפי מטרת השקף."
+    },
+    "verification-before-completion": {
+      "category": "productivity",
+      "title_he": "לבדוק לפני שאומרים \"סיימתי\"",
+      "description_he": "הסוכן חייב להריץ בדיקות ולראות את התוצאה לפני שהוא מכריז שמשהו עובד. ראיות לפני הצהרות."
+    },
+    "caveman-compress": {
+      "category": "productivity",
+      "title_he": "כיווץ קובצי זיכרון",
+      "description_he": "מכווץ קבצים כמו CLAUDE.md או רשימת משימות לגרסה קצרה, כדי לחסוך טוקנים בכל שיחה. שומר גיבוי קריא."
+    },
+    "caveman-commit": {
+      "category": "productivity",
+      "title_he": "הודעות commit קצרות",
+      "description_he": "כותב הודעת commit בפורמט Conventional Commits, מכווצת לכוונה בלבד."
+    },
+    "israeli-social-content": {
+      "category": "productivity",
+      "title_he": "תוכן לרשתות בישראל",
+      "description_he": "תוכן לפייסבוק, אינסטגרם, טיקטוק ו-LinkedIn שמותאם לקהל הישראלי: שעות פרסום, האשטגים בעברית ותרבות מקומית."
     }
   }
 }

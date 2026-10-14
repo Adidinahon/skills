@@ -1,0 +1,26 @@
+{
+  "skill": "caveman-commit",
+  "verdict": "pass",
+  "content_sha256": "500808098bddd0650344ec4b5d0c09cdbdb24be71099c141d89e8437c2665787",
+  "reviewed_at": "2026-10-11T11:07:50.221Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מנסח הודעות commit בפורמט Conventional Commits בצורה תמציתית, ומחזיר אותן כבלוק קוד להעתקה בלבד. אין בו סקריפטים, אין קריאות רשת, אין גישה לסודות והוא אינו מריץ פקודות git. הסיכון זניח.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "ההנחיה להשמיט ייחוס ל-AI (\"Generated with Claude Code\") היא העדפה סגנונית בלבד, ויש לה חריג מפורש כשכללי המשתמש דורשים ייחוס. היא אינה מסתירה פעולות מהמשתמש."
+    }
+  ],
+  "network_destinations": [],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
+    "https://github.com/juliusbrussee",
+    "https://github.com/juliusbrussee/caveman/tree/2e08b9177c07bb7249a8a2d1a6758e5db281d002/skills/caveman-commit"
+  ]
+}

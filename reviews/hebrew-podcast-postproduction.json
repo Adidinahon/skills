@@ -1,0 +1,62 @@
+{
+  "skill": "hebrew-podcast-postproduction",
+  "verdict": "warn",
+  "content_sha256": "a5112c9048154c3a5bdb595012f64f44787f5c84b421ca3287b4eb6de23c20c2",
+  "reviewed_at": "2026-10-11T11:07:50.740Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל מפיק חבילת פוסט-פרודקשן לפודקאסט בעברית: הערות פרק, סימוני פרקים ל-Spotify ול-Apple, קבצי SRT, סקריפטים של FFmpeg לחיתוך קליפים, וכיתובים לרשתות חברתיות. שני הסקריפטים המצורפים עובדים מקומית בלבד, בלי גישה לרשת ובלי איסוף סודות. הסיכון נמוך, אבל ההוראות כוללות התקנת תוכנה (tap צד-שלישי של Homebrew, apt), הורדת פונט עם curl ויצירת סקריפטי shell להרצה, ולכן כדאי לשים לב.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "ממליץ להתקין FFmpeg מ-tap צד-שלישי של Homebrew (homebrew-ffmpeg/ffmpeg), להריץ brew unlink/reinstall ו-apt install כ-root. אלה שינויים ברמת המערכת, מחוץ לתיקיית הפרויקט, שראוי לבצע רק אחרי אישור של המשתמש."
+    },
+    {
+      "severity": "low",
+      "file": "references/ffmpeg-hebrew-subtitles.md",
+      "issue": "מוריד קובץ פונט עם curl מ-raw.githubusercontent.com (google/fonts) אל ~/.fonts ומריץ fc-cache. מדובר בהורדת נכס בלבד, לא בקוד להרצה, אבל זו כתיבה מחוץ לפרויקט."
+    },
+    {
+      "severity": "low",
+      "file": "scripts/generate_bundle.py",
+      "issue": "נתיב קובץ המדיה ונתיב ה-SRT משובצים כמו שהם בסקריפטי bash שנוצרים (clip-NN.ffmpeg.sh) ומקבלים הרשאת הרצה. נתיב עם מרכאות או תווים מיוחדים עלול לשבור את הפקודה או להזריק לתוכה תוכן. הנתיבים מגיעים מהמשתמש עצמו, ולכן הסיכון נמוך."
+    }
+  ],
+  "network_destinations": [
+    "raw.githubusercontent.com",
+    "github.com (homebrew-ffmpeg tap via brew)"
+  ],
+  "requires_secrets": [],
+  "scan_warnings": [],
+  "external_urls": [
+    "https://api.elevenlabs.io/openapi.json",
+    "https://cdn.example.com/ep42/chapter2.jpg",
+    "https://cdn.example.com/podcast/episodes/42/chapters.json",
+    "https://developer.x.com/en/docs/fundamentals/counting-characters",
+    "https://developers.facebook.com/docs/instagram-api/reference/ig-user/media",
+    "https://developers.tiktok.com/doc/content-posting-api-reference-direct-post/",
+    "https://example.com/episodes/NN/chapters.json",
+    "https://example.com/related-article",
+    "https://ffmpeg.org/ffmpeg-filters.html#subtitles-1",
+    "https://formulae.brew.sh/api/formula/ffmpeg-full.json",
+    "https://formulae.brew.sh/formula/ffmpeg-full",
+    "https://github.com/libass/libass",
+    "https://github.com/skills-il",
+    "https://github.com/skills-il/marketing-growth/tree/92f14037d52fb810099cc2818c91cda5e95e8433/hebrew-podcast-postproduction",
+    "https://podcasters.apple.com/support/5316-transcripts-on-apple-podcasts",
+    "https://podcasters.apple.com/support/893-audio-requirements",
+    "https://podcasting2.org/docs/podcast-namespace/tags/chapters",
+    "https://pypi.org/pypi/python-bidi/json",
+    "https://raw.githubusercontent.com/FFmpeg/FFmpeg/master/configure",
+    "https://raw.githubusercontent.com/Podcastindex-org/podcast-namespace/main/docs/examples/chapters/jsonChapters.md",
+    "https://raw.githubusercontent.com/google/fonts/main/ofl/heebo/Heebo%5Bwght%5D.ttf",
+    "https://raw.githubusercontent.com/google/fonts/main/ofl/heebo/METADATA.pb",
+    "https://raw.githubusercontent.com/libass/libass/master/configure.ac",
+    "https://raw.githubusercontent.com/skills-il/marketing-growth/master/hebrew-podcast-postproduction/SKILL.md",
+    "https://support.spotify.com/us/creators/article/episode-chapters/",
+    "https://www.linkedin.com/help/linkedin/answer/a528176",
+    "https://www.rfc-editor.org/rfc/rfc2606.html"
+  ]
+}

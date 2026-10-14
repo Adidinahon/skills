@@ -1,0 +1,60 @@
+{
+  "cycles": [
+    {
+      "version": "1.3.2",
+      "date": "2026-10-07",
+      "upstream_validated_against": "heygen-com/hyperframes @ d94708e5312df021e1fdcac421f00ed3015f11bd, release v0.8.138 (2026-10-06)",
+      "lessons": [
+        "Vendoring upstream scripts can trip the category repo's Cisco scanner: package-loader.mjs spawned npm (COMMAND_INJECTION_JS_CHILD_PROCESS, CRITICAL) and 1.3.0 failed CI after tagging. Run `skill-scanner scan-all` locally (pip install cisco-ai-skill-scanner==2.1.0, repo policy) BEFORE cutting the tag.",
+        "RUN THE SKILL'S OWN ADVICE THROUGH THE REAL CLI, NOT JUST THE SOURCE. The top Hebrew gotcha (never add a Google Fonts <link>) had been inverted for at least two cycles: a bare font-family raises lint error font_family_without_font_face, which stops `check` before its browser session, so contrast/layout/motion never ran on any Hebrew composition that followed the skill. The prior checklist even cited that lint rule. Only `npx hyperframes check` on a test composition showed it. Next cycle: build work/proj (1080x1920 Hebrew) first and run lint, check, render on it before reading prose.",
+        "Bundled scripts were the July-era upstream versions; upstream had already fixed the 4px-ring background sampling before the previous anchor. Diff every vendored file (scripts/ and references/transitions/) against upstream HEAD each cycle, ignoring em-dash substitutions.",
+        "contrast-report.mjs carries skills-il patches on top of upstream (WCAG 2.2 0.04045, 14pt bold, lifting #__hf_transparent_bg__ for the sampling screenshot, canvas color resolution for oklch, hidden-ancestor skip). Re-apply them when re-vendoring, and validate against `check` on work/r2/A-G style cases (solid, gradient, semi-transparent, class, html-only, image, oklch).",
+        "verify-evidence entries that carry verified_via=source are NOT checked against the page; strip it so --check-sources actually fetches. Google docs pages need ?hl=en because the verifier sends Accept-Language: he.",
+        "--caption-zone defaults to seek=1 (last frame only); any safe-zone advice must carry a seek list.",
+        "Deferred (MINOR): ALL-CAPS caveat outside captions.md; HeyGen Starfish --lang path for Hebrew (unverified Hebrew support); tts.md data-duration=\"auto\"; full SKILL_HE Never-do list and Animation Guardrails parity (EN=33 vs HE~31 sections); catalog/css-push code still landscape pixel literals (prose note only); repeat formula float edge (0.3/0.1 floors to 2); metadata EN display_description still says 'Google Fonts auto-fetch' (left to avoid a routing-description change).",
+        "RESOLVED CARRIES: class=\"clip\", render output flags, registry add/catalog, RTL+portrait directional transitions (prose), sub-composition dir template, SKILL_HE Data Attributes/Scene Transitions/Output Checklist parity, Reels safe zones (caption-zone gate), Hebrew transcript QA, doctor exit code, preview, sharp/install note."
+      ]
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-08-26",
+      "upstream_validated_against": "heygen-com/hyperframes @ 4f00336c92f6418aab82c060853da604dd832197, release v0.8.15 (2026-08-26)",
+      "lessons": [
+        "DRIFT TYPE B confirmed at scale: upstream moved ~2,500 commits since the last cycle and the CLI surface rotted underneath the skill while the font pipeline section stayed exact. Next cycle, diff the CLI command registration in packages/cli/src/cli.ts FIRST, before reading any prose.",
+        "RESOLVED [CARRY from 1.1.1]: the Kokoro/ElevenLabs hedge was wrong, not merely soft. `hyperframes tts` has no provider argument at all; the HeyGen Starfish then ElevenLabs then Kokoro order belongs to the media-use audio path. Upstream's own tts.md says verbatim: it 'does not accept a --provider or --words flag'. Stop hedging a claim you can settle by reading the command's args.",
+        "Kokoro was documented as '8 languages' while listing nine, in six places across four files, for at least two cycles. A self-contradicting sentence survived every gate because both halves were individually plausible. Count the list.",
+        "The skill's biggest defect was not a stale fact but a MISSING one: upstream ships `html_dir_attribute_breaks_render` at severity error, and it is the only RTL-specific rule in the entire codebase. A Hebrew skill that never greps upstream for its own subject matter will keep missing exactly the rules aimed at it. Next cycle: grep the lint rule catalogue for rtl/dir/bidi/hebrew before anything else.",
+        "Running the bundled scripts found what reading them did not: both default to a 1920x1080 viewport, so the documented invocation analyses a portrait Hebrew composition against a landscape frame. The prose was fine; the defaults were not.",
+        "CARRY (Expert MAJOR, deferred): `class=\"clip\"` is absent from the Data Attributes tables and references/transitions/catalog.md tells you not to use it, while upstream keeps it because the scaffold's `.clip { position:absolute; inset:0 }` rule is what gives a scene its full-frame box. Logged in domain-checklist M3. Fix next cycle.",
+        "CARRY (Expert MAJOR, deferred): no render-output surface at all, no --resolution, --format, --crf, and no data-fps on the Composition Clips table. Portrait fps is a first-order decision for the TikTok/Reels audience this skill targets.",
+        "CARRY (Expert MAJOR, deferred): the registry is entirely absent (154 blocks, 219 components via `npx hyperframes add`), and its catalog index is English-only, which is its own Hebrew trap: an agent querying in Hebrew gets nothing and concludes no block exists.",
+        "CARRY (Expert MAJOR, deferred): direction mirroring is documented only for title entrances. Wipe/push transitions and per-word caption sweep order are the two places it actually bites in a Hebrew social video, and references/transitions.md names six directional transitions with no direction note.",
+        "CARRY (Expert MAJOR, deferred): SKILL_HE.md (163 lines) omits sections SKILL.md marks Non-Negotiable, including all four Scene Transitions rules, both Data Attributes tables and the Output Checklist. Hebrew is the site's default locale, so this is the file the primary audience reads. Full parity is a large rewrite; this has now been carried three cycles and must be resolved or explicitly scoped out next cycle.",
+        "CARRY (Expert MAJOR, deferred): sub-composition direction inheritance is asserted but the Composition Structure template carries no dir at all, so the example an agent copies renders every Hebrew scene LTR.",
+        "CARRY (Expert MINOR): contrast-report.mjs imports `sharp`, a dependency of @hyperframes/cli and NOT of @hyperframes/producer, so the Bundled Scripts note names the wrong package for a strict-resolution install.",
+        "CARRY (Expert MINOR): `hyperframes doctor` always exits 0; gate on the .ok field of --json instead. Also `hyperframes preview` is buried in hebrew-rtl.md as a font-cache trick and absent from the SKILL.md workflow, despite being where a Hebrew reader would catch bidi defects before paying for a render.",
+        "REJECTED Expert MINOR (verified against source): the reviewer claimed 'seeks to 5 timestamps' is wrong because `check --samples` defaults to 9. It is correct. `--samples` is the layout/overlap sampler; check.ts separately describes 'the five audited contrast frames'. Two different samplers.",
+        "Legal-gate false positive to remember: the ordinary Hebrew noun הניסוח (\"the wording\") matches scan_catalog.py's DRAFTING regex (מנסחים|מנסחת|מנסח|ניסוח) and flips a pure dev-tools skill to REVIEW regulated level=3. Reword to התיאור; do not add a legal notice.",
+        "1.2.1 follow-up: the Judge re-verified every cited path AND line number in the freshly generated domain-checklist and found three wrong (inspect listed as deprecated when inspect.ts has no marker; 219 components when registry.json parses to 218; a line number pointing at a type export). A checklist generated by a subagent is a draft, not evidence: spot-check its citations the same way you would a reviewer's factual assertion."
+      ]
+    },
+    {
+      "version": "1.1.1",
+      "date": "2026-06-28",
+      "lessons": [
+        "Upstream HyperFrames repo restructured skills/hyperframes/references/ away. narration.md (script-writing guide) moved to skills/hyperframes-creative/references/; the Kokoro voice/language list moved to skills/hyperframes-media/references/tts.md; transcript-guide.md removed upstream (skill ships its own bundled copy). The 'Kokoro TTS voices' reference row + evidence now correctly point at hyperframes-media/references/tts.md. Re-verify every heygen-com/hyperframes blob path each cycle.",
+        "GSAP pin drifts ~monthly; bumped 3.14.2 -> 3.15.0 (check registry.npmjs.org/gsap/latest). All former paid Club GreenSock plugins are now free.",
+        "Fixed factual inaccuracy: SKILL.md claimed a bare Latin digit run (2025) reverses to 5202 in RTL and must be <bdi>-wrapped. That is wrong and contradicted the skill's own references/hebrew-rtl.md. A bare integer is handled LTR by the Unicode bidi algorithm; only digits adjacent to symbols (%, currency, range dash) or Latin tokens need isolation. Reworded EN+HE.",
+        "Freshness: hyperframes tts is no longer Kokoro-only. Upstream tts.md lists HeyGen (Starfish) and ElevenLabs as providers via $HEYGEN_API_KEY / $ELEVENLABS_API_KEY (ElevenLabs has Hebrew). Softened the flat 'external-only' Hebrew-narration claim, version-gated since the published CLI may still synth Kokoro-only.",
+        "Added the missing render step: skill never named the command that produces the MP4. npx hyperframes render confirmed in upstream CLI list (init/lint/validate/inspect/preview/render/publish/doctor). Added to Output Checklist.",
+        "Hebrew transcription default raised from --model small to --model medium (small is weak for Hebrew ASR; aligns SKILL.md with transcript-guide.md decision tree).",
+        "Removed inaccurate 'Adapted from HyperFrames v1.0.x' line: no v1.0.x release exists (latest upstream release is v0.7.18). kokoro-v1.0 is the model version, not the framework.",
+        "CARRY (MAJOR, content-heavy, deferred): no TikTok/Reels UI safe-zone guidance (right action rail + bottom band) despite portrait social video being a headline use case; acute for RTL where Hebrew gravitates to the right edge. Add a safe-zones subsection next cycle.",
+        "CARRY (MAJOR, content-heavy, deferred): no Hebrew-specific Whisper transcription QA (prefix attachment ו/ה/ב/ל/מ/ש, word-boundary splits that break per-word karaoke timing); transcript-guide quality section is English-only. Add a Hebrew QA note next cycle.",
+        "CARRY (MINOR): niqqud/geresh rendering at display sizes, emoji-in-RTL caption isolation, music+voiceover ducking for social video. Deferred over batch discretionary cap.",
+        "CARRY (discretionary): SKILL_HE.md (123 lines) is a condensed companion to SKILL.md (~410 lines); full section parity would be a large rewrite. Reconsider next cycle.",
+        "Evidence gate over-extracts on this creative dev-tools skill: CSS opacity/timing percentages (35%, 60-70%, 90%), bidi-example values (15%, 199), and code/skill-folder paths (/marker-highlight, /hyperframes-cli, /tmp/fontquery.py) are flagged as phantom regulatory claims. Documented under one internal-design-and-example-values evidence entry rather than fabricating sources. Expect the same next cycle."
+      ]
+    }
+  ]
+}

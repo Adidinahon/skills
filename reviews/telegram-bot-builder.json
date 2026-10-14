@@ -1,0 +1,77 @@
+{
+  "skill": "telegram-bot-builder",
+  "verdict": "warn",
+  "content_sha256": "def4b384669df42dc72065c7953475a7d43f53e92ae25629b2f07cc56c7edd08",
+  "reviewed_at": "2026-10-11T11:07:53.723Z",
+  "approved_by": "Adi Nahon (reviewed by Claude; approved on PR merge)",
+  "ai_model": "claude-opus-5-5",
+  "summary_he": "הסקיל הוא מדריך תיעודי בלבד לבניית בוטים לטלגרם (grammY, Telegraf, python-telegram-bot) עם דגש על עברית/RTL, webhooks, תשלומי Stars ו-Mini Apps. אין בו סקריפטים להרצה, אין הוראות זדוניות ואין שליחת מידע ליעדים לא מוצהרים. הקוד שהוא מנחה ליצור דורש טוקן בוט ופונה ל-API של טלגרם, ולכן הוא מקבל אזהרה קלה בלבד.",
+  "does_what_it_claims": true,
+  "concerns": [
+    {
+      "severity": "low",
+      "file": "references/deployment.md",
+      "issue": "מדגים פקודת curl ששולחת את BOT_TOKEN ב-URL ל-api.telegram.org וכן יחידת systemd עם sudo systemctl enable, כלומר כתיבה מחוץ לפרויקט ו-persistence. זה לגיטימי לפריסה, אבל המשתמש צריך לאשר את הפעולות האלה."
+    },
+    {
+      "severity": "low",
+      "file": "SKILL.md",
+      "issue": "הקוד שהסקיל מייצר דורש טוקן בוט וסודות webhook ממשתני סביבה. הטיפול בהם תקין: משתני סביבה, ‎.env ב-gitignore ואזהרה לא לבצע commit לטוקנים."
+    },
+    {
+      "severity": "low",
+      "file": "references/examples.md",
+      "issue": "דוגמה 2 מעבירה הודעות של משתמשים לקבוצת אדמין שמוגדרת ב-ADMIN_CHAT_ID. זו התנהגות בוט שהמשתמש מגדיר בעצמו, ואין כאן הדלפה מהסביבה של הסוכן."
+    }
+  ],
+  "network_destinations": [
+    "api.telegram.org"
+  ],
+  "requires_secrets": [
+    "BOT_TOKEN",
+    "TELEGRAM_BOT_TOKEN",
+    "WEBHOOK_SECRET",
+    "WEBHOOK_SECRET_TOKEN",
+    "ADMIN_CHAT_ID"
+  ],
+  "scan_warnings": [
+    "danger:persistence skills/telegram-bot-builder/references/deployment.md:82",
+    "danger:sudo skills/telegram-bot-builder/references/deployment.md:82"
+  ],
+  "external_urls": [
+    "https://api.telegram.org",
+    "https://api.telegram.org/bot",
+    "https://api.telegram.org/bot${BOT_TOKEN}/setWebhook?url=https://your-app.vercel.app/api/webhook&secret_token=${SECRET}",
+    "https://core.telegram.org/api/business",
+    "https://core.telegram.org/bots/api",
+    "https://core.telegram.org/bots/api#businessconnection",
+    "https://core.telegram.org/bots/api-changelog",
+    "https://core.telegram.org/bots/faq",
+    "https://core.telegram.org/bots/features",
+    "https://core.telegram.org/bots/payments",
+    "https://core.telegram.org/bots/tutorial",
+    "https://core.telegram.org/bots/webapps",
+    "https://docs.python-telegram-bot.org/",
+    "https://example.com/webhook",
+    "https://github.com/grammyjs/auto-retry",
+    "https://github.com/grammyjs/grammY/releases/tag/v1.46.0",
+    "https://github.com/grammyjs/transformer-throttler/releases.atom",
+    "https://github.com/skills-il",
+    "https://github.com/skills-il/developer-tools/tree/efbf431bec4c5cc8abec84680a9470784f37d8fa/telegram-bot-builder",
+    "https://github.com/tdlib/telegram-bot-api",
+    "https://github.com/telegraf/telegraf/releases.atom",
+    "https://grammy.dev/",
+    "https://grammy.dev/plugins/session",
+    "https://pypi.org/pypi/python-telegram-bot/json",
+    "https://registry.npmjs.org/@grammyjs%2fauto-retry",
+    "https://registry.npmjs.org/grammy",
+    "https://registry.npmjs.org/telegraf/-/telegraf-4.16.3.tgz",
+    "https://systemd.io/",
+    "https://t.me/botnews",
+    "https://telegraf.js.org/",
+    "https://your-app.com/mini-app",
+    "https://your-domain.com",
+    "https://your-domain.com/webhook",
+    "https://your-domain.com/webhook/${process.env.WEBHOOK_SECRET}"
+  ]
+}

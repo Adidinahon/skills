@@ -45,7 +45,7 @@ jobs:
           if-no-files-found: ignore
 
   ai-review:
-    name: AI review (changed skills)
+    name: AI review (unapproved skills)
     needs: static
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
@@ -59,12 +59,13 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
-      - name: Changed skills
+      - name: Skills needing review
         id: changed
         run: |
-          changed=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" -- skills/ | cut -d/ -f1-2 | sort -u | while read d; do [ -d "$d" ] && echo "$d"; done)
-          # skip skills whose approval in reviews/ still matches their exact content
-          skills=$(for d in $changed; do
+          # every skill without an approval that matches its exact content needs review -
+          # including unchanged skills whose approval was withdrawn
+          candidates=$(for d in skills/*/; do echo "${d%/}"; done)
+          skills=$(for d in $candidates; do
             node --input-type=module -e "
               import { hashSkill } from './scripts/hash.mjs';
               import { readFileSync } from 'node:fs';
